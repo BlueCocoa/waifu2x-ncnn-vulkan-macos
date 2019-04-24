@@ -35,6 +35,8 @@ cp -rfP waifu2x-ncnn-vulkan/* waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vul
 # compile waifu2x-ncnn-vulkan-macos
 # and the compiled application will be placed at `build/Release/waifu2x-gui.app`
 cd waifu2x-ncnn-vulkan-macos
+# you may need to open this project with Xcode in GUI mode to initialize Code Sign to your Apple ID
+# and then you could go with terminal
 xcodebuild
 ```
 
