@@ -292,7 +292,7 @@
                     }
                 }
 
-                cb(9, total, NSLocalizedString(@"retiving output...", @""));
+                cb(9, total, NSLocalizedString(@"retrieving output...", @""));
                 // download
                 {
                     out_gpu.prepare_staging_buffer();
