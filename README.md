@@ -27,11 +27,11 @@ mv vulkansdk-macos-${VULKAN_SDK_VER} waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 
 # clone Tencent/ncnn
 git clone --depth=1 https://github.com/Tencent/ncnn ncnn
-cp -rfP ncnn/* waifu2x-ncnn-vulkan-macos/waifu2x/ncnn
+cp -rf ncnn/* waifu2x-ncnn-vulkan-macos/waifu2x/ncnn
 
 # clone nihui/waifu2x-ncnn-vulkan
 git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan
-cp -rfP waifu2x-ncnn-vulkan/* waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
+cp -rf waifu2x-ncnn-vulkan/* waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 
 # check your cmake installation
 which cmake
