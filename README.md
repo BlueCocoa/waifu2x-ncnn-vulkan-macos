@@ -12,6 +12,9 @@ Download lastest Vulkan SDK at [https://vulkan.lunarg.com/sdk/home](https://vulk
 At the time of this README.md wrote, 1.1.106.0 was the newest version for macOS.
 
 ```bash
+# to enable OpenMP
+brew install llvm libomp
+
 # clone this repo first
 git clone --depth=1 https://github.com/BlueCocoa/waifu2x-ncnn-vulkan-macos
 
@@ -35,10 +38,10 @@ xcodebuild
 
 ### Notice
 After the first compilation, you may set those flags in `Build Phases -> Run Script` to false to avoid recompile ncnn and regenerate shader.
-![recompile_ncnn](recompile_ncnn.png)
 
 ![regenerate_shader](regenerate_shader.png)
 
+![recompile_ncnn](recompile_ncnn.png)
 
 ### Screenshot
 
