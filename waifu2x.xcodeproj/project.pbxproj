@@ -780,7 +780,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "RECOMPILE_NCNN=false\nif (${RECOMPILE_NCNN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-ncnn-omp.txt\" \"${SRCROOT}/waifu2x/ncnn/CMakeList.txt\"\n  pushd ${SRCROOT}/waifu2x/ncnn\n  rm -rf build && mkdir -p build && pushd build\n  cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=RELEASE ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f src/*.h \"${SRCROOT}/waifu2x/ncnn/src\" && popd\nfi\n\n";
+			shellScript = "RECOMPILE_NCNN=true\nif (${RECOMPILE_NCNN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-ncnn-omp.txt\" \"${SRCROOT}/waifu2x/ncnn/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/ncnn\n  rm -rf build && mkdir -p build && pushd build\n  cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=RELEASE ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f src/*.h \"${SRCROOT}/waifu2x/ncnn/src\" && popd\nfi\n\n";
 		};
 		400699322270CC7500B79110 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -797,7 +797,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REGENERATE_SHADER=false\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/CMakeList.txt\"\n  pushd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  rm -rf build && mkdir -p build && pushd build\n  cmake ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\" && popd\nfi\n";
+			shellScript = "REGENERATE_SHADER=true\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  rm -rf build && mkdir -p build && pushd build\n  cmake ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\" && popd\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
