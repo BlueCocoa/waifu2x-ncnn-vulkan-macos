@@ -115,8 +115,8 @@
 		400699752270D1BB00B79110 /* scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699432270D19000B79110 /* scale2.0x_model.bin */; };
 		400699762270D1BB00B79110 /* scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699442270D19000B79110 /* scale2.0x_model.param */; };
 		4006997B2270D21A00B79110 /* waifu2x.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4006997A2270D21A00B79110 /* waifu2x.mm */; };
+		402AD32D22711C9800F0A985 /* MoltenVK_icd.json in Resources */ = {isa = PBXBuildFile; fileRef = 402AD32C22711C9700F0A985 /* MoltenVK_icd.json */; };
 		408F05EC227113F700189EE2 /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F8881D2270D63600261851 /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		40F888222270D6BA00261851 /* MoltenVK_icd.json in Resources */ = {isa = PBXBuildFile; fileRef = 40F888212270D6BA00261851 /* MoltenVK_icd.json */; };
 		40F888262270F66E00261851 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F888252270F66E00261851 /* DragDropImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -358,8 +358,8 @@
 		400699512270D19100B79110 /* noise0_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise0_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise0_model.bin"; sourceTree = SOURCE_ROOT; };
 		400699792270D21A00B79110 /* waifu2x.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = waifu2x.h; sourceTree = "<group>"; };
 		4006997A2270D21A00B79110 /* waifu2x.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = waifu2x.mm; sourceTree = "<group>"; };
+		402AD32C22711C9700F0A985 /* MoltenVK_icd.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MoltenVK_icd.json; path = waifu2x/MoltenVK_icd.json; sourceTree = SOURCE_ROOT; };
 		40F8881D2270D63600261851 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = MoltenVK/macOS/dynamic/libMoltenVK.dylib; sourceTree = "<group>"; };
-		40F888212270D6BA00261851 /* MoltenVK_icd.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MoltenVK_icd.json; path = MoltenVK/macOS/dynamic/MoltenVK_icd.json; sourceTree = "<group>"; };
 		40F888242270F66E00261851 /* DragDropImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		40F888252270F66E00261851 /* DragDropImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -419,7 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				40F8881D2270D63600261851 /* libMoltenVK.dylib */,
-				40F888212270D6BA00261851 /* MoltenVK_icd.json */,
+				402AD32C22711C9700F0A985 /* MoltenVK_icd.json */,
 				4006992E2270CA5300B79110 /* vulkan.framework */,
 			);
 			path = VulkanSDK;
@@ -738,7 +738,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F888222270D6BA00261851 /* MoltenVK_icd.json in Resources */,
+				402AD32D22711C9800F0A985 /* MoltenVK_icd.json in Resources */,
 				400699652270D1BB00B79110 /* noise0_model.bin in Resources */,
 				400699662270D1BB00B79110 /* noise0_model.param in Resources */,
 				400699672270D1BB00B79110 /* noise0_scale2.0x_model.bin in Resources */,
