@@ -19,10 +19,10 @@ brew install llvm libomp
 git clone --depth=1 https://github.com/BlueCocoa/waifu2x-ncnn-vulkan-macos
 
 # download lastest Vulkan SDK
-export VULKAN_SDK_VER="1.1.106.1"
+export VULKAN_SDK_VER="1.1.106.0"
 wget https://sdk.lunarg.com/sdk/download/${VULKAN_SDK_VER}/mac/vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz?Human=true -O vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz
 tar xf vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz
-mv vulkansdk-macos-${VULKAN_SDK_VER}/* waifu2x-ncnn-vulkan-macos/VulkanSDK
+cp -rf vulkansdk-macos-${VULKAN_SDK_VER}/* waifu2x-ncnn-vulkan-macos/VulkanSDK
 cd waifu2x-ncnn-vulkan-macos
 
 # clone Tencent/ncnn
