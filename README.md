@@ -33,6 +33,13 @@ git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vu
 xcodebuild
 ```
 
+### Notice
+After the first compilation, you may set those flags in `Build Phases -> Run Script` to false to avoid recompile ncnn and regenerate shader.
+![recompile_ncnn](recompile_ncnn.png)
+
+![regenerate_shader](regenerate_shader.png)
+
+
 ### Screenshot
 
 ![screenshot](screenshot.png)
