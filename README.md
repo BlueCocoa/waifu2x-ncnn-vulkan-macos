@@ -23,16 +23,18 @@ export VULKAN_SDK_VER="1.1.106.0"
 wget https://sdk.lunarg.com/sdk/download/${VULKAN_SDK_VER}/mac/vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz?Human=true -O vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz
 tar xf vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz
 cp -rf vulkansdk-macos-${VULKAN_SDK_VER} waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
-cd waifu2x-ncnn-vulkan-macos
 
 # clone Tencent/ncnn
-git clone --depth=1 https://github.com/Tencent/ncnn waifu2x/ncnn
+git clone --depth=1 https://github.com/Tencent/ncnn ncnn
+cp -rf ncnn waifu2x-ncnn-vulkan-macos/waifu2x/ncnn
 
 # clone nihui/waifu2x-ncnn-vulkan
-git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x/waifu2x-ncnn-vulkan
+git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan
+cp -rf waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 
 # compile waifu2x-ncnn-vulkan-macos
 # and the compiled application will be placed at `build/Release/waifu2x-gui.app`
+cd waifu2x-ncnn-vulkan-macos
 xcodebuild
 ```
 
