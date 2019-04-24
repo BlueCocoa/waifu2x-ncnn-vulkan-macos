@@ -102,7 +102,7 @@
         opt.workspace_vkallocator = vkdev->allocator();
         opt.staging_vkallocator = vkdev->staging_allocator();
 
-        cb(5, total, NSLocalizedString(@"Initialize pipeline...", @""));
+        cb(5, total, NSLocalizedString(@"Initializing pipeline...", @""));
         // initialize preprocess and postprocess pipeline
         ncnn::Pipeline* waifu2x_preproc;
         ncnn::Pipeline* waifu2x_postproc;
@@ -163,7 +163,7 @@
             int xtiles = (w + TILE_SIZE_X - 1) / TILE_SIZE_X;
             int ytiles = (h + TILE_SIZE_Y - 1) / TILE_SIZE_Y;
 
-            cb(7, total, NSLocalizedString(@"Uplaoding data to GPU...", @""));
+            cb(7, total, NSLocalizedString(@"Uploading data to GPU...", @""));
             int step8flag = 0;
             // TODO #pragma omp parallel for
             for (int yi = 0; yi < ytiles; yi++)
