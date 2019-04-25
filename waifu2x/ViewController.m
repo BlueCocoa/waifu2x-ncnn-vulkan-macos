@@ -9,6 +9,12 @@
 #import "ViewController.h"
 #import "waifu2x.h"
 
+@interface ViewController()
+
+@property (strong) NSString * inputImagePath;
+
+@end
+
 @implementation ViewController
 
 @synthesize inputImageView;
@@ -22,14 +28,17 @@
     [self.statusLabel setStringValue:NSLocalizedString(@"Idle", @"")];
     [self.waifu2xProgress setMinValue:0.0];
     [self.waifu2xProgress setMaxValue:100.0];
-//    [self.inputImageView setEditable:YES];
-//    [self.inputImageView setAllowsCutCopyPaste:YES];
+
     [self.inputImageView setAllowDrop:YES];
     [self.inputImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
+    [self.inputImageView setDelegate:self];
+    
     [self.outputImageView setAllowDrag:YES];
-
-//    [self.outputImageView setAllowsCutCopyPaste:YES];
     [self.outputImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
+}
+
+- (void)dropComplete:(NSString *)filePath {
+    self.inputImagePath = filePath;
 }
 
 - (IBAction)waifu2x:(NSButton *)sender {
@@ -47,7 +56,7 @@
     [self.inputImageView setAllowsCutCopyPaste:NO];
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSBitmapImageRep * bitmapRep = [waifu2x input:input noise:noise scale:scale tilesize:tilesize progress:^(int current, int total, NSString *description) {
+        NSBitmapImageRep * bitmapRep = [waifu2x input:self.inputImagePath noise:noise scale:scale tilesize:tilesize progress:^(int current, int total, NSString *description) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.statusLabel setStringValue:[NSString stringWithFormat:@"[%d/%d] %@", current, total, description]];
                 [self.waifu2xProgress setDoubleValue:((double)current)/total * 100];

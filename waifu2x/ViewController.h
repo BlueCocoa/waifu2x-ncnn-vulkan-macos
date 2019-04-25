@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "DragDropImageView.h"
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController<DragDropImageViewDelegate>
 
 @property (weak) IBOutlet DragDropImageView *inputImageView;
 @property (weak) IBOutlet DragDropImageView *outputImageView;

@@ -19,8 +19,6 @@
 #define STBI_NO_HDR
 #define STBI_NO_PIC
 #include "stb_image.h"
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 
 // ncnn
 #include "layer_type.h"
@@ -29,9 +27,9 @@
 
 @implementation waifu2x
 
-+ (NSBitmapImageRep *)input:(NSImage *)image noise:(int)noise scale:(int)scale tilesize:(int)tilesize progress:(waifu2xProgressBlock)cb {
++ (NSBitmapImageRep *)input:(NSString *)image noise:(int)noise scale:(int)scale tilesize:(int)tilesize progress:(waifu2xProgressBlock)cb {
     NSBitmapImageRep * output = nil;
-    int total = 11;
+    int total = 10;
 
     cb(1, total, NSLocalizedString(@"Check parameters...", @""));
     if (noise < -1 || noise > 3)
@@ -133,15 +131,8 @@
         {
             cb(6, total, NSLocalizedString(@"Decoding input image...", @""));
 
-            char buffer[128] = {'\0'};
-            sprintf(buffer, "/tmp/waifu2x.XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-            mkstemp(buffer);
-
-            NSData *pngData = [[NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]] representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
-            [pngData writeToFile:[NSString stringWithFormat:@"%s", buffer] atomically:YES];
-
             int w, h, c;
-            unsigned char* rgbdata = stbi_load(buffer, &w, &h, &c, 3);
+            unsigned char* rgbdata = stbi_load(image.UTF8String, &w, &h, &c, 3);
 
             ncnn::Mat outrgb(w * scale, h * scale, (size_t)3u, 3);
 
@@ -163,8 +154,7 @@
             int xtiles = (w + TILE_SIZE_X - 1) / TILE_SIZE_X;
             int ytiles = (h + TILE_SIZE_Y - 1) / TILE_SIZE_Y;
 
-            cb(7, total, NSLocalizedString(@"Uploading data to GPU...", @""));
-            int step8flag = 0;
+            cb(7, total, NSLocalizedString(@"waifu2x model forwarding...", @""));
             // TODO #pragma omp parallel for
             for (int yi = 0; yi < ytiles; yi++)
             {
@@ -246,11 +236,6 @@
                         cmd.record_pipeline(waifu2x_preproc, bindings, constants, in_tile_gpu);
                     }
 
-                    if (!step8flag) {
-                        step8flag = 1;
-                        cb(8, total, NSLocalizedString(@"waifu2x model forwarding...", @""));
-                    }
-
                     // waifu2x
                     ncnn::VkMat out_tile_gpu;
                     {
@@ -292,7 +277,7 @@
                     }
                 }
 
-                cb(9, total, NSLocalizedString(@"retrieving output...", @""));
+                cb(8, total, NSLocalizedString(@"retrieving output...", @""));
                 // download
                 {
                     out_gpu.prepare_staging_buffer();
@@ -320,7 +305,6 @@
             }
 
             stbi_image_free(rgbdata);
-            unlink(buffer);
 
             NSData *data = [NSData dataWithBytes:outrgb.data length:3 * outrgb.total()];
             CGColorSpaceRef colorSpace;
@@ -352,7 +336,7 @@
             CGColorSpaceRelease(colorSpace);
         }
 
-        cb(10, total, NSLocalizedString(@"cleanup...", @""));
+        cb(9, total, NSLocalizedString(@"cleanup...", @""));
         // cleanup preprocess and postprocess pipeline
         {
             delete waifu2x_preproc;
@@ -364,7 +348,7 @@
 
     ncnn::destroy_gpu_instance();
 
-    cb(11, total, NSLocalizedString(@"done!", @""));
+    cb(10, total, NSLocalizedString(@"done!", @""));
     return output;
 }
 

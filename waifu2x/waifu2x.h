@@ -32,7 +32,7 @@ typedef void (^waifu2xProgressBlock)(int current, int total, NSString * descript
 
 @interface waifu2x : NSObject
 
-+ (NSBitmapImageRep *)input:(NSImage *)imagePath noise:(int)noise scale:(int)scale tilesize:(int)tilesize progress:(waifu2xProgressBlock)cb;
++ (NSBitmapImageRep *)input:(NSString *)imagePath noise:(int)noise scale:(int)scale tilesize:(int)tilesize progress:(waifu2xProgressBlock)cb;
 
 @end
 
