@@ -62,4 +62,4 @@ After the first compilation, if you want to modify this project only, you may se
 
 ### Screenshot
 
-![screenshot](screenshot.png)
+![screenshot](screenshot-v1.2.png)
