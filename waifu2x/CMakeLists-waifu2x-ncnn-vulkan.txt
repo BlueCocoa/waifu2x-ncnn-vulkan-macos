@@ -4,32 +4,6 @@ cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_BUILD_TYPE Release)
 
-set(CMAKE_C_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/LLVM9.0.1.xctoolchain/usr/bin/clang")
-set(CMAKE_CXX_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/LLVM9.0.1.xctoolchain/usr/bin/clang++")
-set(OPENMP_LIBRARIES "/usr/local/Cellar/libomp/9.0.0/lib")
-set(OPENMP_INCLUDES "/usr/local/Cellar/libomp/9.0.0/include")
-include_directories("/usr/local/Cellar/libomp/9.0.0/include")
-link_directories("/usr/local/Cellar/libomp/9.0.0/lib")
-
-set(OpenMP_C "${CMAKE_C_COMPILER}")
-set(OpenMP_C_FLAGS "-fopenmp=libomp -Wno-unused-command-line-argument")
-set(OpenMP_C_LIB_NAMES "libomp" "libgomp" "libiomp5")
-set(OpenMP_libomp_LIBRARY ${OpenMP_C_LIB_NAMES})
-set(OpenMP_libgomp_LIBRARY ${OpenMP_C_LIB_NAMES})
-set(OpenMP_libiomp5_LIBRARY ${OpenMP_C_LIB_NAMES})
-set(OpenMP_CXX "${CMAKE_CXX_COMPILER}")
-set(OpenMP_CXX_FLAGS "-fopenmp=libomp -Wno-unused-command-line-argument")
-set(OpenMP_CXX_LIB_NAMES "libomp" "libgomp" "libiomp5")
-set(OpenMP_libomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
-set(OpenMP_libgomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
-set(OpenMP_libiomp5_LIBRARY ${OpenMP_CXX_LIB_NAMES})
-set(OPENMP_FOUND true)
-
-if (OPENMP_FOUND)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-endif(OPENMP_FOUND)
-
 find_package(Vulkan REQUIRED)
 
 find_program(GLSLANGVALIDATOR_EXECUTABLE NAMES glslangValidator PATHS $ENV{VULKAN_SDK}/bin NO_CMAKE_FIND_ROOT_PATH)
@@ -84,11 +58,11 @@ endmacro()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories("${CMAKE_SOURCE_DIR}/../../ncnn/build/install/include")
-link_directories("${CMAKE_SOURCE_DIR}/../../ncnn/build/install/lib")
-include_directories("${CMAKE_SOURCE_DIR}/../../VulkanSDK/macOS/include")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 
-set(ncnn_DIR "${CMAKE_SOURCE_DIR}/../../ncnn/build/install/lib/cmake/ncnn")
+set(ncnn_DIR "${CMAKE_SOURCE_DIR}/../../ncnn/lib/cmake/ncnn")
 find_package(ncnn REQUIRED)
 
 # look for vulkan compute shader and compile
@@ -103,6 +77,4 @@ add_executable(waifu2x-ncnn-vulkan main.cpp waifu2x.cpp)
 
 add_dependencies(waifu2x-ncnn-vulkan generate-spirv)
 
-include_directories("/usr/local/Cellar/libomp/9.0.0/include")
-link_directories("/usr/local/Cellar/libomp/9.0.0/lib")
 target_link_libraries(waifu2x-ncnn-vulkan ncnn ${Vulkan_LIBRARY} ${OpenMP_CXX_LIBRARIES})

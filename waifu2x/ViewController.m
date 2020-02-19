@@ -9,12 +9,11 @@
 #import "ViewController.h"
 #import "waifu2xmac.h"
 
-
-
 @interface ViewController()
 
 @property (strong) NSString * inputImagePath;
 @property (strong) NSArray<GPUInfo *> * gpus;
+
 @end
 
 @implementation ViewController
@@ -45,16 +44,16 @@
     [self.modelButton addItemWithTitle:@"upconv_7_photo"];
     
     [self.gpuIDButton removeAllItems];
-    gpus = [waifu2xmac AllGPUs];
-    gpus = [gpus sortedArrayUsingComparator:^NSComparisonResult(GPUInfo *  _Nonnull obj1, GPUInfo *  _Nonnull obj2) {
+    self.gpus = [waifu2xmac AllGPUs];
+    self.gpus = [self.gpus sortedArrayUsingComparator:^NSComparisonResult(GPUInfo *  _Nonnull obj1, GPUInfo *  _Nonnull obj2) {
         if (obj1.deviceID < obj2.deviceID) {
             return NSOrderedAscending;
         } else{
             return NSOrderedDescending;
         };
     }];
-    for (int i = 0; i < gpus.count; i++) {
-        [self.gpuIDButton addItemWithTitle:[NSString stringWithFormat:@"[%u] %@", gpus[i].deviceID, gpus[i].name]];
+    for (int i = 0; i < self.gpus.count; i++) {
+        [self.gpuIDButton addItemWithTitle:[NSString stringWithFormat:@"[%u] %@", self.gpus[i].deviceID, self.gpus[i].name]];
     }
 }
 
@@ -63,8 +62,7 @@
 }
 
 - (IBAction)waifu2x:(NSButton *)sender {
-    __block NSImage * input = inputImageView.image;
-    if (!input) {
+    if (!self.inputImageView.image) {
         return;
     }
 
@@ -78,10 +76,10 @@
     [sender setEnabled:NO];
     [self.inputImageView setEditable:NO];
     [self.inputImageView setAllowsCutCopyPaste:NO];
-    
-    NSString * model = [NSString stringWithFormat:@"models-%@", [self.modelButton selectedItem].title];
-    int gpuID = self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
 
+    NSString * model = [NSString stringWithFormat:@"models-%@", [self.modelButton selectedItem].title];
+    int gpuID = 0;//self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSImage * result = [waifu2xmac input:self.inputImagePath
                                                    noise:noise

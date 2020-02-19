@@ -9,25 +9,6 @@
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
 
-//static const uint32_t waifu2x_preproc_spv_data[] = {
-//    #include "waifu2x_preproc.spv.hex.h"
-//};
-//static const uint32_t waifu2x_preproc_fp16s_spv_data[] = {
-//    #include "waifu2x_preproc_fp16s.spv.hex.h"
-//};
-//static const uint32_t waifu2x_preproc_int8s_spv_data[] = {
-//    #include "waifu2x_preproc_int8s.spv.hex.h"
-//};
-//static const uint32_t waifu2x_postproc_spv_data[] = {
-//    #include "waifu2x_postproc.spv.hex.h"
-//};
-//static const uint32_t waifu2x_postproc_fp16s_spv_data[] = {
-//    #include "waifu2x_postproc_fp16s.spv.hex.h"
-//};
-//static const uint32_t waifu2x_postproc_int8s_spv_data[] = {
-//    #include "waifu2x_postproc_int8s.spv.hex.h"
-//};
-
 typedef void (^waifu2xProgressBlock)(int current, int total, NSString * description);
 
 @interface GPUInfo : NSObject
@@ -37,7 +18,7 @@ typedef void (^waifu2xProgressBlock)(int current, int total, NSString * descript
 
 @interface waifu2xmac : NSObject
 
-+ (NSBitmapImageRep *)input:(NSString *)image
++ (NSImage *)input:(NSString *)image
                       noise:(int)noise
                       scale:(int)scale
                    tilesize:(int)tilesize

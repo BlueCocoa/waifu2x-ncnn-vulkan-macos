@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DragDropImageView.h"
-#import <vulkan/vulkan.h>
 
 @interface ViewController : NSViewController<DragDropImageViewDelegate>
 
@@ -25,5 +24,6 @@
 @property (weak) IBOutlet NSTextField *savingJobsParameter;
 @property (weak) IBOutlet NSPopUpButton *gpuIDButton;
 @property (weak) IBOutlet NSPopUpButton *modelButton;
+
 @end
 
