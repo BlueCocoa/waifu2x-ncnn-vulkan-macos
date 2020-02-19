@@ -69,17 +69,8 @@ sudo ln -s /usr/local/Toolchains/LLVM${LLVM_VER}.xctoolchain /Applications/Xcode
 # copy arc related libraries from default toolchain to ours
 sudo cp -rf /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc /Applications/Xcode.app/Contents/Developer/Toolchains/LLVM${LLVM_VER}.xctoolchain/usr/lib/
 
-# clone this repo
+# clone this repo first
 git clone --depth=1 https://github.com/BlueCocoa/waifu2x-ncnn-vulkan-macos
-
-# clone Tencent/ncnn
-# (At the time of writing this) https://github.com/Tencent/ncnn/tree/4fead31beabf96c375741bd12672ca616d535322
-git clone --depth=1 https://github.com/Tencent/ncnn ncnn
-
-# clone nihui/waifu2x-ncnn-vulkan
-# (At the time of writing this) https://github.com/nihui/waifu2x-ncnn-vulkan/commit/ff7bc433612f4daf6a9fefcaa867b992b5c60196
-rm -rf waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
-git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 
 # download lastest Vulkan SDK
 export VULKAN_SDK_VER="1.2.131.2"
@@ -88,12 +79,23 @@ tar xf vulkansdk-macos-${VULKAN_SDK_VER}.tar.gz
 rm -rf waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 mv vulkansdk-macos-${VULKAN_SDK_VER} waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 
-export VULKAN_SDK="`pwd`/waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK/macOS"
-export PATH="`pwd`/waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK/macOS/bin:${PATH}"
+# clone Tencent/ncnn
+# (At the time of writing this) https://github.com/Tencent/ncnn/tree/4fead31beabf96c375741bd12672ca616d535322
+git clone --depth=1 https://github.com/Tencent/ncnn ncnn
+cp -rf ncnn/* waifu2x-ncnn-vulkan-macos/waifu2x/ncnn
 
-# please change these paths at the first a few lines in `CMakeLists-ncnn-omp.txt` and `CMakeLists-waifu2x-ncnn-vulkan.txt` accordingly (if you are using other versions of LLVM and/or OpenMP)
-# 1. waifu2x-ncnn-vulkan-macos/waifu2x/CMakeLists-ncnn-omp.txt
-# 2. waifu2x-ncnn-vulkan-macos/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt
+# clone nihui/waifu2x-ncnn-vulkan
+# (At the time of writing this) https://github.com/nihui/waifu2x-ncnn-vulkan/commit/ff7bc433612f4daf6a9fefcaa867b992b5c60196
+git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan
+cp -rf waifu2x-ncnn-vulkan/* waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
+
+# check your cmake installation
+which cmake
+# if it goes with /Applications/CMake.app/Contents/bin/cmake
+# then you need to install it in /usr/local/bin via follow command
+sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
+
+# then change these paths at the first a few lines in `CMakeLists-ncnn-omp.txt` and `CMakeLists-waifu2x-ncnn-vulkan.txt` accordingly
 set(CMAKE_C_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/LLVM9.0.1.xctoolchain/usr/bin/clang")
 set(CMAKE_CXX_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/LLVM9.0.1.xctoolchain/usr/bin/clang++")
 set(OPENMP_LIBRARIES "/usr/local/Cellar/libomp/9.0.0/lib")
@@ -102,13 +104,12 @@ include_directories("/usr/local/Cellar/libomp/9.0.0/include")
 link_directories("/usr/local/Cellar/libomp/9.0.0/lib")
 
 # and change the paths in the last a few lines in `CMakeLists-waifu2x-ncnn-vulkan.txt` based on your own configurations
-# 2. waifu2x-ncnn-vulkan-macos/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt
 include_directories("/usr/local/Cellar/libomp/9.0.0/include")
 link_directories("/usr/local/Cellar/libomp/9.0.0/lib")
 
-# also change the libomp's include path and library path in `waifu2x-ncnn-vulkan-macos/waifu2x.xcodeproj/project.pbxproj` based on your own configurations
+# also change the libomp's include path and library path in `waifu2x.xcodeproj/project.pbxproj` based on your own configurations
 1.
-CCA6DCA623FD0B4D0097C7B1 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = /usr/local/Cellar/libomp/9.0.0/lib/libomp.a; sourceTree = "<group>"; };
+CCA6DCA623FD0B4D0097C7B1 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../../../usr/local/Cellar/libomp/9.0.0/lib/libomp.a; sourceTree = "<group>"; };
 
 2.
 HEADER_SEARCH_PATHS = (
@@ -123,31 +124,6 @@ LIBRARY_SEARCH_PATHS = (
     /usr/local/Cellar/libomp/9.0.0/lib,
     "$(PROJECT_DIR)/waifu2x/VulkanSDK/MoltenVK/macOS/dynamic",
 );
-
-# check your cmake installation
-which cmake
-# if it goes with /Applications/CMake.app/Contents/bin/cmake
-# then you need to install it in /usr/local/bin via follow command
-sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
-
-# build ncnn with omp
-cp -f waifu2x-ncnn-vulkan-macos/waifu2x/CMakeLists-ncnn-omp.txt ncnn/CMakeLists.txt
-mkdir -p ncnn/build && pushd ncnn/build
-cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=RELEASE ..
-make -j`sysctl -n hw.ncpu` && make install
-
-# copy ncnn header files and library to waifu2x-ncnn-vulkan-macos
-cp -rf install/* ../../waifu2x-ncnn-vulkan-macos/waifu2x/ncnn
-# go back to the directory where `ncnn` and `waifu2x-ncnn-vulkan-macos` are located in
-popd
-
-# generate waifu2x-ncnn-vulkan shaders
-pushd waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
-cp -f ../CMakeLists-waifu2x-ncnn-vulkan.txt src/CMakeLists.txt
-rm -rf src/build && mkdir -p src/build && pushd src/build
-cmake ..
-cp -f *.h "${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src"
-popd && popd
 
 # compile waifu2x-ncnn-vulkan-macos
 # and the compiled application will be placed at `build/Release/waifu2x-gui.app`
