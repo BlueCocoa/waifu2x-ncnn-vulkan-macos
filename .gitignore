@@ -1,7 +1,8 @@
 .DS_Store
 xcuserdata
 waifu2x/VulkanSDK/*
-waifu2x/ncnn/*
+waifu2x/ncnn/lib/*
+waifu2x/ncnn/include/*
 waifu2x/waifu2x-ncnn-vulkan/*
 build
 
