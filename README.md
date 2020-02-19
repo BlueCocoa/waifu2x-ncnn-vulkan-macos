@@ -159,6 +159,13 @@ export TOOLCHAINS=org.llvm.${LLVM_VER}
 xcodebuild
 ```
 
+### Notice
+After the first compilation, if you want to modify this project only, you may set those flags in `Build Phases -> Run Script` to `false` to avoid recompile ncnn and regenerate shader.
+
+![regenerate_shader](regenerate_shader.png)
+
+![recompile_ncnn](recompile_ncnn.png)
+
 ### Screenshot
 
 ![screenshot](screenshot.png)
