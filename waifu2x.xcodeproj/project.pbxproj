@@ -96,29 +96,57 @@
 		4006992D2270C9CD00B79110 /* convolutiondepthwise_x86.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 400699252270C9CD00B79110 /* convolutiondepthwise_x86.cpp */; };
 		4006992F2270CA5300B79110 /* vulkan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4006992E2270CA5300B79110 /* vulkan.framework */; };
 		400699302270CA8000B79110 /* vulkan.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4006992E2270CA5300B79110 /* vulkan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		400699652270D1BB00B79110 /* noise0_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699512270D19100B79110 /* noise0_model.bin */; };
-		400699662270D1BB00B79110 /* noise0_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699492270D19100B79110 /* noise0_model.param */; };
-		400699672270D1BB00B79110 /* noise0_scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699462270D19000B79110 /* noise0_scale2.0x_model.bin */; };
-		400699682270D1BB00B79110 /* noise0_scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699412270D19000B79110 /* noise0_scale2.0x_model.param */; };
-		400699692270D1BB00B79110 /* noise1_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699502270D19100B79110 /* noise1_model.bin */; };
-		4006996A2270D1BB00B79110 /* noise1_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 4006994A2270D19100B79110 /* noise1_model.param */; };
-		4006996B2270D1BB00B79110 /* noise1_scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4006994B2270D19100B79110 /* noise1_scale2.0x_model.bin */; };
-		4006996C2270D1BB00B79110 /* noise1_scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699482270D19100B79110 /* noise1_scale2.0x_model.param */; };
-		4006996D2270D1BB00B79110 /* noise2_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4006994E2270D19100B79110 /* noise2_model.bin */; };
-		4006996E2270D1BB00B79110 /* noise2_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 4006994C2270D19100B79110 /* noise2_model.param */; };
-		4006996F2270D1BB00B79110 /* noise2_scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4006994D2270D19100B79110 /* noise2_scale2.0x_model.bin */; };
-		400699702270D1BB00B79110 /* noise2_scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699472270D19000B79110 /* noise2_scale2.0x_model.param */; };
-		400699712270D1BB00B79110 /* noise3_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4006994F2270D19100B79110 /* noise3_model.bin */; };
-		400699722270D1BB00B79110 /* noise3_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699402270D19000B79110 /* noise3_model.param */; };
-		400699732270D1BB00B79110 /* noise3_scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699452270D19000B79110 /* noise3_scale2.0x_model.bin */; };
-		400699742270D1BB00B79110 /* noise3_scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699422270D19000B79110 /* noise3_scale2.0x_model.param */; };
-		400699752270D1BB00B79110 /* scale2.0x_model.bin in Resources */ = {isa = PBXBuildFile; fileRef = 400699432270D19000B79110 /* scale2.0x_model.bin */; };
-		400699762270D1BB00B79110 /* scale2.0x_model.param in Resources */ = {isa = PBXBuildFile; fileRef = 400699442270D19000B79110 /* scale2.0x_model.param */; };
-		4006997B2270D21A00B79110 /* waifu2x.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4006997A2270D21A00B79110 /* waifu2x.mm */; };
+		4006997B2270D21A00B79110 /* waifu2xmac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4006997A2270D21A00B79110 /* waifu2xmac.mm */; };
 		402AD32D22711C9800F0A985 /* MoltenVK_icd.json in Resources */ = {isa = PBXBuildFile; fileRef = 402AD32C22711C9700F0A985 /* MoltenVK_icd.json */; };
 		408F05EC227113F700189EE2 /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F8881D2270D63600261851 /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		40F468A52271EAAA001098D8 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F468A42271EAAA001098D8 /* libomp.a */; };
 		40F888262270F66E00261851 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F888252270F66E00261851 /* DragDropImageView.m */; };
+		CC5101CA23FC401600AE802F /* datareader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101C823FC401600AE802F /* datareader.cpp */; };
+		CC5101CC23FC40A600AE802F /* mat_pixel_rotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101CB23FC40A600AE802F /* mat_pixel_rotate.cpp */; };
+		CC5101CF23FC40BB00AE802F /* option.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101CE23FC40BB00AE802F /* option.cpp */; };
+		CC5101D423FC415100AE802F /* hardswish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101D223FC415100AE802F /* hardswish.cpp */; };
+		CC5101D523FC415100AE802F /* hardsigmoid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101D323FC415100AE802F /* hardsigmoid.cpp */; };
+		CC5101D823FC416700AE802F /* noop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101D723FC416700AE802F /* noop.cpp */; };
+		CC5101DB23FC418B00AE802F /* selu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101DA23FC418B00AE802F /* selu.cpp */; };
+		CC51031D23FC41DD00AE802F /* eltwise_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101DF23FC41DD00AE802F /* eltwise_vulkan.cpp */; };
+		CC51031E23FC41DD00AE802F /* reshape_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101E123FC41DD00AE802F /* reshape_vulkan.cpp */; };
+		CC51031F23FC41DD00AE802F /* clip_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101E323FC41DD00AE802F /* clip_vulkan.cpp */; };
+		CC51032023FC41DD00AE802F /* flatten_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101E423FC41DD00AE802F /* flatten_vulkan.cpp */; };
+		CC51032123FC41DD00AE802F /* lrn_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101E523FC41DD00AE802F /* lrn_vulkan.cpp */; };
+		CC51032223FC41DD00AE802F /* scale_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101E723FC41DD00AE802F /* scale_vulkan.cpp */; };
+		CC51032323FC41DD00AE802F /* batchnorm_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101EA23FC41DD00AE802F /* batchnorm_vulkan.cpp */; };
+		CC51032423FC41DD00AE802F /* dropout_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101EB23FC41DD00AE802F /* dropout_vulkan.cpp */; };
+		CC51032523FC41DD00AE802F /* prelu_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101ED23FC41DD00AE802F /* prelu_vulkan.cpp */; };
+		CC51032623FC41DD00AE802F /* convolution_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F023FC41DD00AE802F /* convolution_vulkan.cpp */; };
+		CC51032723FC41DD00AE802F /* padding_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F323FC41DD00AE802F /* padding_vulkan.cpp */; };
+		CC51032823FC41DD00AE802F /* crop_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F423FC41DD00AE802F /* crop_vulkan.cpp */; };
+		CC51032923FC41DD00AE802F /* concat_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F523FC41DD00AE802F /* concat_vulkan.cpp */; };
+		CC51032A23FC41DD00AE802F /* slice_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F623FC41DD00AE802F /* slice_vulkan.cpp */; };
+		CC51032B23FC41DD00AE802F /* softmax_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101F723FC41DD00AE802F /* softmax_vulkan.cpp */; };
+		CC51032C23FC41DD00AE802F /* deconvolution_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101FA23FC41DD00AE802F /* deconvolution_vulkan.cpp */; };
+		CC51032D23FC41DD00AE802F /* tanh_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101FC23FC41DD00AE802F /* tanh_vulkan.cpp */; };
+		CC51032E23FC41DD00AE802F /* reorg_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5101FE23FC41DD00AE802F /* reorg_vulkan.cpp */; };
+		CC51032F23FC41DD00AE802F /* permute_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020123FC41DD00AE802F /* permute_vulkan.cpp */; };
+		CC51033023FC41DD00AE802F /* priorbox_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020223FC41DD00AE802F /* priorbox_vulkan.cpp */; };
+		CC51033123FC41DD00AE802F /* innerproduct_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020623FC41DD00AE802F /* innerproduct_vulkan.cpp */; };
+		CC51033223FC41DD00AE802F /* sigmoid_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020723FC41DD00AE802F /* sigmoid_vulkan.cpp */; };
+		CC51033323FC41DD00AE802F /* convolutiondepthwise_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020923FC41DD00AE802F /* convolutiondepthwise_vulkan.cpp */; };
+		CC51033423FC41DD00AE802F /* hardsigmoid_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020A23FC41DD00AE802F /* hardsigmoid_vulkan.cpp */; };
+		CC51033523FC41DD00AE802F /* interp_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020B23FC41DD00AE802F /* interp_vulkan.cpp */; };
+		CC51033623FC41DD00AE802F /* binaryop_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020E23FC41DD00AE802F /* binaryop_vulkan.cpp */; };
+		CC51033723FC41DD00AE802F /* relu_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51020F23FC41DD00AE802F /* relu_vulkan.cpp */; };
+		CC51042C23FC41DE00AE802F /* hardswish_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51030623FC41DD00AE802F /* hardswish_vulkan.cpp */; };
+		CC51042D23FC41DE00AE802F /* instancenorm_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51030723FC41DD00AE802F /* instancenorm_vulkan.cpp */; };
+		CC51042E23FC41DE00AE802F /* cast_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51030823FC41DD00AE802F /* cast_vulkan.cpp */; };
+		CC51042F23FC41DE00AE802F /* absval_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51030B23FC41DD00AE802F /* absval_vulkan.cpp */; };
+		CC51043023FC41DE00AE802F /* packing_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031023FC41DD00AE802F /* packing_vulkan.cpp */; };
+		CC51043123FC41DE00AE802F /* normalize_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031123FC41DD00AE802F /* normalize_vulkan.cpp */; };
+		CC51043223FC41DE00AE802F /* deconvolutiondepthwise_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031323FC41DD00AE802F /* deconvolutiondepthwise_vulkan.cpp */; };
+		CC51043323FC41DE00AE802F /* unaryop_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031823FC41DD00AE802F /* unaryop_vulkan.cpp */; };
+		CC51043423FC41DE00AE802F /* pooling_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031923FC41DD00AE802F /* pooling_vulkan.cpp */; };
+		CC51043523FC41DE00AE802F /* shufflechannel_vulkan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51031C23FC41DD00AE802F /* shufflechannel_vulkan.cpp */; };
+		CC51044523FC427600AE802F /* waifu2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC51044023FC427600AE802F /* waifu2x.cpp */; };
+		CC51049A23FC439C00AE802F /* models in Resources */ = {isa = PBXBuildFile; fileRef = CC51049923FC439C00AE802F /* models */; };
+		CCA6DCA723FD0B4D0097C7B1 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6DCA623FD0B4D0097C7B1 /* libomp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -315,7 +343,6 @@
 		4006991C2270C9CC00B79110 /* convolution_3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_3x3.h; path = waifu2x/ncnn/src/layer/x86/convolution_3x3.h; sourceTree = SOURCE_ROOT; };
 		4006991D2270C9CC00B79110 /* convolution_x86.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = convolution_x86.cpp; path = waifu2x/ncnn/src/layer/x86/convolution_x86.cpp; sourceTree = SOURCE_ROOT; };
 		4006991E2270C9CC00B79110 /* convolutiondepthwise_3x3_int8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolutiondepthwise_3x3_int8.h; path = waifu2x/ncnn/src/layer/x86/convolutiondepthwise_3x3_int8.h; sourceTree = SOURCE_ROOT; };
-		4006991F2270C9CC00B79110 /* convolution_7x7_int8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_7x7_int8.h; path = waifu2x/ncnn/src/layer/x86/convolution_7x7_int8.h; sourceTree = SOURCE_ROOT; };
 		400699202270C9CC00B79110 /* avx_mathfun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = avx_mathfun.h; path = waifu2x/ncnn/src/layer/x86/avx_mathfun.h; sourceTree = SOURCE_ROOT; };
 		400699212270C9CC00B79110 /* convolution_5x5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_5x5.h; path = waifu2x/ncnn/src/layer/x86/convolution_5x5.h; sourceTree = SOURCE_ROOT; };
 		400699222270C9CC00B79110 /* convolution_1x1_int8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_1x1_int8.h; path = waifu2x/ncnn/src/layer/x86/convolution_1x1_int8.h; sourceTree = SOURCE_ROOT; };
@@ -327,43 +354,354 @@
 		400699282270C9CD00B79110 /* convolution_x86.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_x86.h; path = waifu2x/ncnn/src/layer/x86/convolution_x86.h; sourceTree = SOURCE_ROOT; };
 		400699292270C9CD00B79110 /* convolution_1x1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_1x1.h; path = waifu2x/ncnn/src/layer/x86/convolution_1x1.h; sourceTree = SOURCE_ROOT; };
 		4006992A2270C9CD00B79110 /* convolutiondepthwise_x86.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolutiondepthwise_x86.h; path = waifu2x/ncnn/src/layer/x86/convolutiondepthwise_x86.h; sourceTree = SOURCE_ROOT; };
-		4006992B2270C9CD00B79110 /* convolution_5x5_int8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_5x5_int8.h; path = waifu2x/ncnn/src/layer/x86/convolution_5x5_int8.h; sourceTree = SOURCE_ROOT; };
 		4006992E2270CA5300B79110 /* vulkan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vulkan.framework; path = macOS/Frameworks/vulkan.framework; sourceTree = "<group>"; };
-		400699332270D0FD00B79110 /* waifu2x_preproc.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_preproc.spv.hex.h; sourceTree = "<group>"; };
-		400699342270D0FD00B79110 /* waifu2x_postproc.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = waifu2x_postproc.comp; sourceTree = "<group>"; };
-		400699352270D0FD00B79110 /* waifu2x_postproc.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_postproc.spv.hex.h; sourceTree = "<group>"; };
-		400699362270D0FD00B79110 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
-		400699372270D0FD00B79110 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
-		400699382270D0FD00B79110 /* waifu2x_postproc_fp16s.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_postproc_fp16s.spv.hex.h; sourceTree = "<group>"; };
-		400699392270D0FE00B79110 /* waifu2x_preproc.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = waifu2x_preproc.comp; sourceTree = "<group>"; };
-		4006993A2270D0FE00B79110 /* waifu2x_preproc_int8s.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_preproc_int8s.spv.hex.h; sourceTree = "<group>"; };
-		4006993B2270D0FE00B79110 /* waifu2x_postproc_int8s.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_postproc_int8s.spv.hex.h; sourceTree = "<group>"; };
-		4006993C2270D0FE00B79110 /* waifu2x_preproc_fp16s.spv.hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x_preproc_fp16s.spv.hex.h; sourceTree = "<group>"; };
-		400699402270D19000B79110 /* noise3_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise3_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise3_model.param"; sourceTree = SOURCE_ROOT; };
-		400699412270D19000B79110 /* noise0_scale2.0x_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise0_scale2.0x_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise0_scale2.0x_model.param"; sourceTree = SOURCE_ROOT; };
-		400699422270D19000B79110 /* noise3_scale2.0x_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise3_scale2.0x_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise3_scale2.0x_model.param"; sourceTree = SOURCE_ROOT; };
-		400699432270D19000B79110 /* scale2.0x_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = scale2.0x_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/scale2.0x_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699442270D19000B79110 /* scale2.0x_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = scale2.0x_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/scale2.0x_model.param"; sourceTree = SOURCE_ROOT; };
-		400699452270D19000B79110 /* noise3_scale2.0x_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise3_scale2.0x_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise3_scale2.0x_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699462270D19000B79110 /* noise0_scale2.0x_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise0_scale2.0x_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise0_scale2.0x_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699472270D19000B79110 /* noise2_scale2.0x_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise2_scale2.0x_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise2_scale2.0x_model.param"; sourceTree = SOURCE_ROOT; };
-		400699482270D19100B79110 /* noise1_scale2.0x_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise1_scale2.0x_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise1_scale2.0x_model.param"; sourceTree = SOURCE_ROOT; };
-		400699492270D19100B79110 /* noise0_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise0_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise0_model.param"; sourceTree = SOURCE_ROOT; };
-		4006994A2270D19100B79110 /* noise1_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise1_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise1_model.param"; sourceTree = SOURCE_ROOT; };
-		4006994B2270D19100B79110 /* noise1_scale2.0x_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise1_scale2.0x_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise1_scale2.0x_model.bin"; sourceTree = SOURCE_ROOT; };
-		4006994C2270D19100B79110 /* noise2_model.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = noise2_model.param; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise2_model.param"; sourceTree = SOURCE_ROOT; };
-		4006994D2270D19100B79110 /* noise2_scale2.0x_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise2_scale2.0x_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise2_scale2.0x_model.bin"; sourceTree = SOURCE_ROOT; };
-		4006994E2270D19100B79110 /* noise2_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise2_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise2_model.bin"; sourceTree = SOURCE_ROOT; };
-		4006994F2270D19100B79110 /* noise3_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise3_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise3_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699502270D19100B79110 /* noise1_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise1_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise1_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699512270D19100B79110 /* noise0_model.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = noise0_model.bin; path = "waifu2x/waifu2x-ncnn-vulkan/models-cunet/noise0_model.bin"; sourceTree = SOURCE_ROOT; };
-		400699792270D21A00B79110 /* waifu2x.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = waifu2x.h; sourceTree = "<group>"; };
-		4006997A2270D21A00B79110 /* waifu2x.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = waifu2x.mm; sourceTree = "<group>"; };
+		400699792270D21A00B79110 /* waifu2xmac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = waifu2xmac.h; sourceTree = "<group>"; };
+		4006997A2270D21A00B79110 /* waifu2xmac.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = waifu2xmac.mm; sourceTree = "<group>"; };
 		402AD32C22711C9700F0A985 /* MoltenVK_icd.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MoltenVK_icd.json; path = waifu2x/MoltenVK_icd.json; sourceTree = SOURCE_ROOT; };
-		40F468A42271EAAA001098D8 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../../../usr/local/Cellar/libomp/7.0.0/lib/libomp.a; sourceTree = "<group>"; };
 		40F8881D2270D63600261851 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = MoltenVK/macOS/dynamic/libMoltenVK.dylib; sourceTree = "<group>"; };
 		40F888242270F66E00261851 /* DragDropImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		40F888252270F66E00261851 /* DragDropImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
+		CC5101C823FC401600AE802F /* datareader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datareader.cpp; path = src/datareader.cpp; sourceTree = "<group>"; };
+		CC5101C923FC401600AE802F /* datareader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = datareader.h; path = src/datareader.h; sourceTree = "<group>"; };
+		CC5101CB23FC40A600AE802F /* mat_pixel_rotate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mat_pixel_rotate.cpp; path = src/mat_pixel_rotate.cpp; sourceTree = "<group>"; };
+		CC5101CD23FC40BB00AE802F /* option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = option.h; path = src/option.h; sourceTree = "<group>"; };
+		CC5101CE23FC40BB00AE802F /* option.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = option.cpp; path = src/option.cpp; sourceTree = "<group>"; };
+		CC5101D023FC415100AE802F /* hardsigmoid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hardsigmoid.h; path = waifu2x/ncnn/src/layer/hardsigmoid.h; sourceTree = SOURCE_ROOT; };
+		CC5101D123FC415100AE802F /* hardswish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hardswish.h; path = waifu2x/ncnn/src/layer/hardswish.h; sourceTree = SOURCE_ROOT; };
+		CC5101D223FC415100AE802F /* hardswish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hardswish.cpp; path = waifu2x/ncnn/src/layer/hardswish.cpp; sourceTree = SOURCE_ROOT; };
+		CC5101D323FC415100AE802F /* hardsigmoid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hardsigmoid.cpp; path = waifu2x/ncnn/src/layer/hardsigmoid.cpp; sourceTree = SOURCE_ROOT; };
+		CC5101D623FC416700AE802F /* noop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = noop.h; path = waifu2x/ncnn/src/layer/noop.h; sourceTree = SOURCE_ROOT; };
+		CC5101D723FC416700AE802F /* noop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = noop.cpp; path = waifu2x/ncnn/src/layer/noop.cpp; sourceTree = SOURCE_ROOT; };
+		CC5101D923FC418B00AE802F /* selu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = selu.h; path = waifu2x/ncnn/src/layer/selu.h; sourceTree = SOURCE_ROOT; };
+		CC5101DA23FC418B00AE802F /* selu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selu.cpp; path = waifu2x/ncnn/src/layer/selu.cpp; sourceTree = SOURCE_ROOT; };
+		CC5101DC23FC41C700AE802F /* convolution_7x7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convolution_7x7.h; path = waifu2x/ncnn/src/layer/x86/convolution_7x7.h; sourceTree = SOURCE_ROOT; };
+		CC5101DE23FC41DD00AE802F /* packing_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packing_vulkan.h; sourceTree = "<group>"; };
+		CC5101DF23FC41DD00AE802F /* eltwise_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eltwise_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E023FC41DD00AE802F /* absval_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = absval_vulkan.h; sourceTree = "<group>"; };
+		CC5101E123FC41DD00AE802F /* reshape_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reshape_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E223FC41DD00AE802F /* convolution_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convolution_vulkan.h; sourceTree = "<group>"; };
+		CC5101E323FC41DD00AE802F /* clip_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clip_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E423FC41DD00AE802F /* flatten_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flatten_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E523FC41DD00AE802F /* lrn_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lrn_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E623FC41DD00AE802F /* eltwise_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eltwise_vulkan.h; sourceTree = "<group>"; };
+		CC5101E723FC41DD00AE802F /* scale_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101E823FC41DD00AE802F /* binaryop_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binaryop_vulkan.h; sourceTree = "<group>"; };
+		CC5101E923FC41DD00AE802F /* reshape_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reshape_vulkan.h; sourceTree = "<group>"; };
+		CC5101EA23FC41DD00AE802F /* batchnorm_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = batchnorm_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101EB23FC41DD00AE802F /* dropout_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dropout_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101EC23FC41DD00AE802F /* flatten_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatten_vulkan.h; sourceTree = "<group>"; };
+		CC5101ED23FC41DD00AE802F /* prelu_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = prelu_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101EE23FC41DD00AE802F /* padding_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = padding_vulkan.h; sourceTree = "<group>"; };
+		CC5101EF23FC41DD00AE802F /* slice_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = slice_vulkan.h; sourceTree = "<group>"; };
+		CC5101F023FC41DD00AE802F /* convolution_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convolution_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F123FC41DD00AE802F /* unaryop_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unaryop_vulkan.h; sourceTree = "<group>"; };
+		CC5101F223FC41DD00AE802F /* hardswish_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hardswish_vulkan.h; sourceTree = "<group>"; };
+		CC5101F323FC41DD00AE802F /* padding_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = padding_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F423FC41DD00AE802F /* crop_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = crop_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F523FC41DD00AE802F /* concat_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = concat_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F623FC41DD00AE802F /* slice_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = slice_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F723FC41DD00AE802F /* softmax_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = softmax_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101F823FC41DD00AE802F /* tanh_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tanh_vulkan.h; sourceTree = "<group>"; };
+		CC5101F923FC41DD00AE802F /* sigmoid_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sigmoid_vulkan.h; sourceTree = "<group>"; };
+		CC5101FA23FC41DD00AE802F /* deconvolution_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = deconvolution_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101FB23FC41DD00AE802F /* innerproduct_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = innerproduct_vulkan.h; sourceTree = "<group>"; };
+		CC5101FC23FC41DD00AE802F /* tanh_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tanh_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101FD23FC41DD00AE802F /* shufflechannel_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shufflechannel_vulkan.h; sourceTree = "<group>"; };
+		CC5101FE23FC41DD00AE802F /* reorg_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reorg_vulkan.cpp; sourceTree = "<group>"; };
+		CC5101FF23FC41DD00AE802F /* permute_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = permute_vulkan.h; sourceTree = "<group>"; };
+		CC51020023FC41DD00AE802F /* lrn_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lrn_vulkan.h; sourceTree = "<group>"; };
+		CC51020123FC41DD00AE802F /* permute_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = permute_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020223FC41DD00AE802F /* priorbox_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = priorbox_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020323FC41DD00AE802F /* cast_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast_vulkan.h; sourceTree = "<group>"; };
+		CC51020423FC41DD00AE802F /* reorg_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reorg_vulkan.h; sourceTree = "<group>"; };
+		CC51020523FC41DD00AE802F /* interp_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interp_vulkan.h; sourceTree = "<group>"; };
+		CC51020623FC41DD00AE802F /* innerproduct_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = innerproduct_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020723FC41DD00AE802F /* sigmoid_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sigmoid_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020823FC41DD00AE802F /* relu_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = relu_vulkan.h; sourceTree = "<group>"; };
+		CC51020923FC41DD00AE802F /* convolutiondepthwise_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convolutiondepthwise_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020A23FC41DD00AE802F /* hardsigmoid_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardsigmoid_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020B23FC41DD00AE802F /* interp_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interp_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020C23FC41DD00AE802F /* scale_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_vulkan.h; sourceTree = "<group>"; };
+		CC51020D23FC41DD00AE802F /* dropout_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropout_vulkan.h; sourceTree = "<group>"; };
+		CC51020E23FC41DD00AE802F /* binaryop_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binaryop_vulkan.cpp; sourceTree = "<group>"; };
+		CC51020F23FC41DD00AE802F /* relu_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = relu_vulkan.cpp; sourceTree = "<group>"; };
+		CC51021123FC41DD00AE802F /* packing_4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_4to8.comp; sourceTree = "<group>"; };
+		CC51021223FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_transform_input.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4_3x3s1d1_winograd23_transform_input.comp; sourceTree = "<group>"; };
+		CC51021323FC41DD00AE802F /* softmax_exp_sub_max_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_exp_sub_max_pack4.comp; sourceTree = "<group>"; };
+		CC51021423FC41DD00AE802F /* lrn_square_pad_across_channel_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_square_pad_across_channel_pack4.comp; sourceTree = "<group>"; };
+		CC51021523FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp16_to_fp32_pack8.comp; sourceTree = "<group>"; };
+		CC51021623FC41DD00AE802F /* cast_fp16_to_fp32_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp16_to_fp32_pack4.comp; sourceTree = "<group>"; };
+		CC51021723FC41DD00AE802F /* binaryop_broadcast.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast.comp; sourceTree = "<group>"; };
+		CC51021823FC41DD00AE802F /* interp.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp.comp; sourceTree = "<group>"; };
+		CC51021923FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp16_to_fp32_pack8.comp; sourceTree = "<group>"; };
+		CC51021A23FC41DD00AE802F /* reshape_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack1to4.comp; sourceTree = "<group>"; };
+		CC51021B23FC41DD00AE802F /* absval_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = absval_pack4.comp; sourceTree = "<group>"; };
+		CC51021C23FC41DD00AE802F /* hardsigmoid.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardsigmoid.comp; sourceTree = "<group>"; };
+		CC51021D23FC41DD00AE802F /* hardswish_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardswish_pack8.comp; sourceTree = "<group>"; };
+		CC51021E23FC41DD00AE802F /* deconvolution_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack1to4.comp; sourceTree = "<group>"; };
+		CC51021F23FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_gemm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8_3x3s1d1_winograd23_gemm.comp; sourceTree = "<group>"; };
+		CC51022023FC41DD00AE802F /* deconvolution.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution.comp; sourceTree = "<group>"; };
+		CC51022123FC41DD00AE802F /* reshape_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack8to4.comp; sourceTree = "<group>"; };
+		CC51022223FC41DD00AE802F /* lrn_square_pad_across_channel_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_square_pad_across_channel_pack8.comp; sourceTree = "<group>"; };
+		CC51022323FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp16_to_fp32_pack4.comp; sourceTree = "<group>"; };
+		CC51022423FC41DD00AE802F /* softmax_exp_sub_max_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_exp_sub_max_pack8.comp; sourceTree = "<group>"; };
+		CC51022523FC41DD00AE802F /* normalize_norm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_norm.comp; sourceTree = "<group>"; };
+		CC51022623FC41DD00AE802F /* reshape_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack1to8.comp; sourceTree = "<group>"; };
+		CC51022723FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp16_to_fp32_pack4.comp; sourceTree = "<group>"; };
+		CC51022823FC41DD00AE802F /* softmax_reduce_sum.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_sum.comp; sourceTree = "<group>"; };
+		CC51022923FC41DD00AE802F /* cast_fp16_to_fp32_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp16_to_fp32_pack8.comp; sourceTree = "<group>"; };
+		CC51022A23FC41DD00AE802F /* lrn_norm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_norm.comp; sourceTree = "<group>"; };
+		CC51022B23FC41DD00AE802F /* pooling_global.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling_global.comp; sourceTree = "<group>"; };
+		CC51022C23FC41DD00AE802F /* deconvolution_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack8to4.comp; sourceTree = "<group>"; };
+		CC51022D23FC41DD00AE802F /* absval_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = absval_pack8.comp; sourceTree = "<group>"; };
+		CC51022E23FC41DD00AE802F /* innerproduct_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack4to1.comp; sourceTree = "<group>"; };
+		CC51022F23FC41DD00AE802F /* hardswish_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardswish_pack4.comp; sourceTree = "<group>"; };
+		CC51023023FC41DD00AE802F /* flatten_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten_pack4to8.comp; sourceTree = "<group>"; };
+		CC51023123FC41DD00AE802F /* priorbox.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = priorbox.comp; sourceTree = "<group>"; };
+		CC51023223FC41DD00AE802F /* deconvolution_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack1to8.comp; sourceTree = "<group>"; };
+		CC51023323FC41DD00AE802F /* shufflechannel_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shufflechannel_pack4.comp; sourceTree = "<group>"; };
+		CC51023423FC41DD00AE802F /* deconvolutiondepthwise_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_pack8.comp; sourceTree = "<group>"; };
+		CC51023523FC41DD00AE802F /* deconvolutiondepthwise_group.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group.comp; sourceTree = "<group>"; };
+		CC51023623FC41DD00AE802F /* lrn_square_pad.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_square_pad.comp; sourceTree = "<group>"; };
+		CC51023723FC41DD00AE802F /* binaryop_broadcast_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_pack4.comp; sourceTree = "<group>"; };
+		CC51023823FC41DD00AE802F /* instancenorm_sub_mean_square_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_sub_mean_square_pack8.comp; sourceTree = "<group>"; };
+		CC51023923FC41DD00AE802F /* convolutiondepthwise_group_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack4.comp; sourceTree = "<group>"; };
+		CC51023A23FC41DD00AE802F /* relu.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = relu.comp; sourceTree = "<group>"; };
+		CC51023B23FC41DD00AE802F /* crop_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack4to8.comp; sourceTree = "<group>"; };
+		CC51023C23FC41DD00AE802F /* pooling_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling_pack4.comp; sourceTree = "<group>"; };
+		CC51023D23FC41DD00AE802F /* concat_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat_pack8to4.comp; sourceTree = "<group>"; };
+		CC51023E23FC41DD00AE802F /* permute_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack4to1.comp; sourceTree = "<group>"; };
+		CC51023F23FC41DD00AE802F /* unaryop_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unaryop_pack4.comp; sourceTree = "<group>"; };
+		CC51024023FC41DD00AE802F /* instancenorm_norm_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_norm_pack8.comp; sourceTree = "<group>"; };
+		CC51024123FC41DD00AE802F /* shufflechannel_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shufflechannel_pack8.comp; sourceTree = "<group>"; };
+		CC51024223FC41DD00AE802F /* deconvolutiondepthwise_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_pack4.comp; sourceTree = "<group>"; };
+		CC51024323FC41DD00AE802F /* convolutiondepthwise.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise.comp; sourceTree = "<group>"; };
+		CC51024423FC41DD00AE802F /* deconvolutiondepthwise_group_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack4to8.comp; sourceTree = "<group>"; };
+		CC51024523FC41DD00AE802F /* binaryop_broadcast_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_pack8.comp; sourceTree = "<group>"; };
+		CC51024623FC41DD00AE802F /* instancenorm_sub_mean_square_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_sub_mean_square_pack4.comp; sourceTree = "<group>"; };
+		CC51024723FC41DD00AE802F /* convolution_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4to8.comp; sourceTree = "<group>"; };
+		CC51024823FC41DD00AE802F /* cast_fp32_to_fp16.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp32_to_fp16.comp; sourceTree = "<group>"; };
+		CC51024923FC41DD00AE802F /* convolutiondepthwise_group_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack8.comp; sourceTree = "<group>"; };
+		CC51024A23FC41DD00AE802F /* interp_bicubic_coeffs.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_bicubic_coeffs.comp; sourceTree = "<group>"; };
+		CC51024B23FC41DD00AE802F /* binaryop.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop.comp; sourceTree = "<group>"; };
+		CC51024C23FC41DD00AE802F /* pooling_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling_pack8.comp; sourceTree = "<group>"; };
+		CC51024D23FC41DD00AE802F /* unaryop_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unaryop_pack8.comp; sourceTree = "<group>"; };
+		CC51024E23FC41DD00AE802F /* softmax_exp_sub_max.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_exp_sub_max.comp; sourceTree = "<group>"; };
+		CC51024F23FC41DD00AE802F /* convolution_pack4_1x1s1d1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4_1x1s1d1.comp; sourceTree = "<group>"; };
+		CC51025023FC41DD00AE802F /* convolutiondepthwise_group_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack4to8.comp; sourceTree = "<group>"; };
+		CC51025123FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_transform_input.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8_3x3s1d1_winograd23_transform_input.comp; sourceTree = "<group>"; };
+		CC51025223FC41DD00AE802F /* instancenorm_norm_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_norm_pack4.comp; sourceTree = "<group>"; };
+		CC51025323FC41DD00AE802F /* lrn_square_pad_within_channel_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_square_pad_within_channel_pack4.comp; sourceTree = "<group>"; };
+		CC51025423FC41DD00AE802F /* pooling_global_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling_global_pack4.comp; sourceTree = "<group>"; };
+		CC51025523FC41DD00AE802F /* permute.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute.comp; sourceTree = "<group>"; };
+		CC51025623FC41DD00AE802F /* permute_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack4.comp; sourceTree = "<group>"; };
+		CC51025723FC41DD00AE802F /* innerproduct_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack1to4.comp; sourceTree = "<group>"; };
+		CC51025823FC41DD00AE802F /* reorg_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg_pack8.comp; sourceTree = "<group>"; };
+		CC51025923FC41DD00AE802F /* flatten.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten.comp; sourceTree = "<group>"; };
+		CC51025A23FC41DD00AE802F /* convolution.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution.comp; sourceTree = "<group>"; };
+		CC51025B23FC41DD00AE802F /* unaryop.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unaryop.comp; sourceTree = "<group>"; };
+		CC51025C23FC41DD00AE802F /* tanh_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tanh_pack8.comp; sourceTree = "<group>"; };
+		CC51025D23FC41DD00AE802F /* prelu.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prelu.comp; sourceTree = "<group>"; };
+		CC51025E23FC41DD00AE802F /* lrn_square_pad_within_channel_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_square_pad_within_channel_pack8.comp; sourceTree = "<group>"; };
+		CC51025F23FC41DD00AE802F /* reorg_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg_pack4.comp; sourceTree = "<group>"; };
+		CC51026023FC41DD00AE802F /* innerproduct_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack1to8.comp; sourceTree = "<group>"; };
+		CC51026123FC41DD00AE802F /* pooling_global_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling_global_pack8.comp; sourceTree = "<group>"; };
+		CC51026223FC41DD00AE802F /* permute_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack8.comp; sourceTree = "<group>"; };
+		CC51026323FC41DD00AE802F /* deconvolution_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack4to1.comp; sourceTree = "<group>"; };
+		CC51026423FC41DD00AE802F /* innerproduct_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack8to4.comp; sourceTree = "<group>"; };
+		CC51026523FC41DD00AE802F /* reshape_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack4to1.comp; sourceTree = "<group>"; };
+		CC51026623FC41DD00AE802F /* packing_8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_8to1.comp; sourceTree = "<group>"; };
+		CC51026723FC41DD00AE802F /* normalize_reduce_sum4_fp32.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp32.comp; sourceTree = "<group>"; };
+		CC51026823FC41DD00AE802F /* tanh_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tanh_pack4.comp; sourceTree = "<group>"; };
+		CC51026923FC41DD00AE802F /* relu_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = relu_pack4.comp; sourceTree = "<group>"; };
+		CC51026A23FC41DD00AE802F /* convolutiondepthwise_group_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack8to1.comp; sourceTree = "<group>"; };
+		CC51026B23FC41DD00AE802F /* binaryop_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_pack4.comp; sourceTree = "<group>"; };
+		CC51026C23FC41DD00AE802F /* instancenorm_norm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_norm.comp; sourceTree = "<group>"; };
+		CC51026D23FC41DD00AE802F /* permute_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack1to8.comp; sourceTree = "<group>"; };
+		CC51026E23FC41DD00AE802F /* reorg_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg_pack1to4.comp; sourceTree = "<group>"; };
+		CC51026F23FC41DD00AE802F /* sigmoid_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sigmoid_pack8.comp; sourceTree = "<group>"; };
+		CC51027023FC41DD00AE802F /* concat_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat_pack4to1.comp; sourceTree = "<group>"; };
+		CC51027123FC41DD00AE802F /* instancenorm_reduce_mean_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_mean_pack4.comp; sourceTree = "<group>"; };
+		CC51027223FC41DD00AE802F /* permute_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack8to4.comp; sourceTree = "<group>"; };
+		CC51027323FC41DD00AE802F /* softmax_div_sum_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_div_sum_pack4.comp; sourceTree = "<group>"; };
+		CC51027423FC41DD00AE802F /* innerproduct_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack8.comp; sourceTree = "<group>"; };
+		CC51027523FC41DD00AE802F /* interp_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_pack4.comp; sourceTree = "<group>"; };
+		CC51027623FC41DD00AE802F /* deconvolutiondepthwise_group_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack8to1.comp; sourceTree = "<group>"; };
+		CC51027723FC41DD00AE802F /* convolution_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8to1.comp; sourceTree = "<group>"; };
+		CC51027823FC41DD00AE802F /* hardsigmoid_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardsigmoid_pack4.comp; sourceTree = "<group>"; };
+		CC51027923FC41DD00AE802F /* convolution_pack8_1x1s1d1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8_1x1s1d1.comp; sourceTree = "<group>"; };
+		CC51027A23FC41DD00AE802F /* convolutiondepthwise_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_pack4.comp; sourceTree = "<group>"; };
+		CC51027B23FC41DD00AE802F /* relu_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = relu_pack8.comp; sourceTree = "<group>"; };
+		CC51027C23FC41DD00AE802F /* reorg_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg_pack1to8.comp; sourceTree = "<group>"; };
+		CC51027D23FC41DD00AE802F /* binaryop_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_pack8.comp; sourceTree = "<group>"; };
+		CC51027E23FC41DD00AE802F /* permute_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack1to4.comp; sourceTree = "<group>"; };
+		CC51027F23FC41DD00AE802F /* sigmoid_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sigmoid_pack4.comp; sourceTree = "<group>"; };
+		CC51028023FC41DD00AE802F /* instancenorm_reduce_mean_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_mean_pack8.comp; sourceTree = "<group>"; };
+		CC51028123FC41DD00AE802F /* softmax_div_sum_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_div_sum_pack8.comp; sourceTree = "<group>"; };
+		CC51028223FC41DD00AE802F /* interp_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_pack8.comp; sourceTree = "<group>"; };
+		CC51028323FC41DD00AE802F /* innerproduct_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack4.comp; sourceTree = "<group>"; };
+		CC51028423FC41DD00AE802F /* hardsigmoid_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardsigmoid_pack8.comp; sourceTree = "<group>"; };
+		CC51028523FC41DD00AE802F /* tanh.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tanh.comp; sourceTree = "<group>"; };
+		CC51028623FC41DD00AE802F /* crop_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack8to1.comp; sourceTree = "<group>"; };
+		CC51028723FC41DD00AE802F /* interp_bicubic.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_bicubic.comp; sourceTree = "<group>"; };
+		CC51028823FC41DD00AE802F /* pooling.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pooling.comp; sourceTree = "<group>"; };
+		CC51028923FC41DD00AE802F /* convolutiondepthwise_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_pack8.comp; sourceTree = "<group>"; };
+		CC51028A23FC41DD00AE802F /* convolutiondepthwise_group.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group.comp; sourceTree = "<group>"; };
+		CC51028B23FC41DD00AE802F /* convolution_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4.comp; sourceTree = "<group>"; };
+		CC51028C23FC41DD00AE802F /* deconvolutiondepthwise_group_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack8.comp; sourceTree = "<group>"; };
+		CC51028D23FC41DD00AE802F /* normalize_reduce_sum4_fp32_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp32_pack4.comp; sourceTree = "<group>"; };
+		CC51028E23FC41DD00AE802F /* deconvolutiondepthwise_group_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack4to1.comp; sourceTree = "<group>"; };
+		CC51028F23FC41DD00AE802F /* convolution_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4to1.comp; sourceTree = "<group>"; };
+		CC51029023FC41DD00AE802F /* prelu_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prelu_pack8.comp; sourceTree = "<group>"; };
+		CC51029123FC41DD00AE802F /* lrn_norm_within_channel_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_norm_within_channel_pack8.comp; sourceTree = "<group>"; };
+		CC51029223FC41DD00AE802F /* concat_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat_pack8to1.comp; sourceTree = "<group>"; };
+		CC51029323FC41DD00AE802F /* instancenorm_reduce_sum4_fp32_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp32_pack8.comp; sourceTree = "<group>"; };
+		CC51029423FC41DD00AE802F /* slice.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slice.comp; sourceTree = "<group>"; };
+		CC51029523FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_transform_output.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8_3x3s1d1_winograd23_transform_output.comp; sourceTree = "<group>"; };
+		CC51029623FC41DD00AE802F /* interp_bicubic_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_bicubic_pack4.comp; sourceTree = "<group>"; };
+		CC51029723FC41DD00AE802F /* reorg_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg_pack4to8.comp; sourceTree = "<group>"; };
+		CC51029823FC41DD00AE802F /* convolutiondepthwise_group_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack4to1.comp; sourceTree = "<group>"; };
+		CC51029923FC41DD00AE802F /* priorbox_mxnet.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = priorbox_mxnet.comp; sourceTree = "<group>"; };
+		CC51029A23FC41DD00AE802F /* padding.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = padding.comp; sourceTree = "<group>"; };
+		CC51029B23FC41DD00AE802F /* convolution_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8.comp; sourceTree = "<group>"; };
+		CC51029C23FC41DD00AE802F /* deconvolutiondepthwise_group_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack4.comp; sourceTree = "<group>"; };
+		CC51029D23FC41DD00AE802F /* instancenorm_reduce_mean.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_mean.comp; sourceTree = "<group>"; };
+		CC51029E23FC41DD00AE802F /* normalize_reduce_sum4_fp32_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp32_pack8.comp; sourceTree = "<group>"; };
+		CC51029F23FC41DD00AE802F /* crop_pack4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack4to1.comp; sourceTree = "<group>"; };
+		CC5102A023FC41DD00AE802F /* prelu_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prelu_pack4.comp; sourceTree = "<group>"; };
+		CC5102A123FC41DD00AE802F /* lrn_norm_within_channel_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_norm_within_channel_pack4.comp; sourceTree = "<group>"; };
+		CC5102A223FC41DD00AE802F /* instancenorm_reduce_sum4_fp32_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp32_pack4.comp; sourceTree = "<group>"; };
+		CC5102A323FC41DD00AE802F /* interp_bicubic_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interp_bicubic_pack8.comp; sourceTree = "<group>"; };
+		CC5102A423FC41DD00AE802F /* permute_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack4to8.comp; sourceTree = "<group>"; };
+		CC5102A523FC41DD00AE802F /* crop_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack8.comp; sourceTree = "<group>"; };
+		CC5102A623FC41DD00AE802F /* deconvolution_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack4.comp; sourceTree = "<group>"; };
+		CC5102A723FC41DD00AE802F /* padding_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = padding_pack8.comp; sourceTree = "<group>"; };
+		CC5102A823FC41DD00AE802F /* normalize_coeffs_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_coeffs_pack8.comp; sourceTree = "<group>"; };
+		CC5102A923FC41DD00AE802F /* crop.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop.comp; sourceTree = "<group>"; };
+		CC5102AA23FC41DD00AE802F /* binaryop_broadcast_a1_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_a1_pack4.comp; sourceTree = "<group>"; };
+		CC5102AB23FC41DD00AE802F /* batchnorm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = batchnorm.comp; sourceTree = "<group>"; };
+		CC5102AC23FC41DD00AE802F /* cast_fp16_to_fp32.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp16_to_fp32.comp; sourceTree = "<group>"; };
+		CC5102AD23FC41DD00AE802F /* absval.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = absval.comp; sourceTree = "<group>"; };
+		CC5102AE23FC41DD00AE802F /* normalize_norm_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_norm_pack8.comp; sourceTree = "<group>"; };
+		CC5102AF23FC41DD00AE802F /* slice_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slice_pack4.comp; sourceTree = "<group>"; };
+		CC5102B023FC41DD00AE802F /* innerproduct_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack4to8.comp; sourceTree = "<group>"; };
+		CC5102B123FC41DD00AE802F /* concat_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat_pack4.comp; sourceTree = "<group>"; };
+		CC5102B223FC41DD00AE802F /* instancenorm_reduce_sum4_fp32.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp32.comp; sourceTree = "<group>"; };
+		CC5102B323FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_transform_output.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4_3x3s1d1_winograd23_transform_output.comp; sourceTree = "<group>"; };
+		CC5102B423FC41DD00AE802F /* softmax_div_sum.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_div_sum.comp; sourceTree = "<group>"; };
+		CC5102B523FC41DD00AE802F /* crop_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack4.comp; sourceTree = "<group>"; };
+		CC5102B623FC41DD00AE802F /* packing_4to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_4to1.comp; sourceTree = "<group>"; };
+		CC5102B723FC41DD00AE802F /* reshape_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack8to1.comp; sourceTree = "<group>"; };
+		CC5102B823FC41DD00AE802F /* padding_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = padding_pack4.comp; sourceTree = "<group>"; };
+		CC5102B923FC41DD00AE802F /* normalize_coeffs_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_coeffs_pack4.comp; sourceTree = "<group>"; };
+		CC5102BA23FC41DD00AE802F /* deconvolution_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack8.comp; sourceTree = "<group>"; };
+		CC5102BB23FC41DD00AE802F /* binaryop_broadcast_a1_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_a1_pack8.comp; sourceTree = "<group>"; };
+		CC5102BC23FC41DD00AE802F /* deconvolution_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack8to1.comp; sourceTree = "<group>"; };
+		CC5102BD23FC41DD00AE802F /* shufflechannel.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shufflechannel.comp; sourceTree = "<group>"; };
+		CC5102BE23FC41DD00AE802F /* slice_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slice_pack8.comp; sourceTree = "<group>"; };
+		CC5102BF23FC41DD00AE802F /* normalize_norm_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_norm_pack4.comp; sourceTree = "<group>"; };
+		CC5102C023FC41DD00AE802F /* concat_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat_pack8.comp; sourceTree = "<group>"; };
+		CC5102C123FC41DD00AE802F /* convolutiondepthwise_group_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack8to4.comp; sourceTree = "<group>"; };
+		CC5102C223FC41DD00AE802F /* flatten_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten_pack4.comp; sourceTree = "<group>"; };
+		CC5102C323FC41DD00AE802F /* reshape.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape.comp; sourceTree = "<group>"; };
+		CC5102C423FC41DD00AE802F /* convolution_1x1s1d1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_1x1s1d1.comp; sourceTree = "<group>"; };
+		CC5102C523FC41DD00AE802F /* convolutiondepthwise_group_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102C623FC41DD00AE802F /* hardswish.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardswish.comp; sourceTree = "<group>"; };
+		CC5102C723FC41DD00AE802F /* concat.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concat.comp; sourceTree = "<group>"; };
+		CC5102C823FC41DD00AE802F /* instancenorm_coeffs_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_coeffs_pack4.comp; sourceTree = "<group>"; };
+		CC5102C923FC41DD00AE802F /* clip_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clip_pack4.comp; sourceTree = "<group>"; };
+		CC5102CA23FC41DD00AE802F /* permute_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = permute_pack8to1.comp; sourceTree = "<group>"; };
+		CC5102CB23FC41DD00AE802F /* slice_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slice_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102CC23FC41DD00AE802F /* deconvolutiondepthwise_group_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack8to4.comp; sourceTree = "<group>"; };
+		CC5102CD23FC41DD00AE802F /* binaryop_broadcast_b1_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_b1_pack8.comp; sourceTree = "<group>"; };
+		CC5102CE23FC41DD00AE802F /* convolution_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack8to4.comp; sourceTree = "<group>"; };
+		CC5102CF23FC41DD00AE802F /* lrn_norm_across_channel_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_norm_across_channel_pack8.comp; sourceTree = "<group>"; };
+		CC5102D023FC41DD00AE802F /* reshape_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack4.comp; sourceTree = "<group>"; };
+		CC5102D123FC41DD00AE802F /* softmax_reduce_sum_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_sum_pack8.comp; sourceTree = "<group>"; };
+		CC5102D223FC41DD00AE802F /* deconvolutiondepthwise_group_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102D323FC41DD00AE802F /* eltwise_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eltwise_pack4.comp; sourceTree = "<group>"; };
+		CC5102D423FC41DD00AE802F /* innerproduct.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct.comp; sourceTree = "<group>"; };
+		CC5102D523FC41DD00AE802F /* convolution_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102D623FC41DD00AE802F /* crop_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102D723FC41DD00AE802F /* reorg.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reorg.comp; sourceTree = "<group>"; };
+		CC5102D823FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_reduce_sum4_fp16_to_fp32.comp; sourceTree = "<group>"; };
+		CC5102D923FC41DD00AE802F /* flatten_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten_pack8.comp; sourceTree = "<group>"; };
+		CC5102DA23FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_gemm.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack4_3x3s1d1_winograd23_gemm.comp; sourceTree = "<group>"; };
+		CC5102DB23FC41DD00AE802F /* clip.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clip.comp; sourceTree = "<group>"; };
+		CC5102DC23FC41DD00AE802F /* convolutiondepthwise_group_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolutiondepthwise_group_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102DD23FC41DD00AE802F /* clip_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clip_pack8.comp; sourceTree = "<group>"; };
+		CC5102DE23FC41DD00AE802F /* instancenorm_coeffs_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_coeffs_pack8.comp; sourceTree = "<group>"; };
+		CC5102DF23FC41DD00AE802F /* slice_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slice_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102E023FC41DD00AE802F /* reshape_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack8.comp; sourceTree = "<group>"; };
+		CC5102E123FC41DD00AE802F /* lrn_norm_across_channel_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lrn_norm_across_channel_pack4.comp; sourceTree = "<group>"; };
+		CC5102E223FC41DD00AE802F /* instancenorm_coeffs.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_coeffs.comp; sourceTree = "<group>"; };
+		CC5102E323FC41DD00AE802F /* softmax_reduce_sum_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_sum_pack4.comp; sourceTree = "<group>"; };
+		CC5102E423FC41DD00AE802F /* crop_pack8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack8to4.comp; sourceTree = "<group>"; };
+		CC5102E523FC41DD00AE802F /* binaryop_broadcast_b1_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binaryop_broadcast_b1_pack4.comp; sourceTree = "<group>"; };
+		CC5102E623FC41DD00AE802F /* eltwise_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eltwise_pack8.comp; sourceTree = "<group>"; };
+		CC5102E723FC41DD00AE802F /* deconvolutiondepthwise_group_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise_group_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102E823FC41DD00AE802F /* crop_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crop_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102E923FC41DD00AE802F /* convolution_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = convolution_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102EA23FC41DD00AE802F /* dropout_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dropout_pack4.comp; sourceTree = "<group>"; };
+		CC5102EB23FC41DD00AE802F /* scale_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scale_pack8.comp; sourceTree = "<group>"; };
+		CC5102EC23FC41DD00AE802F /* batchnorm_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = batchnorm_pack4.comp; sourceTree = "<group>"; };
+		CC5102ED23FC41DD00AE802F /* flatten_pack1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten_pack1to8.comp; sourceTree = "<group>"; };
+		CC5102EE23FC41DD00AE802F /* cast_fp32_to_fp16_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp32_to_fp16_pack4.comp; sourceTree = "<group>"; };
+		CC5102EF23FC41DD00AE802F /* deconvolution_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolution_pack4to8.comp; sourceTree = "<group>"; };
+		CC5102F023FC41DD00AE802F /* deconvolutiondepthwise.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deconvolutiondepthwise.comp; sourceTree = "<group>"; };
+		CC5102F123FC41DD00AE802F /* packing_1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_1to4.comp; sourceTree = "<group>"; };
+		CC5102F223FC41DD00AE802F /* softmax_reduce_max_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_max_pack8.comp; sourceTree = "<group>"; };
+		CC5102F323FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_reduce_sum4_fp16_to_fp32.comp; sourceTree = "<group>"; };
+		CC5102F423FC41DD00AE802F /* reshape_pack4to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reshape_pack4to8.comp; sourceTree = "<group>"; };
+		CC5102F523FC41DD00AE802F /* scale.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scale.comp; sourceTree = "<group>"; };
+		CC5102F623FC41DD00AE802F /* scale_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scale_pack4.comp; sourceTree = "<group>"; };
+		CC5102F723FC41DD00AE802F /* dropout_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dropout_pack8.comp; sourceTree = "<group>"; };
+		CC5102F823FC41DD00AE802F /* batchnorm_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = batchnorm_pack8.comp; sourceTree = "<group>"; };
+		CC5102F923FC41DD00AE802F /* cast_fp32_to_fp16_pack8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cast_fp32_to_fp16_pack8.comp; sourceTree = "<group>"; };
+		CC5102FA23FC41DD00AE802F /* flatten_pack1to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flatten_pack1to4.comp; sourceTree = "<group>"; };
+		CC5102FB23FC41DD00AE802F /* dropout.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dropout.comp; sourceTree = "<group>"; };
+		CC5102FC23FC41DD00AE802F /* sigmoid.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sigmoid.comp; sourceTree = "<group>"; };
+		CC5102FD23FC41DD00AE802F /* normalize_coeffs.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = normalize_coeffs.comp; sourceTree = "<group>"; };
+		CC5102FE23FC41DD00AE802F /* innerproduct_pack8to1.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = innerproduct_pack8to1.comp; sourceTree = "<group>"; };
+		CC5102FF23FC41DD00AE802F /* packing_1to8.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_1to8.comp; sourceTree = "<group>"; };
+		CC51030023FC41DD00AE802F /* softmax_reduce_max_pack4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_max_pack4.comp; sourceTree = "<group>"; };
+		CC51030123FC41DD00AE802F /* instancenorm_sub_mean_square.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instancenorm_sub_mean_square.comp; sourceTree = "<group>"; };
+		CC51030223FC41DD00AE802F /* softmax_reduce_max.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = softmax_reduce_max.comp; sourceTree = "<group>"; };
+		CC51030323FC41DD00AE802F /* packing_8to4.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = packing_8to4.comp; sourceTree = "<group>"; };
+		CC51030423FC41DD00AE802F /* eltwise.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eltwise.comp; sourceTree = "<group>"; };
+		CC51030523FC41DD00AE802F /* pooling_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pooling_vulkan.h; sourceTree = "<group>"; };
+		CC51030623FC41DD00AE802F /* hardswish_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardswish_vulkan.cpp; sourceTree = "<group>"; };
+		CC51030723FC41DD00AE802F /* instancenorm_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = instancenorm_vulkan.cpp; sourceTree = "<group>"; };
+		CC51030823FC41DD00AE802F /* cast_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cast_vulkan.cpp; sourceTree = "<group>"; };
+		CC51030923FC41DD00AE802F /* crop_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crop_vulkan.h; sourceTree = "<group>"; };
+		CC51030A23FC41DD00AE802F /* instancenorm_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instancenorm_vulkan.h; sourceTree = "<group>"; };
+		CC51030B23FC41DD00AE802F /* absval_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = absval_vulkan.cpp; sourceTree = "<group>"; };
+		CC51030C23FC41DD00AE802F /* normalize_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = normalize_vulkan.h; sourceTree = "<group>"; };
+		CC51030D23FC41DD00AE802F /* deconvolutiondepthwise_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deconvolutiondepthwise_vulkan.h; sourceTree = "<group>"; };
+		CC51030E23FC41DD00AE802F /* convolutiondepthwise_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convolutiondepthwise_vulkan.h; sourceTree = "<group>"; };
+		CC51030F23FC41DD00AE802F /* concat_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = concat_vulkan.h; sourceTree = "<group>"; };
+		CC51031023FC41DD00AE802F /* packing_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = packing_vulkan.cpp; sourceTree = "<group>"; };
+		CC51031123FC41DD00AE802F /* normalize_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = normalize_vulkan.cpp; sourceTree = "<group>"; };
+		CC51031223FC41DD00AE802F /* hardsigmoid_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hardsigmoid_vulkan.h; sourceTree = "<group>"; };
+		CC51031323FC41DD00AE802F /* deconvolutiondepthwise_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = deconvolutiondepthwise_vulkan.cpp; sourceTree = "<group>"; };
+		CC51031423FC41DD00AE802F /* softmax_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = softmax_vulkan.h; sourceTree = "<group>"; };
+		CC51031523FC41DD00AE802F /* prelu_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prelu_vulkan.h; sourceTree = "<group>"; };
+		CC51031623FC41DD00AE802F /* clip_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clip_vulkan.h; sourceTree = "<group>"; };
+		CC51031723FC41DD00AE802F /* batchnorm_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = batchnorm_vulkan.h; sourceTree = "<group>"; };
+		CC51031823FC41DD00AE802F /* unaryop_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unaryop_vulkan.cpp; sourceTree = "<group>"; };
+		CC51031923FC41DD00AE802F /* pooling_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pooling_vulkan.cpp; sourceTree = "<group>"; };
+		CC51031A23FC41DD00AE802F /* deconvolution_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deconvolution_vulkan.h; sourceTree = "<group>"; };
+		CC51031B23FC41DD00AE802F /* priorbox_vulkan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = priorbox_vulkan.h; sourceTree = "<group>"; };
+		CC51031C23FC41DD00AE802F /* shufflechannel_vulkan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shufflechannel_vulkan.cpp; sourceTree = "<group>"; };
+		CC51043823FC427600AE802F /* waifu2x_preproc.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = waifu2x_preproc.comp; sourceTree = "<group>"; };
+		CC51043923FC427600AE802F /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
+		CC51043B23FC427600AE802F /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		CC51043D23FC427600AE802F /* filesystem_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filesystem_utils.h; sourceTree = "<group>"; };
+		CC51043E23FC427600AE802F /* waifu2x_postproc.comp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = waifu2x_postproc.comp; sourceTree = "<group>"; };
+		CC51043F23FC427600AE802F /* waifu2x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waifu2x.h; sourceTree = "<group>"; };
+		CC51044023FC427600AE802F /* waifu2x.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = waifu2x.cpp; sourceTree = "<group>"; };
+		CC51049923FC439C00AE802F /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
+		CCA6DCA623FD0B4D0097C7B1 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../../../usr/local/Cellar/libomp/9.0.0/lib/libomp.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,7 +709,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F468A52271EAAA001098D8 /* libomp.a in Frameworks */,
+				CCA6DCA723FD0B4D0097C7B1 /* libomp.a in Frameworks */,
 				4006992F2270CA5300B79110 /* vulkan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,8 +737,8 @@
 		400697EF2270C19400B79110 /* waifu2x */ = {
 			isa = PBXGroup;
 			children = (
-				400699792270D21A00B79110 /* waifu2x.h */,
-				4006997A2270D21A00B79110 /* waifu2x.mm */,
+				400699792270D21A00B79110 /* waifu2xmac.h */,
+				4006997A2270D21A00B79110 /* waifu2xmac.mm */,
 				40F888242270F66E00261851 /* DragDropImageView.h */,
 				40F888252270F66E00261851 /* DragDropImageView.m */,
 				400697F02270C19400B79110 /* AppDelegate.h */,
@@ -432,13 +770,6 @@
 		4006980A2270C39500B79110 /* ncnn */ = {
 			isa = PBXGroup;
 			children = (
-				400698572270C98900B79110 /* layer */,
-				4006983D2270C7E100B79110 /* layer_declaration.h */,
-				400698412270C7E200B79110 /* layer_registry.h */,
-				4006983C2270C7E100B79110 /* layer_shader_registry.h */,
-				4006983E2270C7E200B79110 /* layer_shader_spv_data.h */,
-				400698402270C7E200B79110 /* layer_type_enum.h */,
-				4006983F2270C7E200B79110 /* platform.h */,
 				400698192270C6CE00B79110 /* allocator.cpp */,
 				400698272270C6CF00B79110 /* allocator.h */,
 				400698282270C6CF00B79110 /* benchmark.cpp */,
@@ -449,12 +780,21 @@
 				4006981F2270C6CE00B79110 /* command.h */,
 				400698162270C6CE00B79110 /* cpu.cpp */,
 				400698212270C6CE00B79110 /* cpu.h */,
+				CC5101C823FC401600AE802F /* datareader.cpp */,
+				CC5101C923FC401600AE802F /* datareader.h */,
 				400698242270C6CF00B79110 /* gpu.cpp */,
 				400698132270C6CE00B79110 /* gpu.h */,
+				400698572270C98900B79110 /* layer */,
+				4006983D2270C7E100B79110 /* layer_declaration.h */,
+				400698412270C7E200B79110 /* layer_registry.h */,
+				4006983C2270C7E100B79110 /* layer_shader_registry.h */,
+				4006983E2270C7E200B79110 /* layer_shader_spv_data.h */,
+				400698402270C7E200B79110 /* layer_type_enum.h */,
 				4006981D2270C6CE00B79110 /* layer_type.h */,
 				400698142270C6CE00B79110 /* layer.cpp */,
 				400698222270C6CF00B79110 /* layer.h */,
 				4006980D2270C6CE00B79110 /* mat_pixel_resize.cpp */,
+				CC5101CB23FC40A600AE802F /* mat_pixel_rotate.cpp */,
 				400698102270C6CE00B79110 /* mat_pixel.cpp */,
 				400698172270C6CE00B79110 /* mat.cpp */,
 				4006980C2270C6CE00B79110 /* mat.h */,
@@ -464,10 +804,13 @@
 				400698112270C6CE00B79110 /* net.h */,
 				400698292270C6CF00B79110 /* opencv.cpp */,
 				4006981C2270C6CE00B79110 /* opencv.h */,
+				CC5101CE23FC40BB00AE802F /* option.cpp */,
+				CC5101CD23FC40BB00AE802F /* option.h */,
 				400698182270C6CE00B79110 /* paramdict.cpp */,
 				4006980E2270C6CE00B79110 /* paramdict.h */,
 				400698202270C6CE00B79110 /* pipeline.cpp */,
 				400698262270C6CF00B79110 /* pipeline.h */,
+				4006983F2270C7E200B79110 /* platform.h */,
 				4006981E2270C6CE00B79110 /* platform.h.in */,
 			);
 			path = ncnn;
@@ -476,7 +819,6 @@
 		400698572270C98900B79110 /* layer */ = {
 			isa = PBXGroup;
 			children = (
-				4006991B2270C9BE00B79110 /* x86 */,
 				4006986C2270C9A700B79110 /* absval.cpp */,
 				4006988E2270C9A800B79110 /* absval.h */,
 				400698642270C9A600B79110 /* argmax.cpp */,
@@ -523,6 +865,10 @@
 				4006986A2270C9A600B79110 /* expanddims.h */,
 				400698762270C9A700B79110 /* flatten.cpp */,
 				4006985C2270C9A600B79110 /* flatten.h */,
+				CC5101D323FC415100AE802F /* hardsigmoid.cpp */,
+				CC5101D023FC415100AE802F /* hardsigmoid.h */,
+				CC5101D223FC415100AE802F /* hardswish.cpp */,
+				CC5101D123FC415100AE802F /* hardswish.h */,
 				4006987C2270C9A700B79110 /* innerproduct.cpp */,
 				400698A52270C9A900B79110 /* innerproduct.h */,
 				4006986D2270C9A700B79110 /* input.cpp */,
@@ -541,6 +887,8 @@
 				400698712270C9A700B79110 /* memorydata.h */,
 				400698622270C9A600B79110 /* mvn.cpp */,
 				400698AF2270C9AA00B79110 /* mvn.h */,
+				CC5101D723FC416700AE802F /* noop.cpp */,
+				CC5101D623FC416700AE802F /* noop.h */,
 				400698A92270C9AA00B79110 /* normalize.cpp */,
 				4006989F2270C9A900B79110 /* normalize.h */,
 				400698942270C9A900B79110 /* packing.cpp */,
@@ -581,6 +929,8 @@
 				400698B52270C9AA00B79110 /* roipooling.h */,
 				400698892270C9A800B79110 /* scale.cpp */,
 				400698A42270C9A900B79110 /* scale.h */,
+				CC5101DA23FC418B00AE802F /* selu.cpp */,
+				CC5101D923FC418B00AE802F /* selu.h */,
 				400699032270C9B800B79110 /* shufflechannel.cpp */,
 				400698FE2270C9B700B79110 /* shufflechannel.h */,
 				400699092270C9B800B79110 /* sigmoid.cpp */,
@@ -603,6 +953,8 @@
 				400699012270C9B700B79110 /* tile.h */,
 				400698F62270C9B700B79110 /* unaryop.cpp */,
 				400699042270C9B800B79110 /* unaryop.h */,
+				CC5101DD23FC41DD00AE802F /* vulkan */,
+				4006991B2270C9BE00B79110 /* x86 */,
 				400699072270C9B800B79110 /* yolodetectionoutput.cpp */,
 				400699082270C9B800B79110 /* yolodetectionoutput.h */,
 				4006990A2270C9B800B79110 /* yolov3detectionoutput.cpp */,
@@ -619,9 +971,8 @@
 				400699292270C9CD00B79110 /* convolution_1x1.h */,
 				400699242270C9CD00B79110 /* convolution_3x3_int8.h */,
 				4006991C2270C9CC00B79110 /* convolution_3x3.h */,
-				4006992B2270C9CD00B79110 /* convolution_5x5_int8.h */,
 				400699212270C9CC00B79110 /* convolution_5x5.h */,
-				4006991F2270C9CC00B79110 /* convolution_7x7_int8.h */,
+				CC5101DC23FC41C700AE802F /* convolution_7x7.h */,
 				400699272270C9CD00B79110 /* convolution_sgemm_int8.h */,
 				4006991D2270C9CC00B79110 /* convolution_x86.cpp */,
 				400699282270C9CD00B79110 /* convolution_x86.h */,
@@ -637,52 +988,366 @@
 		400699312270CB1D00B79110 /* waifu2x-ncnn-vulkan */ = {
 			isa = PBXGroup;
 			children = (
-				4006993F2270D18600B79110 /* models */,
-				400699362270D0FD00B79110 /* stb_image_write.h */,
-				400699372270D0FD00B79110 /* stb_image.h */,
-				400699382270D0FD00B79110 /* waifu2x_postproc_fp16s.spv.hex.h */,
-				4006993B2270D0FE00B79110 /* waifu2x_postproc_int8s.spv.hex.h */,
-				400699342270D0FD00B79110 /* waifu2x_postproc.comp */,
-				400699352270D0FD00B79110 /* waifu2x_postproc.spv.hex.h */,
-				4006993C2270D0FE00B79110 /* waifu2x_preproc_fp16s.spv.hex.h */,
-				4006993A2270D0FE00B79110 /* waifu2x_preproc_int8s.spv.hex.h */,
-				400699392270D0FE00B79110 /* waifu2x_preproc.comp */,
-				400699332270D0FD00B79110 /* waifu2x_preproc.spv.hex.h */,
+				CC51049923FC439C00AE802F /* models */,
+				CC51043623FC427600AE802F /* src */,
 			);
 			path = "waifu2x-ncnn-vulkan";
-			sourceTree = "<group>";
-		};
-		4006993F2270D18600B79110 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				400699512270D19100B79110 /* noise0_model.bin */,
-				400699492270D19100B79110 /* noise0_model.param */,
-				400699462270D19000B79110 /* noise0_scale2.0x_model.bin */,
-				400699412270D19000B79110 /* noise0_scale2.0x_model.param */,
-				400699502270D19100B79110 /* noise1_model.bin */,
-				4006994A2270D19100B79110 /* noise1_model.param */,
-				4006994B2270D19100B79110 /* noise1_scale2.0x_model.bin */,
-				400699482270D19100B79110 /* noise1_scale2.0x_model.param */,
-				4006994E2270D19100B79110 /* noise2_model.bin */,
-				4006994C2270D19100B79110 /* noise2_model.param */,
-				4006994D2270D19100B79110 /* noise2_scale2.0x_model.bin */,
-				400699472270D19000B79110 /* noise2_scale2.0x_model.param */,
-				4006994F2270D19100B79110 /* noise3_model.bin */,
-				400699402270D19000B79110 /* noise3_model.param */,
-				400699452270D19000B79110 /* noise3_scale2.0x_model.bin */,
-				400699422270D19000B79110 /* noise3_scale2.0x_model.param */,
-				400699432270D19000B79110 /* scale2.0x_model.bin */,
-				400699442270D19000B79110 /* scale2.0x_model.param */,
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		40F468A32271EAAA001098D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40F468A42271EAAA001098D8 /* libomp.a */,
+				CCA6DCA623FD0B4D0097C7B1 /* libomp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC5101DD23FC41DD00AE802F /* vulkan */ = {
+			isa = PBXGroup;
+			children = (
+				CC5101DE23FC41DD00AE802F /* packing_vulkan.h */,
+				CC5101DF23FC41DD00AE802F /* eltwise_vulkan.cpp */,
+				CC5101E023FC41DD00AE802F /* absval_vulkan.h */,
+				CC5101E123FC41DD00AE802F /* reshape_vulkan.cpp */,
+				CC5101E223FC41DD00AE802F /* convolution_vulkan.h */,
+				CC5101E323FC41DD00AE802F /* clip_vulkan.cpp */,
+				CC5101E423FC41DD00AE802F /* flatten_vulkan.cpp */,
+				CC5101E523FC41DD00AE802F /* lrn_vulkan.cpp */,
+				CC5101E623FC41DD00AE802F /* eltwise_vulkan.h */,
+				CC5101E723FC41DD00AE802F /* scale_vulkan.cpp */,
+				CC5101E823FC41DD00AE802F /* binaryop_vulkan.h */,
+				CC5101E923FC41DD00AE802F /* reshape_vulkan.h */,
+				CC5101EA23FC41DD00AE802F /* batchnorm_vulkan.cpp */,
+				CC5101EB23FC41DD00AE802F /* dropout_vulkan.cpp */,
+				CC5101EC23FC41DD00AE802F /* flatten_vulkan.h */,
+				CC5101ED23FC41DD00AE802F /* prelu_vulkan.cpp */,
+				CC5101EE23FC41DD00AE802F /* padding_vulkan.h */,
+				CC5101EF23FC41DD00AE802F /* slice_vulkan.h */,
+				CC5101F023FC41DD00AE802F /* convolution_vulkan.cpp */,
+				CC5101F123FC41DD00AE802F /* unaryop_vulkan.h */,
+				CC5101F223FC41DD00AE802F /* hardswish_vulkan.h */,
+				CC5101F323FC41DD00AE802F /* padding_vulkan.cpp */,
+				CC5101F423FC41DD00AE802F /* crop_vulkan.cpp */,
+				CC5101F523FC41DD00AE802F /* concat_vulkan.cpp */,
+				CC5101F623FC41DD00AE802F /* slice_vulkan.cpp */,
+				CC5101F723FC41DD00AE802F /* softmax_vulkan.cpp */,
+				CC5101F823FC41DD00AE802F /* tanh_vulkan.h */,
+				CC5101F923FC41DD00AE802F /* sigmoid_vulkan.h */,
+				CC5101FA23FC41DD00AE802F /* deconvolution_vulkan.cpp */,
+				CC5101FB23FC41DD00AE802F /* innerproduct_vulkan.h */,
+				CC5101FC23FC41DD00AE802F /* tanh_vulkan.cpp */,
+				CC5101FD23FC41DD00AE802F /* shufflechannel_vulkan.h */,
+				CC5101FE23FC41DD00AE802F /* reorg_vulkan.cpp */,
+				CC5101FF23FC41DD00AE802F /* permute_vulkan.h */,
+				CC51020023FC41DD00AE802F /* lrn_vulkan.h */,
+				CC51020123FC41DD00AE802F /* permute_vulkan.cpp */,
+				CC51020223FC41DD00AE802F /* priorbox_vulkan.cpp */,
+				CC51020323FC41DD00AE802F /* cast_vulkan.h */,
+				CC51020423FC41DD00AE802F /* reorg_vulkan.h */,
+				CC51020523FC41DD00AE802F /* interp_vulkan.h */,
+				CC51020623FC41DD00AE802F /* innerproduct_vulkan.cpp */,
+				CC51020723FC41DD00AE802F /* sigmoid_vulkan.cpp */,
+				CC51020823FC41DD00AE802F /* relu_vulkan.h */,
+				CC51020923FC41DD00AE802F /* convolutiondepthwise_vulkan.cpp */,
+				CC51020A23FC41DD00AE802F /* hardsigmoid_vulkan.cpp */,
+				CC51020B23FC41DD00AE802F /* interp_vulkan.cpp */,
+				CC51020C23FC41DD00AE802F /* scale_vulkan.h */,
+				CC51020D23FC41DD00AE802F /* dropout_vulkan.h */,
+				CC51020E23FC41DD00AE802F /* binaryop_vulkan.cpp */,
+				CC51020F23FC41DD00AE802F /* relu_vulkan.cpp */,
+				CC51021023FC41DD00AE802F /* shader */,
+				CC51030523FC41DD00AE802F /* pooling_vulkan.h */,
+				CC51030623FC41DD00AE802F /* hardswish_vulkan.cpp */,
+				CC51030723FC41DD00AE802F /* instancenorm_vulkan.cpp */,
+				CC51030823FC41DD00AE802F /* cast_vulkan.cpp */,
+				CC51030923FC41DD00AE802F /* crop_vulkan.h */,
+				CC51030A23FC41DD00AE802F /* instancenorm_vulkan.h */,
+				CC51030B23FC41DD00AE802F /* absval_vulkan.cpp */,
+				CC51030C23FC41DD00AE802F /* normalize_vulkan.h */,
+				CC51030D23FC41DD00AE802F /* deconvolutiondepthwise_vulkan.h */,
+				CC51030E23FC41DD00AE802F /* convolutiondepthwise_vulkan.h */,
+				CC51030F23FC41DD00AE802F /* concat_vulkan.h */,
+				CC51031023FC41DD00AE802F /* packing_vulkan.cpp */,
+				CC51031123FC41DD00AE802F /* normalize_vulkan.cpp */,
+				CC51031223FC41DD00AE802F /* hardsigmoid_vulkan.h */,
+				CC51031323FC41DD00AE802F /* deconvolutiondepthwise_vulkan.cpp */,
+				CC51031423FC41DD00AE802F /* softmax_vulkan.h */,
+				CC51031523FC41DD00AE802F /* prelu_vulkan.h */,
+				CC51031623FC41DD00AE802F /* clip_vulkan.h */,
+				CC51031723FC41DD00AE802F /* batchnorm_vulkan.h */,
+				CC51031823FC41DD00AE802F /* unaryop_vulkan.cpp */,
+				CC51031923FC41DD00AE802F /* pooling_vulkan.cpp */,
+				CC51031A23FC41DD00AE802F /* deconvolution_vulkan.h */,
+				CC51031B23FC41DD00AE802F /* priorbox_vulkan.h */,
+				CC51031C23FC41DD00AE802F /* shufflechannel_vulkan.cpp */,
+			);
+			name = vulkan;
+			path = waifu2x/ncnn/src/layer/vulkan;
+			sourceTree = SOURCE_ROOT;
+		};
+		CC51021023FC41DD00AE802F /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				CC51021123FC41DD00AE802F /* packing_4to8.comp */,
+				CC51021223FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_transform_input.comp */,
+				CC51021323FC41DD00AE802F /* softmax_exp_sub_max_pack4.comp */,
+				CC51021423FC41DD00AE802F /* lrn_square_pad_across_channel_pack4.comp */,
+				CC51021523FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32_pack8.comp */,
+				CC51021623FC41DD00AE802F /* cast_fp16_to_fp32_pack4.comp */,
+				CC51021723FC41DD00AE802F /* binaryop_broadcast.comp */,
+				CC51021823FC41DD00AE802F /* interp.comp */,
+				CC51021923FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32_pack8.comp */,
+				CC51021A23FC41DD00AE802F /* reshape_pack1to4.comp */,
+				CC51021B23FC41DD00AE802F /* absval_pack4.comp */,
+				CC51021C23FC41DD00AE802F /* hardsigmoid.comp */,
+				CC51021D23FC41DD00AE802F /* hardswish_pack8.comp */,
+				CC51021E23FC41DD00AE802F /* deconvolution_pack1to4.comp */,
+				CC51021F23FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_gemm.comp */,
+				CC51022023FC41DD00AE802F /* deconvolution.comp */,
+				CC51022123FC41DD00AE802F /* reshape_pack8to4.comp */,
+				CC51022223FC41DD00AE802F /* lrn_square_pad_across_channel_pack8.comp */,
+				CC51022323FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32_pack4.comp */,
+				CC51022423FC41DD00AE802F /* softmax_exp_sub_max_pack8.comp */,
+				CC51022523FC41DD00AE802F /* normalize_norm.comp */,
+				CC51022623FC41DD00AE802F /* reshape_pack1to8.comp */,
+				CC51022723FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32_pack4.comp */,
+				CC51022823FC41DD00AE802F /* softmax_reduce_sum.comp */,
+				CC51022923FC41DD00AE802F /* cast_fp16_to_fp32_pack8.comp */,
+				CC51022A23FC41DD00AE802F /* lrn_norm.comp */,
+				CC51022B23FC41DD00AE802F /* pooling_global.comp */,
+				CC51022C23FC41DD00AE802F /* deconvolution_pack8to4.comp */,
+				CC51022D23FC41DD00AE802F /* absval_pack8.comp */,
+				CC51022E23FC41DD00AE802F /* innerproduct_pack4to1.comp */,
+				CC51022F23FC41DD00AE802F /* hardswish_pack4.comp */,
+				CC51023023FC41DD00AE802F /* flatten_pack4to8.comp */,
+				CC51023123FC41DD00AE802F /* priorbox.comp */,
+				CC51023223FC41DD00AE802F /* deconvolution_pack1to8.comp */,
+				CC51023323FC41DD00AE802F /* shufflechannel_pack4.comp */,
+				CC51023423FC41DD00AE802F /* deconvolutiondepthwise_pack8.comp */,
+				CC51023523FC41DD00AE802F /* deconvolutiondepthwise_group.comp */,
+				CC51023623FC41DD00AE802F /* lrn_square_pad.comp */,
+				CC51023723FC41DD00AE802F /* binaryop_broadcast_pack4.comp */,
+				CC51023823FC41DD00AE802F /* instancenorm_sub_mean_square_pack8.comp */,
+				CC51023923FC41DD00AE802F /* convolutiondepthwise_group_pack4.comp */,
+				CC51023A23FC41DD00AE802F /* relu.comp */,
+				CC51023B23FC41DD00AE802F /* crop_pack4to8.comp */,
+				CC51023C23FC41DD00AE802F /* pooling_pack4.comp */,
+				CC51023D23FC41DD00AE802F /* concat_pack8to4.comp */,
+				CC51023E23FC41DD00AE802F /* permute_pack4to1.comp */,
+				CC51023F23FC41DD00AE802F /* unaryop_pack4.comp */,
+				CC51024023FC41DD00AE802F /* instancenorm_norm_pack8.comp */,
+				CC51024123FC41DD00AE802F /* shufflechannel_pack8.comp */,
+				CC51024223FC41DD00AE802F /* deconvolutiondepthwise_pack4.comp */,
+				CC51024323FC41DD00AE802F /* convolutiondepthwise.comp */,
+				CC51024423FC41DD00AE802F /* deconvolutiondepthwise_group_pack4to8.comp */,
+				CC51024523FC41DD00AE802F /* binaryop_broadcast_pack8.comp */,
+				CC51024623FC41DD00AE802F /* instancenorm_sub_mean_square_pack4.comp */,
+				CC51024723FC41DD00AE802F /* convolution_pack4to8.comp */,
+				CC51024823FC41DD00AE802F /* cast_fp32_to_fp16.comp */,
+				CC51024923FC41DD00AE802F /* convolutiondepthwise_group_pack8.comp */,
+				CC51024A23FC41DD00AE802F /* interp_bicubic_coeffs.comp */,
+				CC51024B23FC41DD00AE802F /* binaryop.comp */,
+				CC51024C23FC41DD00AE802F /* pooling_pack8.comp */,
+				CC51024D23FC41DD00AE802F /* unaryop_pack8.comp */,
+				CC51024E23FC41DD00AE802F /* softmax_exp_sub_max.comp */,
+				CC51024F23FC41DD00AE802F /* convolution_pack4_1x1s1d1.comp */,
+				CC51025023FC41DD00AE802F /* convolutiondepthwise_group_pack4to8.comp */,
+				CC51025123FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_transform_input.comp */,
+				CC51025223FC41DD00AE802F /* instancenorm_norm_pack4.comp */,
+				CC51025323FC41DD00AE802F /* lrn_square_pad_within_channel_pack4.comp */,
+				CC51025423FC41DD00AE802F /* pooling_global_pack4.comp */,
+				CC51025523FC41DD00AE802F /* permute.comp */,
+				CC51025623FC41DD00AE802F /* permute_pack4.comp */,
+				CC51025723FC41DD00AE802F /* innerproduct_pack1to4.comp */,
+				CC51025823FC41DD00AE802F /* reorg_pack8.comp */,
+				CC51025923FC41DD00AE802F /* flatten.comp */,
+				CC51025A23FC41DD00AE802F /* convolution.comp */,
+				CC51025B23FC41DD00AE802F /* unaryop.comp */,
+				CC51025C23FC41DD00AE802F /* tanh_pack8.comp */,
+				CC51025D23FC41DD00AE802F /* prelu.comp */,
+				CC51025E23FC41DD00AE802F /* lrn_square_pad_within_channel_pack8.comp */,
+				CC51025F23FC41DD00AE802F /* reorg_pack4.comp */,
+				CC51026023FC41DD00AE802F /* innerproduct_pack1to8.comp */,
+				CC51026123FC41DD00AE802F /* pooling_global_pack8.comp */,
+				CC51026223FC41DD00AE802F /* permute_pack8.comp */,
+				CC51026323FC41DD00AE802F /* deconvolution_pack4to1.comp */,
+				CC51026423FC41DD00AE802F /* innerproduct_pack8to4.comp */,
+				CC51026523FC41DD00AE802F /* reshape_pack4to1.comp */,
+				CC51026623FC41DD00AE802F /* packing_8to1.comp */,
+				CC51026723FC41DD00AE802F /* normalize_reduce_sum4_fp32.comp */,
+				CC51026823FC41DD00AE802F /* tanh_pack4.comp */,
+				CC51026923FC41DD00AE802F /* relu_pack4.comp */,
+				CC51026A23FC41DD00AE802F /* convolutiondepthwise_group_pack8to1.comp */,
+				CC51026B23FC41DD00AE802F /* binaryop_pack4.comp */,
+				CC51026C23FC41DD00AE802F /* instancenorm_norm.comp */,
+				CC51026D23FC41DD00AE802F /* permute_pack1to8.comp */,
+				CC51026E23FC41DD00AE802F /* reorg_pack1to4.comp */,
+				CC51026F23FC41DD00AE802F /* sigmoid_pack8.comp */,
+				CC51027023FC41DD00AE802F /* concat_pack4to1.comp */,
+				CC51027123FC41DD00AE802F /* instancenorm_reduce_mean_pack4.comp */,
+				CC51027223FC41DD00AE802F /* permute_pack8to4.comp */,
+				CC51027323FC41DD00AE802F /* softmax_div_sum_pack4.comp */,
+				CC51027423FC41DD00AE802F /* innerproduct_pack8.comp */,
+				CC51027523FC41DD00AE802F /* interp_pack4.comp */,
+				CC51027623FC41DD00AE802F /* deconvolutiondepthwise_group_pack8to1.comp */,
+				CC51027723FC41DD00AE802F /* convolution_pack8to1.comp */,
+				CC51027823FC41DD00AE802F /* hardsigmoid_pack4.comp */,
+				CC51027923FC41DD00AE802F /* convolution_pack8_1x1s1d1.comp */,
+				CC51027A23FC41DD00AE802F /* convolutiondepthwise_pack4.comp */,
+				CC51027B23FC41DD00AE802F /* relu_pack8.comp */,
+				CC51027C23FC41DD00AE802F /* reorg_pack1to8.comp */,
+				CC51027D23FC41DD00AE802F /* binaryop_pack8.comp */,
+				CC51027E23FC41DD00AE802F /* permute_pack1to4.comp */,
+				CC51027F23FC41DD00AE802F /* sigmoid_pack4.comp */,
+				CC51028023FC41DD00AE802F /* instancenorm_reduce_mean_pack8.comp */,
+				CC51028123FC41DD00AE802F /* softmax_div_sum_pack8.comp */,
+				CC51028223FC41DD00AE802F /* interp_pack8.comp */,
+				CC51028323FC41DD00AE802F /* innerproduct_pack4.comp */,
+				CC51028423FC41DD00AE802F /* hardsigmoid_pack8.comp */,
+				CC51028523FC41DD00AE802F /* tanh.comp */,
+				CC51028623FC41DD00AE802F /* crop_pack8to1.comp */,
+				CC51028723FC41DD00AE802F /* interp_bicubic.comp */,
+				CC51028823FC41DD00AE802F /* pooling.comp */,
+				CC51028923FC41DD00AE802F /* convolutiondepthwise_pack8.comp */,
+				CC51028A23FC41DD00AE802F /* convolutiondepthwise_group.comp */,
+				CC51028B23FC41DD00AE802F /* convolution_pack4.comp */,
+				CC51028C23FC41DD00AE802F /* deconvolutiondepthwise_group_pack8.comp */,
+				CC51028D23FC41DD00AE802F /* normalize_reduce_sum4_fp32_pack4.comp */,
+				CC51028E23FC41DD00AE802F /* deconvolutiondepthwise_group_pack4to1.comp */,
+				CC51028F23FC41DD00AE802F /* convolution_pack4to1.comp */,
+				CC51029023FC41DD00AE802F /* prelu_pack8.comp */,
+				CC51029123FC41DD00AE802F /* lrn_norm_within_channel_pack8.comp */,
+				CC51029223FC41DD00AE802F /* concat_pack8to1.comp */,
+				CC51029323FC41DD00AE802F /* instancenorm_reduce_sum4_fp32_pack8.comp */,
+				CC51029423FC41DD00AE802F /* slice.comp */,
+				CC51029523FC41DD00AE802F /* convolution_pack8_3x3s1d1_winograd23_transform_output.comp */,
+				CC51029623FC41DD00AE802F /* interp_bicubic_pack4.comp */,
+				CC51029723FC41DD00AE802F /* reorg_pack4to8.comp */,
+				CC51029823FC41DD00AE802F /* convolutiondepthwise_group_pack4to1.comp */,
+				CC51029923FC41DD00AE802F /* priorbox_mxnet.comp */,
+				CC51029A23FC41DD00AE802F /* padding.comp */,
+				CC51029B23FC41DD00AE802F /* convolution_pack8.comp */,
+				CC51029C23FC41DD00AE802F /* deconvolutiondepthwise_group_pack4.comp */,
+				CC51029D23FC41DD00AE802F /* instancenorm_reduce_mean.comp */,
+				CC51029E23FC41DD00AE802F /* normalize_reduce_sum4_fp32_pack8.comp */,
+				CC51029F23FC41DD00AE802F /* crop_pack4to1.comp */,
+				CC5102A023FC41DD00AE802F /* prelu_pack4.comp */,
+				CC5102A123FC41DD00AE802F /* lrn_norm_within_channel_pack4.comp */,
+				CC5102A223FC41DD00AE802F /* instancenorm_reduce_sum4_fp32_pack4.comp */,
+				CC5102A323FC41DD00AE802F /* interp_bicubic_pack8.comp */,
+				CC5102A423FC41DD00AE802F /* permute_pack4to8.comp */,
+				CC5102A523FC41DD00AE802F /* crop_pack8.comp */,
+				CC5102A623FC41DD00AE802F /* deconvolution_pack4.comp */,
+				CC5102A723FC41DD00AE802F /* padding_pack8.comp */,
+				CC5102A823FC41DD00AE802F /* normalize_coeffs_pack8.comp */,
+				CC5102A923FC41DD00AE802F /* crop.comp */,
+				CC5102AA23FC41DD00AE802F /* binaryop_broadcast_a1_pack4.comp */,
+				CC5102AB23FC41DD00AE802F /* batchnorm.comp */,
+				CC5102AC23FC41DD00AE802F /* cast_fp16_to_fp32.comp */,
+				CC5102AD23FC41DD00AE802F /* absval.comp */,
+				CC5102AE23FC41DD00AE802F /* normalize_norm_pack8.comp */,
+				CC5102AF23FC41DD00AE802F /* slice_pack4.comp */,
+				CC5102B023FC41DD00AE802F /* innerproduct_pack4to8.comp */,
+				CC5102B123FC41DD00AE802F /* concat_pack4.comp */,
+				CC5102B223FC41DD00AE802F /* instancenorm_reduce_sum4_fp32.comp */,
+				CC5102B323FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_transform_output.comp */,
+				CC5102B423FC41DD00AE802F /* softmax_div_sum.comp */,
+				CC5102B523FC41DD00AE802F /* crop_pack4.comp */,
+				CC5102B623FC41DD00AE802F /* packing_4to1.comp */,
+				CC5102B723FC41DD00AE802F /* reshape_pack8to1.comp */,
+				CC5102B823FC41DD00AE802F /* padding_pack4.comp */,
+				CC5102B923FC41DD00AE802F /* normalize_coeffs_pack4.comp */,
+				CC5102BA23FC41DD00AE802F /* deconvolution_pack8.comp */,
+				CC5102BB23FC41DD00AE802F /* binaryop_broadcast_a1_pack8.comp */,
+				CC5102BC23FC41DD00AE802F /* deconvolution_pack8to1.comp */,
+				CC5102BD23FC41DD00AE802F /* shufflechannel.comp */,
+				CC5102BE23FC41DD00AE802F /* slice_pack8.comp */,
+				CC5102BF23FC41DD00AE802F /* normalize_norm_pack4.comp */,
+				CC5102C023FC41DD00AE802F /* concat_pack8.comp */,
+				CC5102C123FC41DD00AE802F /* convolutiondepthwise_group_pack8to4.comp */,
+				CC5102C223FC41DD00AE802F /* flatten_pack4.comp */,
+				CC5102C323FC41DD00AE802F /* reshape.comp */,
+				CC5102C423FC41DD00AE802F /* convolution_1x1s1d1.comp */,
+				CC5102C523FC41DD00AE802F /* convolutiondepthwise_group_pack1to8.comp */,
+				CC5102C623FC41DD00AE802F /* hardswish.comp */,
+				CC5102C723FC41DD00AE802F /* concat.comp */,
+				CC5102C823FC41DD00AE802F /* instancenorm_coeffs_pack4.comp */,
+				CC5102C923FC41DD00AE802F /* clip_pack4.comp */,
+				CC5102CA23FC41DD00AE802F /* permute_pack8to1.comp */,
+				CC5102CB23FC41DD00AE802F /* slice_pack1to8.comp */,
+				CC5102CC23FC41DD00AE802F /* deconvolutiondepthwise_group_pack8to4.comp */,
+				CC5102CD23FC41DD00AE802F /* binaryop_broadcast_b1_pack8.comp */,
+				CC5102CE23FC41DD00AE802F /* convolution_pack8to4.comp */,
+				CC5102CF23FC41DD00AE802F /* lrn_norm_across_channel_pack8.comp */,
+				CC5102D023FC41DD00AE802F /* reshape_pack4.comp */,
+				CC5102D123FC41DD00AE802F /* softmax_reduce_sum_pack8.comp */,
+				CC5102D223FC41DD00AE802F /* deconvolutiondepthwise_group_pack1to8.comp */,
+				CC5102D323FC41DD00AE802F /* eltwise_pack4.comp */,
+				CC5102D423FC41DD00AE802F /* innerproduct.comp */,
+				CC5102D523FC41DD00AE802F /* convolution_pack1to8.comp */,
+				CC5102D623FC41DD00AE802F /* crop_pack1to4.comp */,
+				CC5102D723FC41DD00AE802F /* reorg.comp */,
+				CC5102D823FC41DD00AE802F /* normalize_reduce_sum4_fp16_to_fp32.comp */,
+				CC5102D923FC41DD00AE802F /* flatten_pack8.comp */,
+				CC5102DA23FC41DD00AE802F /* convolution_pack4_3x3s1d1_winograd23_gemm.comp */,
+				CC5102DB23FC41DD00AE802F /* clip.comp */,
+				CC5102DC23FC41DD00AE802F /* convolutiondepthwise_group_pack1to4.comp */,
+				CC5102DD23FC41DD00AE802F /* clip_pack8.comp */,
+				CC5102DE23FC41DD00AE802F /* instancenorm_coeffs_pack8.comp */,
+				CC5102DF23FC41DD00AE802F /* slice_pack1to4.comp */,
+				CC5102E023FC41DD00AE802F /* reshape_pack8.comp */,
+				CC5102E123FC41DD00AE802F /* lrn_norm_across_channel_pack4.comp */,
+				CC5102E223FC41DD00AE802F /* instancenorm_coeffs.comp */,
+				CC5102E323FC41DD00AE802F /* softmax_reduce_sum_pack4.comp */,
+				CC5102E423FC41DD00AE802F /* crop_pack8to4.comp */,
+				CC5102E523FC41DD00AE802F /* binaryop_broadcast_b1_pack4.comp */,
+				CC5102E623FC41DD00AE802F /* eltwise_pack8.comp */,
+				CC5102E723FC41DD00AE802F /* deconvolutiondepthwise_group_pack1to4.comp */,
+				CC5102E823FC41DD00AE802F /* crop_pack1to8.comp */,
+				CC5102E923FC41DD00AE802F /* convolution_pack1to4.comp */,
+				CC5102EA23FC41DD00AE802F /* dropout_pack4.comp */,
+				CC5102EB23FC41DD00AE802F /* scale_pack8.comp */,
+				CC5102EC23FC41DD00AE802F /* batchnorm_pack4.comp */,
+				CC5102ED23FC41DD00AE802F /* flatten_pack1to8.comp */,
+				CC5102EE23FC41DD00AE802F /* cast_fp32_to_fp16_pack4.comp */,
+				CC5102EF23FC41DD00AE802F /* deconvolution_pack4to8.comp */,
+				CC5102F023FC41DD00AE802F /* deconvolutiondepthwise.comp */,
+				CC5102F123FC41DD00AE802F /* packing_1to4.comp */,
+				CC5102F223FC41DD00AE802F /* softmax_reduce_max_pack8.comp */,
+				CC5102F323FC41DD00AE802F /* instancenorm_reduce_sum4_fp16_to_fp32.comp */,
+				CC5102F423FC41DD00AE802F /* reshape_pack4to8.comp */,
+				CC5102F523FC41DD00AE802F /* scale.comp */,
+				CC5102F623FC41DD00AE802F /* scale_pack4.comp */,
+				CC5102F723FC41DD00AE802F /* dropout_pack8.comp */,
+				CC5102F823FC41DD00AE802F /* batchnorm_pack8.comp */,
+				CC5102F923FC41DD00AE802F /* cast_fp32_to_fp16_pack8.comp */,
+				CC5102FA23FC41DD00AE802F /* flatten_pack1to4.comp */,
+				CC5102FB23FC41DD00AE802F /* dropout.comp */,
+				CC5102FC23FC41DD00AE802F /* sigmoid.comp */,
+				CC5102FD23FC41DD00AE802F /* normalize_coeffs.comp */,
+				CC5102FE23FC41DD00AE802F /* innerproduct_pack8to1.comp */,
+				CC5102FF23FC41DD00AE802F /* packing_1to8.comp */,
+				CC51030023FC41DD00AE802F /* softmax_reduce_max_pack4.comp */,
+				CC51030123FC41DD00AE802F /* instancenorm_sub_mean_square.comp */,
+				CC51030223FC41DD00AE802F /* softmax_reduce_max.comp */,
+				CC51030323FC41DD00AE802F /* packing_8to4.comp */,
+				CC51030423FC41DD00AE802F /* eltwise.comp */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		CC51043623FC427600AE802F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CC51043823FC427600AE802F /* waifu2x_preproc.comp */,
+				CC51043923FC427600AE802F /* stb_image_write.h */,
+				CC51043B23FC427600AE802F /* stb_image.h */,
+				CC51043D23FC427600AE802F /* filesystem_utils.h */,
+				CC51043E23FC427600AE802F /* waifu2x_postproc.comp */,
+				CC51043F23FC427600AE802F /* waifu2x.h */,
+				CC51044023FC427600AE802F /* waifu2x.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -751,25 +1416,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				402AD32D22711C9800F0A985 /* MoltenVK_icd.json in Resources */,
-				400699652270D1BB00B79110 /* noise0_model.bin in Resources */,
-				400699662270D1BB00B79110 /* noise0_model.param in Resources */,
-				400699672270D1BB00B79110 /* noise0_scale2.0x_model.bin in Resources */,
-				400699682270D1BB00B79110 /* noise0_scale2.0x_model.param in Resources */,
-				400699692270D1BB00B79110 /* noise1_model.bin in Resources */,
-				4006996A2270D1BB00B79110 /* noise1_model.param in Resources */,
-				4006996B2270D1BB00B79110 /* noise1_scale2.0x_model.bin in Resources */,
-				4006996C2270D1BB00B79110 /* noise1_scale2.0x_model.param in Resources */,
-				4006996D2270D1BB00B79110 /* noise2_model.bin in Resources */,
-				4006996E2270D1BB00B79110 /* noise2_model.param in Resources */,
-				4006996F2270D1BB00B79110 /* noise2_scale2.0x_model.bin in Resources */,
-				400699702270D1BB00B79110 /* noise2_scale2.0x_model.param in Resources */,
-				400699712270D1BB00B79110 /* noise3_model.bin in Resources */,
-				400699722270D1BB00B79110 /* noise3_model.param in Resources */,
-				400699732270D1BB00B79110 /* noise3_scale2.0x_model.bin in Resources */,
-				400699742270D1BB00B79110 /* noise3_scale2.0x_model.param in Resources */,
-				400699752270D1BB00B79110 /* scale2.0x_model.bin in Resources */,
-				400699762270D1BB00B79110 /* scale2.0x_model.param in Resources */,
 				400697F72270C19600B79110 /* Assets.xcassets in Resources */,
+				CC51049A23FC439C00AE802F /* models in Resources */,
 				400697FA2270C19600B79110 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,7 +1440,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "RECOMPILE_NCNN=true\nif (${RECOMPILE_NCNN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-ncnn-omp.txt\" \"${SRCROOT}/waifu2x/ncnn/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/ncnn\n  rm -rf build && mkdir -p build && pushd build\n  cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=RELEASE ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f src/*.h \"${SRCROOT}/waifu2x/ncnn/src\" && popd\nfi\n\n";
+			shellScript = "RECOMPILE_NCNN=false\nif (${RECOMPILE_NCNN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"${SRCROOT}/waifu2x/VulkanSDK/macOS/bin:${PATH}\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-ncnn-omp.txt\" \"${SRCROOT}/waifu2x/ncnn/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/ncnn\n  rm -rf build && mkdir -p build && pushd build\n  /Applications/CMake.app/Contents/bin/cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=RELEASE ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc` && make install\n  cp -f src/*.h \"${SRCROOT}/waifu2x/ncnn/src\" && popd\nfi\n\n";
 		};
 		400699322270CC7500B79110 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -809,7 +1457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REGENERATE_SHADER=true\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  rm -rf build && mkdir -p build && pushd build\n  cmake ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\" && popd\nfi\n";
+			shellScript = "REGENERATE_SHADER=false\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  pushd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\n  rm -rf build && mkdir -p build && pushd build\n  /Applications/CMake.app/Contents/bin/cmake ..\n  alias nproc=\"sysctl -a | grep 'hw.ncpu' | awk '{print \\$2}'\"\n  make -j`nproc`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\n  cp -f *.h \"${SRCROOT}/waifu2x\" && popd\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -818,23 +1466,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC51032E23FC41DD00AE802F /* reorg_vulkan.cpp in Sources */,
 				400697F52270C19400B79110 /* ViewController.m in Sources */,
 				400698C62270C9AB00B79110 /* argmax.cpp in Sources */,
 				400698CA2270C9AB00B79110 /* lstm.cpp in Sources */,
 				400698D62270C9AB00B79110 /* scale.cpp in Sources */,
+				CC5101CA23FC401600AE802F /* datareader.cpp in Sources */,
 				4006991A2270C9B800B79110 /* split.cpp in Sources */,
+				CC51033723FC41DD00AE802F /* relu_vulkan.cpp in Sources */,
+				CC51043223FC41DE00AE802F /* deconvolutiondepthwise_vulkan.cpp in Sources */,
+				CC51042C23FC41DE00AE802F /* hardswish_vulkan.cpp in Sources */,
 				400698E22270C9AB00B79110 /* deconvolution.cpp in Sources */,
 				400698EE2270C9AB00B79110 /* instancenorm.cpp in Sources */,
 				400698CF2270C9AB00B79110 /* interp.cpp in Sources */,
 				400698C82270C9AB00B79110 /* absval.cpp in Sources */,
+				CC51031F23FC41DD00AE802F /* clip_vulkan.cpp in Sources */,
 				400698C02270C9AB00B79110 /* exp.cpp in Sources */,
 				400698D22270C9AB00B79110 /* relu.cpp in Sources */,
 				400698D12270C9AB00B79110 /* innerproduct.cpp in Sources */,
 				400698E12270C9AB00B79110 /* binaryop.cpp in Sources */,
+				CC51043423FC41DE00AE802F /* pooling_vulkan.cpp in Sources */,
+				CC51043523FC41DE00AE802F /* shufflechannel_vulkan.cpp in Sources */,
 				400699102270C9B800B79110 /* softmax.cpp in Sources */,
 				4006982B2270C6CF00B79110 /* modelbin.cpp in Sources */,
+				CC51032A23FC41DD00AE802F /* slice_vulkan.cpp in Sources */,
 				400698E32270C9AB00B79110 /* lrn.cpp in Sources */,
 				400698DC2270C9AB00B79110 /* dequantize.cpp in Sources */,
+				CC51033523FC41DD00AE802F /* interp_vulkan.cpp in Sources */,
 				400698D02270C9AB00B79110 /* embed.cpp in Sources */,
 				4006982A2270C6CF00B79110 /* mat_pixel_resize.cpp in Sources */,
 				400698322270C6CF00B79110 /* allocator.cpp in Sources */,
@@ -842,69 +1500,104 @@
 				400698EB2270C9AB00B79110 /* roialign.cpp in Sources */,
 				400698CE2270C9AB00B79110 /* prelu.cpp in Sources */,
 				400698D32270C9AB00B79110 /* power.cpp in Sources */,
+				CC51032923FC41DD00AE802F /* concat_vulkan.cpp in Sources */,
 				400699142270C9B800B79110 /* squeeze.cpp in Sources */,
 				4006992C2270C9CD00B79110 /* convolution_x86.cpp in Sources */,
+				CC51033623FC41DD00AE802F /* binaryop_vulkan.cpp in Sources */,
 				400698D72270C9AB00B79110 /* padding.cpp in Sources */,
 				400698CC2270C9AB00B79110 /* rnn.cpp in Sources */,
 				400698E52270C9AB00B79110 /* psroipooling.cpp in Sources */,
 				400698382270C6CF00B79110 /* benchmark.cpp in Sources */,
 				400698CD2270C9AB00B79110 /* flatten.cpp in Sources */,
+				CC51032223FC41DD00AE802F /* scale_vulkan.cpp in Sources */,
 				400698C42270C9AB00B79110 /* requantize.cpp in Sources */,
 				4006992D2270C9CD00B79110 /* convolutiondepthwise_x86.cpp in Sources */,
 				400698E82270C9AB00B79110 /* convolution.cpp in Sources */,
 				400698C32270C9AB00B79110 /* batchnorm.cpp in Sources */,
+				CC51043323FC41DE00AE802F /* unaryop_vulkan.cpp in Sources */,
 				400698D52270C9AB00B79110 /* concat.cpp in Sources */,
+				CC51032F23FC41DD00AE802F /* permute_vulkan.cpp in Sources */,
+				CC51033223FC41DD00AE802F /* sigmoid_vulkan.cpp in Sources */,
 				400698372270C6CF00B79110 /* gpu.cpp in Sources */,
 				400698C52270C9AB00B79110 /* mvn.cpp in Sources */,
 				4006990E2270C9B800B79110 /* unaryop.cpp in Sources */,
 				400699112270C9B800B79110 /* tile.cpp in Sources */,
 				400698DF2270C9AB00B79110 /* deconvolutiondepthwise.cpp in Sources */,
 				400698E62270C9AB00B79110 /* convolutiondepthwise.cpp in Sources */,
+				CC51044523FC427600AE802F /* waifu2x.cpp in Sources */,
 				400698DD2270C9AB00B79110 /* packing.cpp in Sources */,
 				400699192270C9B800B79110 /* tanh.cpp in Sources */,
 				4006982F2270C6CF00B79110 /* cpu.cpp in Sources */,
 				400698EC2270C9AB00B79110 /* dropout.cpp in Sources */,
-				4006997B2270D21A00B79110 /* waifu2x.mm in Sources */,
+				CC51032323FC41DD00AE802F /* batchnorm_vulkan.cpp in Sources */,
+				4006997B2270D21A00B79110 /* waifu2xmac.mm in Sources */,
 				400698302270C6CF00B79110 /* mat.cpp in Sources */,
 				400698C92270C9AB00B79110 /* input.cpp in Sources */,
+				CC51033423FC41DD00AE802F /* hardsigmoid_vulkan.cpp in Sources */,
 				400698F32270C9AB00B79110 /* memorydata.cpp in Sources */,
 				400699182270C9B800B79110 /* yolov3detectionoutput.cpp in Sources */,
+				CC51033023FC41DD00AE802F /* priorbox_vulkan.cpp in Sources */,
 				400698DB2270C9AB00B79110 /* reorg.cpp in Sources */,
 				400697FD2270C19600B79110 /* main.m in Sources */,
+				CC5101DB23FC418B00AE802F /* selu.cpp in Sources */,
 				400698332270C6CF00B79110 /* blob.cpp in Sources */,
 				400698CB2270C9AB00B79110 /* elu.cpp in Sources */,
 				400698392270C6CF00B79110 /* opencv.cpp in Sources */,
 				400698F12270C9AB00B79110 /* eltwise.cpp in Sources */,
+				CC51031E23FC41DD00AE802F /* reshape_vulkan.cpp in Sources */,
 				400698EA2270C9AB00B79110 /* detectionoutput.cpp in Sources */,
+				CC5101D523FC415100AE802F /* hardsigmoid.cpp in Sources */,
 				400698C22270C9AB00B79110 /* reshape.cpp in Sources */,
 				400698DE2270C9AB00B79110 /* proposal.cpp in Sources */,
 				4006982D2270C6CF00B79110 /* command.cpp in Sources */,
+				CC51043123FC41DE00AE802F /* normalize_vulkan.cpp in Sources */,
+				CC51042E23FC41DE00AE802F /* cast_vulkan.cpp in Sources */,
+				CC5101CC23FC40A600AE802F /* mat_pixel_rotate.cpp in Sources */,
 				400698E92270C9AB00B79110 /* roipooling.cpp in Sources */,
 				400699172270C9B800B79110 /* sigmoid.cpp in Sources */,
 				400698C72270C9AB00B79110 /* cast.cpp in Sources */,
 				400698ED2270C9AB00B79110 /* priorbox.cpp in Sources */,
 				400697F22270C19400B79110 /* AppDelegate.m in Sources */,
+				CC51032523FC41DD00AE802F /* prelu_vulkan.cpp in Sources */,
 				4006982C2270C6CF00B79110 /* mat_pixel.cpp in Sources */,
+				CC51032C23FC41DD00AE802F /* deconvolution_vulkan.cpp in Sources */,
 				400698EF2270C9AB00B79110 /* permute.cpp in Sources */,
 				400698F22270C9AB00B79110 /* clip.cpp in Sources */,
 				400698E42270C9AB00B79110 /* pooling.cpp in Sources */,
 				400698352270C6CF00B79110 /* pipeline.cpp in Sources */,
+				CC51032723FC41DD00AE802F /* padding_vulkan.cpp in Sources */,
+				CC5101D823FC416700AE802F /* noop.cpp in Sources */,
 				400698362270C6CF00B79110 /* net.cpp in Sources */,
+				CC5101CF23FC40BB00AE802F /* option.cpp in Sources */,
+				CC51032B23FC41DD00AE802F /* softmax_vulkan.cpp in Sources */,
+				CC51032423FC41DD00AE802F /* dropout_vulkan.cpp in Sources */,
 				400698DA2270C9AB00B79110 /* crop.cpp in Sources */,
+				CC51033123FC41DD00AE802F /* innerproduct_vulkan.cpp in Sources */,
 				4006982E2270C6CF00B79110 /* layer.cpp in Sources */,
+				CC51032D23FC41DD00AE802F /* tanh_vulkan.cpp in Sources */,
 				400698D42270C9AB00B79110 /* expanddims.cpp in Sources */,
+				CC51033323FC41DD00AE802F /* convolutiondepthwise_vulkan.cpp in Sources */,
 				400698E72270C9AB00B79110 /* normalize.cpp in Sources */,
 				400698D92270C9AB00B79110 /* bias.cpp in Sources */,
 				400699152270C9B800B79110 /* slice.cpp in Sources */,
 				400699132270C9B800B79110 /* shufflechannel.cpp in Sources */,
 				400699122270C9B800B79110 /* spp.cpp in Sources */,
 				4006990F2270C9B800B79110 /* threshold.cpp in Sources */,
+				CC51031D23FC41DD00AE802F /* eltwise_vulkan.cpp in Sources */,
+				CC51032123FC41DD00AE802F /* lrn_vulkan.cpp in Sources */,
 				400699162270C9B800B79110 /* yolodetectionoutput.cpp in Sources */,
+				CC51042F23FC41DE00AE802F /* absval_vulkan.cpp in Sources */,
 				40F888262270F66E00261851 /* DragDropImageView.m in Sources */,
+				CC51043023FC41DE00AE802F /* packing_vulkan.cpp in Sources */,
+				CC5101D423FC415100AE802F /* hardswish.cpp in Sources */,
+				CC51032023FC41DD00AE802F /* flatten_vulkan.cpp in Sources */,
+				CC51042D23FC41DE00AE802F /* instancenorm_vulkan.cpp in Sources */,
+				CC51032823FC41DD00AE802F /* crop_vulkan.cpp in Sources */,
 				400698D82270C9AB00B79110 /* quantize.cpp in Sources */,
 				400698C12270C9AB00B79110 /* log.cpp in Sources */,
 				400698F02270C9AB00B79110 /* reduction.cpp in Sources */,
 				400698312270C6CF00B79110 /* paramdict.cpp in Sources */,
+				CC51032623FC41DD00AE802F /* convolution_vulkan.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,7 +1741,7 @@
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					/usr/local/Cellar/libomp/7.0.0/include,
+					/usr/local/Cellar/libomp/9.0.0/include,
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/include",
 					"$(SRCROOT)/waifu2x/ncnn/src/**",
 				);
@@ -1059,10 +1752,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/lib",
-					/usr/local/Cellar/libomp/7.0.0/lib,
+					/usr/local/Cellar/libomp/9.0.0/lib,
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/MoltenVK/macOS/dynamic",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.1;
 				OTHER_CFLAGS = (
 					"-fopenmp",
 					"-D_OPENMP",
@@ -1087,7 +1781,7 @@
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					/usr/local/Cellar/libomp/7.0.0/include,
+					/usr/local/Cellar/libomp/9.0.0/include,
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/include",
 					"$(SRCROOT)/waifu2x/ncnn/src/**",
 				);
@@ -1098,10 +1792,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/lib",
-					/usr/local/Cellar/libomp/7.0.0/lib,
+					/usr/local/Cellar/libomp/9.0.0/lib,
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/MoltenVK/macOS/dynamic",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.1;
 				OTHER_CFLAGS = (
 					"-fopenmp",
 					"-D_OPENMP",

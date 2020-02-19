@@ -198,8 +198,6 @@ NSString *kPrivateDragUTI = @"moe.cocoaneko.cocoadraganddrop";
     //create a new image for our semi-transparent drag image
     NSImage* dragImage=[[NSImage alloc] initWithSize:[[self image] size]];
 
-
-
     [dragImage lockFocus];//draw inside of our dragImage
     //draw our original image as 50% transparent
     [[self image] dissolveToPoint: NSZeroPoint fraction: .5];
