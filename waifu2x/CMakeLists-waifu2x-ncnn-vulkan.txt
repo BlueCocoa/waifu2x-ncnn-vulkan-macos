@@ -84,11 +84,11 @@ endmacro()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories("${CMAKE_SOURCE_DIR}/../../ncnn/build/install/include")
-link_directories("${CMAKE_SOURCE_DIR}/../../ncnn/build/install/lib")
+include_directories("${CMAKE_SOURCE_DIR}/../../ncnn/include")
+link_directories("${CMAKE_SOURCE_DIR}/../../ncnn/lib")
 include_directories("${CMAKE_SOURCE_DIR}/../../VulkanSDK/macOS/include")
 
-set(ncnn_DIR "${CMAKE_SOURCE_DIR}/../../ncnn/build/install/lib/cmake/ncnn")
+set(ncnn_DIR "${CMAKE_SOURCE_DIR}/../../ncnn/lib/cmake/ncnn")
 find_package(ncnn REQUIRED)
 
 # look for vulkan compute shader and compile
