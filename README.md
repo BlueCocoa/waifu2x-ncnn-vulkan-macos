@@ -6,6 +6,9 @@ As its long long name suggested.
 - [ncnn](https://github.com/Tencent/ncnn)
 - [Vulkan SDK](https://vulkan.lunarg.com/sdk/home)
 
+### Thanks
+Thanks to [@shincurry](https://github.com/shincurry) for contributing to the UI of this project.
+
 ### Build Instructions
 Download lastest Vulkan SDK at [https://vulkan.lunarg.com/sdk/home](https://vulkan.lunarg.com/sdk/home).
 
