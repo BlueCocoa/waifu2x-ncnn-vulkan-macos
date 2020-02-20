@@ -10,6 +10,7 @@
 #import "waifu2xmac.h"
 #import "GPUInfo.h"
 #import <vector>
+#import <unistd.h>
 #import "gpu.h"
 
 @interface ViewController() {
@@ -222,8 +223,8 @@
     int gpuID = self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
     BOOL isSingleMode = true;
     
-    NSArray * inputpaths = nil;
-    NSArray * outputpaths = nil;
+    NSArray<NSString *> * inputpaths = nil;
+    NSArray<NSString *> * outputpaths = nil;
     if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 1) {
         if (self.inputImageFiles.count == 0) {
             return;
@@ -238,11 +239,20 @@
             return;
         }
         
+        char tmp_filename_buf[32] = {'\0'};
+        const char * template_filename = "/tmp/isrm-XXXXXX.png";
+        strncpy(tmp_filename_buf, template_filename, strlen(template_filename));
+        int err = mkstemp(tmp_filename_buf);
+        if (err < 1) {
+            [self.statusLabel setStringValue:[NSString stringWithFormat:@"Error: cannot create tmp file: %s", strerror(errno)]];
+            return;
+        }
+        outputpaths = @[[NSString stringWithFormat:@"%s", tmp_filename_buf]];
+        
         [sender setEnabled:NO];
         [self.inputImageView setEditable:NO];
         [self.inputImageView setAllowsCutCopyPaste:NO];
         inputpaths = @[self.inputImagePath];
-        outputpaths = [self generateOutputPaths:inputpaths];
     }
     
     self.isProcessing = YES;
@@ -276,6 +286,7 @@
                 }
 
                 [self.outputImageView setImage:result];
+                unlink(outputpaths[0].UTF8String);
             });
         } else {
             [self.multipleImageTableView setAllowDrop:YES];
