@@ -247,30 +247,32 @@ void* save(void* args)
       load_job_num:(int)jobs_load
       proc_job_num:(int)jobs_proc
       save_job_num:(int)jobs_save
+       single_mode:(BOOL)is_single_mode
+         VRAMUsage:(double *)usage
           progress:(waifu2xProgressBlock)cb {
     NSImage * result = nil;
     int total = 9;
     
     if (inputpaths.count != outputpaths.count) {
-        cb(1, total, NSLocalizedString(@"Error: inequivalent number of input / output files", @""));
+        if (cb) cb(1, total, NSLocalizedString(@"Error: inequivalent number of input / output files", @""));
     }
     
-    cb(1, total, NSLocalizedString(@"Check parameters...", @""));
+    if (cb) cb(1, total, NSLocalizedString(@"Check parameters...", @""));
     if (noise < -1 || noise > 3)
     {
-        cb(1, total, NSLocalizedString(@"Error: supported noise is 0, 1 or 2", @""));
+        if (cb) cb(1, total, NSLocalizedString(@"Error: supported noise is 0, 1 or 2", @""));
         return nil;
     }
 
     if (scale < 1 || scale > 2)
     {
-        cb(1, total, NSLocalizedString(@"Error: supported scale is 1 or 2", @""));
+        if (cb) cb(1, total, NSLocalizedString(@"Error: supported scale is 1 or 2", @""));
         return nil;
     }
 
     if (tilesize < 32)
     {
-        cb(1, total, NSLocalizedString(@"Error: tilesize should no less than 32", @""));
+        if (cb) cb(1, total, NSLocalizedString(@"Error: tilesize should no less than 32", @""));
         return nil;
     }
     
@@ -289,7 +291,7 @@ void* save(void* args)
         jobs_save = 2;
     }
 
-    cb(2, total, NSLocalizedString(@"Prepare models...", @""));
+    if (cb) cb(2, total, NSLocalizedString(@"Prepare models...", @""));
     
     int prepadding = 0;
     if ([model isEqualToString:@"models-cunet"]) {
@@ -310,7 +312,7 @@ void* save(void* args)
     } else if ([model isEqualToString:@"models-upconv_7_photo"]) {
         prepadding = 7;
     } else {
-        cb(3, total, NSLocalizedString(@"[ERROR] No such model", @""));
+        if (cb) cb(3, total, NSLocalizedString(@"[ERROR] No such model", @""));
         return nil;
     }
     
@@ -332,7 +334,7 @@ void* save(void* args)
         modelpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_scale2.0x_model.bin", model, noise] ofType:nil];
     }
     
-    cb(3, total, NSLocalizedString(@"Creating GPU instance...", @""));
+    if (cb) cb(3, total, NSLocalizedString(@"Creating GPU instance...", @""));
     ncnn::create_gpu_instance();
     int cpu_count = std::max(1, ncnn::get_cpu_count());
     jobs_load = std::min(jobs_load, cpu_count);
@@ -341,13 +343,14 @@ void* save(void* args)
     int gpu_count = ncnn::get_gpu_count();
     if (gpuid < 0 || gpuid >= gpu_count)
     {
-        cb(3, total, NSLocalizedString(@"[ERROR] Invalid gpu device", @""));
+        if (cb) cb(3, total, NSLocalizedString(@"[ERROR] Invalid gpu device", @""));
 
         ncnn::destroy_gpu_instance();
         return nil;
     }
     
     int gpu_queue_count = ncnn::get_gpu_info(gpuid).compute_queue_count;
+    const_cast<ncnn::GpuInfo&>(ncnn::get_gpu_info(gpuid)).buffer_offset_alignment = 16;
     jobs_proc = std::min(jobs_proc, gpu_queue_count);
     
     std::vector<path_t> input_files;
@@ -361,7 +364,7 @@ void* save(void* args)
     {
         Waifu2x waifu2x(gpuid);
 
-        cb(4, total, NSLocalizedString(@"Loading models...", @""));
+        if (cb) cb(4, total, NSLocalizedString(@"Loading models...", @""));
         waifu2x.load([parampath UTF8String], [modelpath UTF8String]);
 
         waifu2x.noise = noise;
@@ -371,7 +374,7 @@ void* save(void* args)
         
         // main routine
         {
-            cb(5, total, NSLocalizedString(@"Initializing pipeline...", @""));
+            if (cb) cb(5, total, NSLocalizedString(@"Initializing pipeline...", @""));
             
             // load image
             LoadThreadParams ltp;
@@ -405,7 +408,7 @@ void* save(void* args)
             // end
             load_thread.join();
 
-            cb(6, total, NSLocalizedString(@"Done image(s) loading...", @""));
+            if (cb) cb(6, total, NSLocalizedString(@"Done image(s) loading...", @""));
             Task end;
             end.id = -233;
 
@@ -414,7 +417,7 @@ void* save(void* args)
                 toproc.put(end);
             }
 
-            cb(7, total, NSLocalizedString(@"Waifu2x processing...", @""));
+            if (cb) cb(7, total, NSLocalizedString(@"Waifu2x processing...", @""));
             for (int i=0; i<jobs_proc; i++)
             {
                 proc_threads[i]->join();
@@ -422,7 +425,7 @@ void* save(void* args)
             }
             
             
-            cb(8, total, NSLocalizedString(@"Saving image(s)...", @""));
+            if (cb) cb(8, total, NSLocalizedString(@"Saving image(s)...", @""));
             for (int i=0; i<jobs_save; i++)
             {
                 tosave.put(end);
@@ -436,47 +439,38 @@ void* save(void* args)
         }
     }
     
+    {
+        const auto& device = ncnn::get_gpu_info(gpuid).physical_device;
+        VkPhysicalDeviceProperties deviceProperties;
+        vkGetPhysicalDeviceProperties(device, &deviceProperties);
+        
+        VkPhysicalDeviceMemoryProperties deviceMemoryProperties;
+        VkPhysicalDeviceMemoryBudgetPropertiesEXT budget = {
+          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT
+        };
+
+        VkPhysicalDeviceMemoryProperties2 props = {
+          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2,
+          .pNext = &budget,
+          .memoryProperties = deviceMemoryProperties,
+        };
+        vkGetPhysicalDeviceMemoryProperties2(device, &props);
+        
+        double used = budget.heapUsage[0];
+        used /= 1024.0 * 1024.0;
+        
+        if (usage) *usage = used;
+    }
+        
     ncnn::destroy_gpu_instance();
     
-    cb(9, total, NSLocalizedString(@"done!", @""));
+    if (cb) cb(9, total, NSLocalizedString(@"done!", @""));
     
-    if (inputpaths.count == 1) {
+    if (is_single_mode) {
         result = [[NSImage alloc] initWithContentsOfFile:outputpaths[0]];
     }
     
     return result;
 }
-
-//+ (NSArray<GPUInfo *> *)AllGPUs {
-//    NSMutableArray * gpus = [[NSMutableArray alloc] init];
-//    ncnn::create_gpu_instance();
-//    uint32_t deviceCount = ncnn::get_gpu_count();
-//
-//    for (uint32_t i = 0; i < deviceCount; i++) {
-//        const auto& device = ncnn::get_gpu_info(i).physical_device;
-//        VkPhysicalDeviceProperties deviceProperties;
-//        vkGetPhysicalDeviceProperties(device, &deviceProperties);
-//
-//        VkPhysicalDeviceMemoryProperties deviceMemoryProperties;
-//        size_t totalVRAM = 0;
-//        VkPhysicalDeviceMemoryBudgetPropertiesEXT budget = {
-//          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT
-//        };
-//
-//        VkPhysicalDeviceMemoryProperties2 props = {
-//          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2,
-//          .pNext = &budget,
-//          .memoryProperties = deviceMemoryProperties,
-//        };
-//        vkGetPhysicalDeviceMemoryProperties2(device, &props);
-//        totalVRAM = budget.heapBudget[0];
-//        
-//        GPUInfo * info = [GPUInfo initWithName:[NSString stringWithFormat:@"%s", deviceProperties.deviceName] deviceID:i totalVRAM:totalVRAM];
-//        [gpus addObject:info];
-//    }
-//
-//    ncnn::destroy_gpu_instance();
-//    return gpus;
-//}
 
 @end

@@ -24,6 +24,8 @@ typedef void (^waifu2xProgressBlock)(int current, int total, NSString * descript
       load_job_num:(int)jobs_load
       proc_job_num:(int)jobs_proc
       save_job_num:(int)jobs_save
+       single_mode:(BOOL)is_single_mode
+         VRAMUsage:(double *)usage
           progress:(waifu2xProgressBlock)cb;
 
 @end

@@ -29,10 +29,6 @@
     return NSDragOperationCopy;
 }
 
-//- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
-//    return YES;
-//}
-
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     NSArray* acceptedTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeFolder, (NSString *)kUTTypeImage, nil];
     NSArray* urls = [sender.draggingPasteboard
