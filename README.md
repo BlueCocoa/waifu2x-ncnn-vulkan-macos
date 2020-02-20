@@ -62,10 +62,97 @@ After the first compilation, if you want to modify this project only, you may se
 ### Screenshot
 
 #### Single Mode
-![screenshot](screenshot-v1.3-single-image.png)
+![screenshot](screenshot-v1.4-single-image.png)
 
 #### Multiple Mode
-![screenshot](screenshot-v1.3-multiple-images.png)
+![screenshot](screenshot-v1.4-multiple-images.png)
+
+#### Benchmark
+To run benchmark, please click "waifu2x-gui" -> "Benchmark"
+
+![screenshot](screenshot-v1.4-benchmark.png)
+
+## Speed Comparison between Macs
+
+### Environment 1
+
+- MacBook Pro 15-inch 2018
+- macOS 10.14.6 (18G103)
+- Intel Core i9 8950HK
+- AMD Radeon Pro Vega 20
+
+|Model|Image Size|Target Size|Block Size|Total Time(sec)|GPU Memory(MB)|
+|---|---|---|---|---|---|
+|models-cunet|200x200|400x400|400/200/100|0.47/0.43/0.49|613/613/172|
+|models-cunet|400x400|800x800|400/200/100|0.97/0.88/0.95|2407/614/173|
+|models-cunet|1000x1000|2000x2000|400/200/100|3.56/3.61/4.18|2415/617/175|
+|models-cunet|2000x2000|4000x4000|400/200/100|12.72/13.22/15.49|2420/669/193|
+|models-cunet|4000x4000|8000x8000|400/200/100|49.79/51.51/60.60|2452/645/197|
+|models-upconv_7_anime_style_art_rgb|200x200|400x400|400/200/100|0.26/0.24/0.20|460/460/119|
+|models-upconv_7_anime_style_art_rgb|400x400|800x800|400/200/100|0.47/0.40/0.40|1741/460/120|
+|models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|1.67/1.64/1.73|1765/463/121|
+|models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|6.12/6.11/6.49|1769/466/122|
+|models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|23.75/23.71/25.27|1801/489/142|
+
+### Environment 2
+
+- MacBook Pro 15-inch 2018
+- macOS 10.14.6 (18G84)
+- Intel Core i9 8850HK
+- AMD Radeon 560X
+
+|Model|Image Size|Target Size|Block Size|Total Time(sec)|GPU Memory(MB)|
+|---|---|---|---|---|---|
+|models-cunet|200x200|400x400|400/200/100|2.00/0.53/0.56|613/613/172|
+|models-cunet|400x400|800x800|400/200/100|1.29/1.18/1.26|2407/614/173|
+|models-cunet|1000x1000|2000x2000|400/200/100|5.20/5.17/5.85|2415/617/175|
+|models-cunet|2000x2000|4000x4000|400/200/100|19.07/19.35/22.25|2420/669/193|
+|models-cunet|4000x4000|8000x8000|400/200/100|74.49/76.73/88.12|2452/644/197|
+|models-upconv_7_anime_style_art_rgb|200x200|400x400|400/200/100|0.31/0.27/0.27|460/460/119|
+|models-upconv_7_anime_style_art_rgb|400x400|800x800|400/200/100|0.65/0.54/0.55|1741/460/119|
+|models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|2.41/2.34/2.48|1765/463/121|
+|models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|8.74/8.84/9.43|1769/466/122|
+|models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|32.66/33.00/35.29|1801/489/142|
+
+### Environment 3
+
+- MacBook Pro 15-inch 2018
+- macOS 10.14.6 (18G103)
+- Intel Core i9 8950HK
+- Intel UHD Graphics 630
+
+|Model|Image Size|Target Size|Block Size|Total Time(sec)|GPU Memory(MB)|
+|---|---|---|---|---|---|
+|models-cunet|200x200|400x400|400/200/100|0.95/0.99/0.87|616/616/176|
+|models-cunet|400x400|800x800|400/200/100|2.53/2.27/2.48|2408/616/176|
+|models-cunet|1000x1000|2000x2000|400/200/100|12.40/12.00/13.31|2408/616/176|
+|models-cunet|2000x2000|4000x4000|400/200/100|44.50/46.81/52.13|2408/669/196|
+|models-cunet|4000x4000|8000x8000|400/200/100|175.64/185.56/222.58|2431/637/196|
+|models-upconv_7_anime_style_art_rgb|200x200|400x400|400/200/100|1.07/1.27/0.83|466/466/125|
+|models-upconv_7_anime_style_art_rgb|400x400|800x800|400/200/100|2.30/1.09/1.11|1746/466/125|
+|models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|6.30/5.70/5.92|1762/466/125|
+|models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|22.12/22.48/23.71|1762/466/125|
+|models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|87.28/89.11/93.98|1780/482/141|
+
+### Environment 4
+
+- MacBook 12-inch Early 2016
+- macOS 10.14.6 (18G84)
+- Intel Core m7 6Y75
+- Intel HD Graphics 515
+
+|Model|Image Size|Target Size|Block Size|Total Time(sec)|GPU Memory(MB)|
+|---|---|---|---|---|---|
+|models-cunet|200x200|400x400|400/200/100|1.12/1.41/1.23|616/616/176|
+|models-cunet|400x400|800x800|400/200/100|3.06/2.90/3.34|2408/616/176|
+|models-cunet|1000x1000|2000x2000|400/200/100|18.29/17.81/19.89|2408/616/176|
+|models-cunet|2000x2000|4000x4000|400/200/100|66.55/71.79/85.83|2408/665/196|
+|models-cunet|4000x4000|8000x8000|400/200/100|288.38/337.44/385.85|2431/637/196|
+|models-upconv_7_anime_style_art_rgb|200x200|400x400|400/200/100|0.63/0.69/0.53|466/466/125|
+|models-upconv_7_anime_style_art_rgb|400x400|800x800|400/200/100|1.62/1.43/1.47|1746/466/125|
+|models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|9.19/9.06/9.46|1762/466/125|
+|models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|35.52/37.66/41.57|1762/466/125|
+|models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|199.20/182.04/159.11|1780/482/141|
 
 ## Speed Comparison (not really) with waifu2x-caffe-cui & waifu2x-ncnn-vulkan
 
@@ -81,7 +168,7 @@ After the first compilation, if you want to modify this project only, you may se
 ### Environment (waifu2x-ncnn-vulkan-macos)
 
 - macOS 10.14.6 (18G103)
-- Intel Core i9 8890HK
+- Intel Core i9 8950HK
 - AMD Radeon Pro Vega 20
 
 ### cunet
@@ -123,3 +210,4 @@ After the first compilation, if you want to modify this project only, you may se
 |waifu2x-ncnn-vulkan-macOS|4000x4000|8000x8000|400/200/100|22.92/22.70/24.16|1806/495/147|
 |waifu2x-ncnn-vulkan|4000x4000|8000x8000|400/200/100|11.16/11.29/12.07|1796/498/158|
 |waifu2x-caffe-cui|4000x4000|8000x8000|400/200/100|9.24/9.81/11.16|995/546/436|
+
