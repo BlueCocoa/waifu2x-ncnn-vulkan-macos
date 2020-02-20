@@ -302,6 +302,7 @@
         }
         
         dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.statusLabel setStringValue:NSLocalizedString(@"Idle", @"")];
             [self allowUserIntereaction:YES];
             self.isProcessing = NO;
             self.isBenchmarking = NO;
