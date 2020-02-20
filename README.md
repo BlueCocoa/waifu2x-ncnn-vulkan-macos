@@ -28,7 +28,6 @@ rm -rf waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 mv vulkansdk-macos-${VULKAN_SDK_VER} waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 
 # clone Tencent/ncnn
-# (At the time of writing) https://github.com/Tencent/ncnn/tree/4fead31beabf96c375741bd12672ca616d535322
 git clone --depth=1 https://github.com/Tencent/ncnn ncnn
 
 # clone nihui/waifu2x-ncnn-vulkan
@@ -62,4 +61,8 @@ After the first compilation, if you want to modify this project only, you may se
 
 ### Screenshot
 
-![screenshot](screenshot-v1.2.png)
+#### Single Mode
+![screenshot](screenshot-v1.3-single.png)
+
+#### Multiple Mode
+![screenshot](screenshot-v1.3-multiple.png)
