@@ -308,6 +308,8 @@
             self.isProcessing = NO;
             self.isBenchmarking = NO;
             
+            unlink("/tmp/waifu2x-macos-benchmark.png");
+            
             NSAlert *alert = [[NSAlert alloc] init];
             [alert addButtonWithTitle:@"Copy"];
             [alert addButtonWithTitle:@"Cancel"];
