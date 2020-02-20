@@ -158,6 +158,8 @@
     [self.vramStaticticsTimer setFireDate:[NSDate date]];
     [self.vramStaticticsTimer fire];
     
+    [self.vramStaticticsLabel setToolTip:@"VRAM usage / total"];
+    
     return YES;
 }
 
@@ -184,7 +186,7 @@
     total /= 1024.0 * 1024.0;
     used /= 1024.0 * 1024.0;
     
-    [self.vramStaticticsLabel.cell setTitle:[NSString stringWithFormat:@"%.0lf/%0.lfMB", used, total]];
+    [self.vramStaticticsLabel.cell setTitle:[NSString stringWithFormat:@"%.0lf/%0.lf MB", used, total]];
 }
 
 - (void)dropComplete:(NSString *)filePath {
