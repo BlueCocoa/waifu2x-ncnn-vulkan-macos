@@ -20,6 +20,7 @@
 		40F888262270F66E00261851 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F888252270F66E00261851 /* DragDropImageView.m */; };
 		CC70F70223FE547C00C9DAE6 /* GPUInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC70F70123FE547C00C9DAE6 /* GPUInfo.mm */; };
 		CC70F70523FE7D5D00C9DAE6 /* DragDropTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70F70423FE7D5D00C9DAE6 /* DragDropTableView.m */; };
+		CC70F70723FEC03D00C9DAE6 /* benchmark in Resources */ = {isa = PBXBuildFile; fileRef = CC70F70623FEC03D00C9DAE6 /* benchmark */; };
 		CCE86B1123FD615300E73B94 /* libncnn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE86B0D23FD615300E73B94 /* libncnn.a */; };
 		CCE86B8423FD630600E73B94 /* waifu2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCE86B5223FD630500E73B94 /* waifu2x.cpp */; };
 		CCE86B8723FD631D00E73B94 /* models in Resources */ = {isa = PBXBuildFile; fileRef = CCE86B8623FD631D00E73B94 /* models */; };
@@ -61,6 +62,7 @@
 		CC70F70123FE547C00C9DAE6 /* GPUInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GPUInfo.mm; sourceTree = "<group>"; };
 		CC70F70323FE7D5D00C9DAE6 /* DragDropTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragDropTableView.h; sourceTree = "<group>"; };
 		CC70F70423FE7D5D00C9DAE6 /* DragDropTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropTableView.m; sourceTree = "<group>"; };
+		CC70F70623FEC03D00C9DAE6 /* benchmark */ = {isa = PBXFileReference; lastKnownFileType = folder; path = benchmark; sourceTree = "<group>"; };
 		CCE86B0A23FD615300E73B94 /* ncnnConfig.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ncnnConfig.cmake; sourceTree = "<group>"; };
 		CCE86B0B23FD615300E73B94 /* ncnn.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ncnn.cmake; sourceTree = "<group>"; };
 		CCE86B0C23FD615300E73B94 /* ncnn-release.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ncnn-release.cmake"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				400697F82270C19600B79110 /* Main.storyboard */,
 				400697FB2270C19600B79110 /* Info.plist */,
 				400697FC2270C19600B79110 /* main.m */,
+				CC70F70623FEC03D00C9DAE6 /* benchmark */,
 				400697FE2270C19600B79110 /* waifu2x.entitlements */,
 				CCE86B1423FD630500E73B94 /* waifu2x-ncnn-vulkan */,
 				CCE86B0423FD60C700E73B94 /* ncnn */,
@@ -283,6 +286,7 @@
 				402AD32D22711C9800F0A985 /* MoltenVK_icd.json in Resources */,
 				400697F72270C19600B79110 /* Assets.xcassets in Resources */,
 				400697FA2270C19600B79110 /* Main.storyboard in Resources */,
+				CC70F70723FEC03D00C9DAE6 /* benchmark in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REGENERATE_SHADER=true\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\n  rm -rf build && mkdir -p build && cd build\n  cmake ..\n  make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\nfi\n";
+			shellScript = "REGENERATE_SHADER=false\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\n  rm -rf build && mkdir -p build && cd build\n  cmake ..\n  make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

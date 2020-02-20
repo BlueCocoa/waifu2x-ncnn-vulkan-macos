@@ -23,4 +23,8 @@
     return YES;
 }
 
+- (IBAction)benchmark:(id)sender {
+    [self.viewController performSelector:@selector(benchmark)];
+}
+
 @end

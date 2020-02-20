@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface AppDelegate : NSWindowController <NSApplicationDelegate>
 
+@property (assign) id viewController;
+- (IBAction)benchmark:(id)sender;
 
 @end
 

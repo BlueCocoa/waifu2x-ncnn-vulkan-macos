@@ -7,14 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 #import "DragDropImageView.h"
 #import "DragDropTableView.h"
 
 @interface ViewController : NSViewController<DragDropImageViewDelegate, DragDropTableViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTabViewDelegate>
 
+- (IBAction)waifu2x:(id)sender;
+- (void)benchmark;
+
 @property (weak) IBOutlet DragDropImageView *inputImageView;
 @property (weak) IBOutlet DragDropImageView *outputImageView;
--(IBAction)waifu2x:(id)sender;
 @property (weak) IBOutlet NSTextField *statusLabel;
 @property (weak) IBOutlet NSProgressIndicator *waifu2xProgress;
 @property (weak) IBOutlet NSTextField *noiseParameter;
@@ -28,6 +31,7 @@
 @property (weak) IBOutlet NSTextField *vramStaticticsLabel;
 @property (weak) IBOutlet NSTabView *processingModeTab;
 @property (weak) IBOutlet DragDropTableView *multipleImageTableView;
+@property (weak) IBOutlet NSButton *startButton;
 
 @end
 
