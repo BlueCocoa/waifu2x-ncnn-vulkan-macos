@@ -62,7 +62,7 @@ After the first compilation, if you want to modify this project only, you may se
 ### Screenshot
 
 #### Single Mode
-![screenshot](screenshot-v1.3-single.png)
+![screenshot](screenshot-v1.3-single-image.png)
 
 #### Multiple Mode
-![screenshot](screenshot-v1.3-multiple.png)
+![screenshot](screenshot-v1.3-multiple-images.png)
