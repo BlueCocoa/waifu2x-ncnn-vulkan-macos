@@ -30,13 +30,6 @@
 #include "platform.h"
 #include "waifu2x-ncnn-vulkan/src/filesystem_utils.h"
 
-@implementation GPUInfo
-
-@synthesize name;
-@synthesize deviceID;
-
-@end
-
 class Task
 {
 public:
@@ -334,8 +327,6 @@ void* save(void* args)
         modelpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_scale2.0x_model.bin", model, noise] ofType:nil];
     }
     
-    setenv("VK_ICD_FILENAMES", [[NSBundle mainBundle] pathForResource:@"MoltenVK_icd" ofType:@"json"].UTF8String, 1);
-    
     cb(3, total, NSLocalizedString(@"Creating GPU instance...", @""));
     ncnn::create_gpu_instance();
     int cpu_count = std::max(1, ncnn::get_cpu_count());
@@ -446,25 +437,36 @@ void* save(void* args)
     return result;
 }
 
-+ (NSArray<GPUInfo *> *)AllGPUs {
-    NSMutableArray * gpus = [[NSMutableArray alloc] init];
-    
-    setenv("VK_ICD_FILENAMES", [[NSBundle mainBundle] pathForResource:@"MoltenVK_icd" ofType:@"json"].UTF8String, 1);
-    ncnn::create_gpu_instance();
-    uint32_t deviceCount = ncnn::get_gpu_count();
-    
-    for (uint32_t i = 0; i < deviceCount; i++) {
-        const auto& device = ncnn::get_gpu_info(i).physical_device;
-        VkPhysicalDeviceProperties deviceProperties;
-        vkGetPhysicalDeviceProperties(device, &deviceProperties);
-        GPUInfo * info = [[GPUInfo alloc] init];
-        info.deviceID = i;
-        info.name = [NSString stringWithFormat:@"%s", deviceProperties.deviceName];
-        [gpus addObject:info];
-    }
-    
-    ncnn::destroy_gpu_instance();
-    return gpus;
-}
+//+ (NSArray<GPUInfo *> *)AllGPUs {
+//    NSMutableArray * gpus = [[NSMutableArray alloc] init];
+//    ncnn::create_gpu_instance();
+//    uint32_t deviceCount = ncnn::get_gpu_count();
+//
+//    for (uint32_t i = 0; i < deviceCount; i++) {
+//        const auto& device = ncnn::get_gpu_info(i).physical_device;
+//        VkPhysicalDeviceProperties deviceProperties;
+//        vkGetPhysicalDeviceProperties(device, &deviceProperties);
+//
+//        VkPhysicalDeviceMemoryProperties deviceMemoryProperties;
+//        size_t totalVRAM = 0;
+//        VkPhysicalDeviceMemoryBudgetPropertiesEXT budget = {
+//          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT
+//        };
+//
+//        VkPhysicalDeviceMemoryProperties2 props = {
+//          .sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2,
+//          .pNext = &budget,
+//          .memoryProperties = deviceMemoryProperties,
+//        };
+//        vkGetPhysicalDeviceMemoryProperties2(device, &props);
+//        totalVRAM = budget.heapBudget[0];
+//        
+//        GPUInfo * info = [GPUInfo initWithName:[NSString stringWithFormat:@"%s", deviceProperties.deviceName] deviceID:i totalVRAM:totalVRAM];
+//        [gpus addObject:info];
+//    }
+//
+//    ncnn::destroy_gpu_instance();
+//    return gpus;
+//}
 
 @end

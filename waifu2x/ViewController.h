@@ -24,6 +24,7 @@
 @property (weak) IBOutlet NSTextField *savingJobsParameter;
 @property (weak) IBOutlet NSPopUpButton *gpuIDButton;
 @property (weak) IBOutlet NSPopUpButton *modelButton;
+@property (weak) IBOutlet NSTextField *vramStaticticsLabel;
 
 @end
 
