@@ -9,7 +9,6 @@
 
 #import "DragDropImageView.h"
 
-
 @implementation DragDropImageView
 
 @synthesize allowDrag;

@@ -19,6 +19,7 @@
 		408F05EC227113F700189EE2 /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F8881D2270D63600261851 /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		40F888262270F66E00261851 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F888252270F66E00261851 /* DragDropImageView.m */; };
 		CC70F70223FE547C00C9DAE6 /* GPUInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC70F70123FE547C00C9DAE6 /* GPUInfo.mm */; };
+		CC70F70523FE7D5D00C9DAE6 /* DragDropTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70F70423FE7D5D00C9DAE6 /* DragDropTableView.m */; };
 		CCE86B1123FD615300E73B94 /* libncnn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE86B0D23FD615300E73B94 /* libncnn.a */; };
 		CCE86B8423FD630600E73B94 /* waifu2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCE86B5223FD630500E73B94 /* waifu2x.cpp */; };
 		CCE86B8723FD631D00E73B94 /* models in Resources */ = {isa = PBXBuildFile; fileRef = CCE86B8623FD631D00E73B94 /* models */; };
@@ -58,6 +59,8 @@
 		40F888252270F66E00261851 /* DragDropImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 		CC70F70023FE547C00C9DAE6 /* GPUInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUInfo.h; sourceTree = "<group>"; };
 		CC70F70123FE547C00C9DAE6 /* GPUInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GPUInfo.mm; sourceTree = "<group>"; };
+		CC70F70323FE7D5D00C9DAE6 /* DragDropTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragDropTableView.h; sourceTree = "<group>"; };
+		CC70F70423FE7D5D00C9DAE6 /* DragDropTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropTableView.m; sourceTree = "<group>"; };
 		CCE86B0A23FD615300E73B94 /* ncnnConfig.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ncnnConfig.cmake; sourceTree = "<group>"; };
 		CCE86B0B23FD615300E73B94 /* ncnn.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ncnn.cmake; sourceTree = "<group>"; };
 		CCE86B0C23FD615300E73B94 /* ncnn-release.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ncnn-release.cmake"; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				4006997A2270D21A00B79110 /* waifu2xmac.mm */,
 				40F888242270F66E00261851 /* DragDropImageView.h */,
 				40F888252270F66E00261851 /* DragDropImageView.m */,
+				CC70F70323FE7D5D00C9DAE6 /* DragDropTableView.h */,
+				CC70F70423FE7D5D00C9DAE6 /* DragDropTableView.m */,
 				400697F02270C19400B79110 /* AppDelegate.h */,
 				400697F12270C19400B79110 /* AppDelegate.m */,
 				400697F32270C19400B79110 /* ViewController.h */,
@@ -312,6 +317,7 @@
 				400697F52270C19400B79110 /* ViewController.mm in Sources */,
 				4006997B2270D21A00B79110 /* waifu2xmac.mm in Sources */,
 				400697FD2270C19600B79110 /* main.m in Sources */,
+				CC70F70523FE7D5D00C9DAE6 /* DragDropTableView.m in Sources */,
 				400697F22270C19400B79110 /* AppDelegate.m in Sources */,
 				CCE86B8423FD630600E73B94 /* waifu2x.cpp in Sources */,
 				40F888262270F66E00261851 /* DragDropImageView.m in Sources */,

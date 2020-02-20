@@ -20,6 +20,8 @@
 @property (strong) NSArray<GPUInfo *> * gpus;
 @property (nonatomic) uint32_t currentGPUID;
 @property (strong, nonatomic) NSTimer * vramStaticticsTimer;
+@property (strong, nonatomic) NSMutableArray * inputImageFiles;
+@property (atomic) BOOL isProcessing;
 
 @end
 
@@ -32,6 +34,8 @@
 @synthesize noiseParameter, scaleParameter, tilesizeParameter, loadingJobsParameter, processingJobsParameter, savingJobsParameter;
 @synthesize gpus;
 @synthesize vramStaticticsLabel;
+@synthesize processingModeTab;
+@synthesize multipleImageTableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +44,7 @@
     [self.waifu2xProgress setMaxValue:100.0];
 
     [self.inputImageView setAllowDrop:YES];
+    [self.inputImageView setAllowDrag:NO];
     [self.inputImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
     [self.inputImageView setDelegate:self];
     
@@ -55,6 +60,15 @@
     if (![self createGPUInstance]) {
         [self.statusLabel setStringValue:@"Error: cannot create GPU instance with Vulkan"];
     }
+    
+    self.inputImageFiles = [[NSMutableArray alloc] init];
+    
+    [self.multipleImageTableView setDataSource:self];
+    [self.multipleImageTableView setDelegate:self];
+    [self.multipleImageTableView setAllowDrop:YES];
+    [self.multipleImageTableView setDropDelegate:self];
+    
+    [self.processingModeTab setDelegate:self];
 }
 
 - (void)changeGPU:(NSPopUpButton *)sender {
@@ -189,57 +203,148 @@
     [self.vramStaticticsLabel.cell setTitle:[NSString stringWithFormat:@"%.0lf/%0.lf MB", used, total]];
 }
 
-- (void)dropComplete:(NSString *)filePath {
-    self.inputImagePath = filePath;
+- (NSArray *)generateOutputPaths:(NSArray *)inputpaths {
+    NSMutableArray * outputpaths = [NSMutableArray arrayWithCapacity:inputpaths.count];;
+    for (NSString * filepath in inputpaths) {
+        [outputpaths addObject:[filepath stringByAppendingPathExtension:@"png"]];
+    }
+    return outputpaths;
 }
 
 - (IBAction)waifu2x:(NSButton *)sender {
-    if (!self.inputImageView.image) {
-        return;
-    }
-
     int noise = self.noiseParameter.intValue;
     int scale = self.scaleParameter.intValue;
     int tilesize = self.tilesizeParameter.intValue;
     int load_jobs = self.loadingJobsParameter.intValue;
     int proc_jobs = self.processingJobsParameter.intValue;
     int save_jobs = self.savingJobsParameter.intValue;
-
-    [sender setEnabled:NO];
-    [self.inputImageView setEditable:NO];
-    [self.inputImageView setAllowsCutCopyPaste:NO];
-
     NSString * model = [NSString stringWithFormat:@"models-%@", [self.modelButton selectedItem].title];
     int gpuID = self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
+    BOOL isSingleMode = true;
+    
+    NSArray * inputpaths = nil;
+    NSArray * outputpaths = nil;
+    if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 1) {
+        if (self.inputImageFiles.count == 0) {
+            return;
+        }
+        
+        [self.multipleImageTableView setAllowDrop:NO];
+        inputpaths = self.inputImageFiles;
+        outputpaths = [self generateOutputPaths:self.inputImageFiles];
+        isSingleMode = false;
+    } else {
+        if (!self.inputImageView.image) {
+            return;
+        }
+        
+        [sender setEnabled:NO];
+        [self.inputImageView setEditable:NO];
+        [self.inputImageView setAllowsCutCopyPaste:NO];
+        inputpaths = @[self.inputImagePath];
+        outputpaths = [self generateOutputPaths:inputpaths];
+    }
+    
+    self.isProcessing = YES;
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSImage * result = [waifu2xmac input:self.inputImagePath
-                                                   noise:noise
-                                                   scale:scale
-                                                tilesize:tilesize
-                                                   model:model
-                                                   gpuid:gpuID
-                                            load_job_num:load_jobs
-                                            proc_job_num:proc_jobs
-                                            save_job_num:save_jobs
-                                                progress:^(int current, int total, NSString *description) {
+        NSImage * result = [waifu2xmac input:inputpaths
+                                      output:outputpaths
+                                       noise:noise
+                                       scale:scale
+                                    tilesize:tilesize
+                                       model:model
+                                       gpuid:gpuID
+                                load_job_num:load_jobs
+                                proc_job_num:proc_jobs
+                                save_job_num:save_jobs
+                                    progress:^(int current, int total, NSString *description) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.statusLabel setStringValue:[NSString stringWithFormat:@"[%d/%d] %@", current, total, description]];
                 [self.waifu2xProgress setDoubleValue:((double)current)/total * 100];
             });
         }];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [sender setEnabled:YES];
-            [self.inputImageView setEditable:YES];
-            [self.inputImageView setAllowsCutCopyPaste:YES];
-            if (!result) {
-                return;
-            }
+        self.isProcessing = NO;
+        if (isSingleMode) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [sender setEnabled:YES];
+                [self.inputImageView setEditable:YES];
+                [self.inputImageView setAllowsCutCopyPaste:YES];
+                if (!result) {
+                    return;
+                }
 
-            [self.outputImageView setImage:result];
-        });
+                [self.outputImageView setImage:result];
+            });
+        } else {
+            [self.multipleImageTableView setAllowDrop:YES];
+        }
     });
+}
+
+#pragma mark - DragDropImageViewDelegate
+
+- (void)dropComplete:(NSString *)filePath {
+    self.inputImagePath = filePath;
+}
+
+#pragma mark - DragDropTableViewDelegate
+
+- (void)dropTableComplete:(NSArray<NSString *> *)files {
+    [self.inputImageFiles addObjectsFromArray:files];
+    [self.multipleImageTableView reloadData];
+}
+
+#pragma mark - NSTableViewDataSource
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    if (tableView == self.multipleImageTableView) {
+        return self.inputImageFiles.count;
+    } else {
+        return 0;
+    }
+}
+
+#pragma mark - NSTableViewDelegate
+
+- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row {
+    if (tableView == self.multipleImageTableView) {
+        NSTableCellView * cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+        [cell.textField setStringValue:[self.inputImageFiles objectAtIndex:row]];
+        return cell;
+    } else {
+        return nil;
+    }
+}
+
+- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
+    return YES;
+}
+
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
+    return NSDragOperationCopy;
+}
+
+#pragma mark - NSTabViewDelegate
+
+- (BOOL)tabView:(NSTabView *)tabView shouldSelectTabViewItem:(nullable NSTabViewItem *)tabViewItem {
+    return !self.isProcessing;
+}
+
+- (IBAction)delete:(id)sender {
+    if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 1) {
+        NSIndexSet * selectedSet = [self.multipleImageTableView selectedRowIndexes];
+        if (selectedSet.count > 0) {
+            [self.inputImageFiles removeObjectsAtIndexes:selectedSet];
+            [self.multipleImageTableView reloadData];
+            if (selectedSet.count == 1) {
+                [self.multipleImageTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedSet.firstIndex] byExtendingSelection:NO];
+            }
+        } else {
+            NSBeep();
+        }
+    }
 }
 
 @end

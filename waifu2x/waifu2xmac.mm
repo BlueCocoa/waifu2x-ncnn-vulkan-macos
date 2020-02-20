@@ -237,18 +237,23 @@ void* save(void* args)
 
 @implementation waifu2xmac
 
-+ (NSImage *)input:(NSString *)image
-                      noise:(int)noise
-                      scale:(int)scale
-                   tilesize:(int)tilesize
-                      model:(NSString *)model
-                      gpuid:(int)gpuid
-               load_job_num:(int)jobs_load
-               proc_job_num:(int)jobs_proc
-               save_job_num:(int)jobs_save
-                   progress:(waifu2xProgressBlock)cb {
++ (NSImage *)input:(NSArray<NSString *> *)inputpaths
+            output:(NSArray<NSString *> *)outputpaths
+             noise:(int)noise
+             scale:(int)scale
+          tilesize:(int)tilesize
+             model:(NSString *)model
+             gpuid:(int)gpuid
+      load_job_num:(int)jobs_load
+      proc_job_num:(int)jobs_proc
+      save_job_num:(int)jobs_save
+          progress:(waifu2xProgressBlock)cb {
     NSImage * result = nil;
     int total = 9;
+    
+    if (inputpaths.count != outputpaths.count) {
+        cb(1, total, NSLocalizedString(@"Error: inequivalent number of input / output files", @""));
+    }
     
     cb(1, total, NSLocalizedString(@"Check parameters...", @""));
     if (noise < -1 || noise > 3)
@@ -348,8 +353,11 @@ void* save(void* args)
     std::vector<path_t> input_files;
     std::vector<path_t> output_files;
     
-    input_files.emplace_back([image UTF8String]);
-    output_files.emplace_back("/tmp/waifu2x_tmp.png");
+    for (NSUInteger index = 0; index < inputpaths.count; index++) {
+        input_files.emplace_back([inputpaths[index] UTF8String]);
+        output_files.emplace_back([outputpaths[index] UTF8String]);
+    }
+    
     {
         Waifu2x waifu2x(gpuid);
 
@@ -432,7 +440,9 @@ void* save(void* args)
     
     cb(9, total, NSLocalizedString(@"done!", @""));
     
-    result = [[NSImage alloc] initWithContentsOfFile:@"/tmp/waifu2x_tmp.png"];
+    if (inputpaths.count == 1) {
+        result = [[NSImage alloc] initWithContentsOfFile:outputpaths[0]];
+    }
     
     return result;
 }

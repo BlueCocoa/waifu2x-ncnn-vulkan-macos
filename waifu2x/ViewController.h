@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DragDropImageView.h"
+#import "DragDropTableView.h"
 
-@interface ViewController : NSViewController<DragDropImageViewDelegate>
+@interface ViewController : NSViewController<DragDropImageViewDelegate, DragDropTableViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTabViewDelegate>
 
 @property (weak) IBOutlet DragDropImageView *inputImageView;
 @property (weak) IBOutlet DragDropImageView *outputImageView;
@@ -25,6 +26,8 @@
 @property (weak) IBOutlet NSPopUpButton *gpuIDButton;
 @property (weak) IBOutlet NSPopUpButton *modelButton;
 @property (weak) IBOutlet NSTextField *vramStaticticsLabel;
+@property (weak) IBOutlet NSTabView *processingModeTab;
+@property (weak) IBOutlet DragDropTableView *multipleImageTableView;
 
 @end
 

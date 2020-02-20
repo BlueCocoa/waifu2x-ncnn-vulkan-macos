@@ -14,16 +14,17 @@ typedef void (^waifu2xProgressBlock)(int current, int total, NSString * descript
 
 @interface waifu2xmac : NSObject
 
-+ (NSImage *)input:(NSString *)image
-                      noise:(int)noise
-                      scale:(int)scale
-                   tilesize:(int)tilesize
-                      model:(NSString *)model
-                      gpuid:(int)gpuid
-               load_job_num:(int)jobs_load
-               proc_job_num:(int)jobs_proc
-               save_job_num:(int)jobs_save
-                   progress:(waifu2xProgressBlock)cb;
++ (NSImage *)input:(NSArray<NSString *> *)inputpaths
+            output:(NSArray<NSString *> *)outputpaths
+             noise:(int)noise
+             scale:(int)scale
+          tilesize:(int)tilesize
+             model:(NSString *)model
+             gpuid:(int)gpuid
+      load_job_num:(int)jobs_load
+      proc_job_num:(int)jobs_proc
+      save_job_num:(int)jobs_save
+          progress:(waifu2xProgressBlock)cb;
 
 @end
 
