@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "waifu2xmac.h"
-#import "GPUInfo.h"
 #import <vector>
 #import <unistd.h>
 #import <chrono>
+#import "waifu2xmac.h"
+#import "GPUInfo.h"
 #import "gpu.h"
 
 @interface ViewController() {
@@ -239,11 +239,12 @@
     [self allowUserIntereaction:NO];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [result addObject:@"|Model|Image Size|Tilesize|Total Time(sec)|GPU Memory(MB)|"];
-        [result addObject:@"|---|---|---|---|---|"];
+        [result addObject:@"|Model|Image Size|Target Size|Block Size|Total Time(sec)|GPU Memory(MB)|"];
+        [result addObject:@"|---|---|---|---|---|---|"];
         for (NSString * model in models) {
             for (NSNumber * inputSize in inputSizes) {
                 int imageSize = inputSize.intValue;
+                int targetSize = imageSize * scale;
                 NSString * inputfile = [[NSBundle mainBundle] pathForResource:[[NSString alloc] initWithFormat:@"benchmark/%dx%d", imageSize, imageSize] ofType:@"png"];
                 if (inputfile == nil) { continue; }
                 
@@ -291,10 +292,10 @@
                     [totalTime appendFormat:@"%.2lf/", tileResult[0].doubleValue];
                     [memoryUsage appendFormat:@"%.0lf/", tileResult[1].doubleValue];
                 }
-                [result addObject:[[NSString alloc] initWithFormat:@"|%@|%dx%d|%@|%@|%@|",
+                [result addObject:[[NSString alloc] initWithFormat:@"|%@|%dx%d|%dx%d|%@|%@|%@|",
                                    model,
-                                   imageSize,
-                                   imageSize,
+                                   imageSize, imageSize,
+                                   targetSize, targetSize,
                                    [tilesizeDesc substringToIndex:tilesizeDesc.length - 1],
                                    [totalTime substringToIndex:totalTime.length - 1],
                                    [memoryUsage substringToIndex:memoryUsage.length - 1]]];

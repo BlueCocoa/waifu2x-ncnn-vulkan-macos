@@ -308,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REGENERATE_SHADER=false\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\n  rm -rf build && mkdir -p build && cd build\n  cmake ..\n  make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\nfi\n";
+			shellScript = "REGENERATE_SHADER=true\nif (${REGENERATE_SHADER}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\n  rm -rf build && mkdir -p build && cd build\n  cmake ..\n  make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
