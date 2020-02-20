@@ -9,5 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 int main(int argc, const char * argv[]) {
+    setenv("VK_ICD_FILENAMES", [[NSBundle mainBundle] pathForResource:@"MoltenVK_icd" ofType:@"json"].UTF8String, 1);
     return NSApplicationMain(argc, argv);
 }
