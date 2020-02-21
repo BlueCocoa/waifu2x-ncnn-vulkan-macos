@@ -9,6 +9,62 @@ As its long long name suggested.
 ### Thanks
 Thanks to [@shincurry](https://github.com/shincurry) for contributing to the UI of this project.
 
+### Usage
+
+#### Single Mode
+1. Click `Single` on the top tab
+2. Drag and drop the image you intentded to upscale to the left image cell
+3. Adjust the settings at the bottom
+4. Click `2x!` and the generated image will be shown at the right image cell
+5. Drag the image from the right image cell to where you want to save it (the filename will be `waifu2x-output.png`)
+
+![screenshot](screenshot-v1.4-single-image.png)
+
+#### Multiple Mode
+1. Click `Multiple` on the top tab
+2. Drag and drop images or directories to the table. (Only decodable images will be processed)
+3. Adjust the settings at the bottom
+4. Click `2x!` and the generated images will be saved at where them from with an extra `.png` extension. For example,
+
+Input
+
+```
+.
+├── 1
+│   ├── IMG_2185.JPG
+│   ├── IMG_2211.JPG
+│   └── IMG_2212.JPG
+├── 2
+│   └── IMG_2208.PNG
+└── IMG_2213.JPG
+```
+
+Output
+```
+.
+.
+├── 1
+│   ├── IMG_2185.JPG
+│   ├── IMG_2185.JPG.png
+│   ├── IMG_2211.JPG
+│   ├── IMG_2211.JPG.png
+│   ├── IMG_2212.JPG
+│   └── IMG_2212.JPG.png
+├── 2
+│   ├── IMG_2208.PNG
+│   └── IMG_2208.PNG.png
+├── IMG_2213.JPG
+└── IMG_2213.JPG.png
+```
+
+![screenshot](screenshot-v1.4-multiple-images.png)
+
+#### Benchmark
+
+To run benchmark, please click `waifu2x-gui` -> `Benchmark`
+
+![screenshot](screenshot-v1.4-benchmark.png)
+
 ### Build Instructions
 Download lastest Vulkan SDK at [https://vulkan.lunarg.com/sdk/home](https://vulkan.lunarg.com/sdk/home).
 
@@ -58,19 +114,6 @@ xcodebuild
 After the first compilation, if you want to modify this project only, you may set those flags in `Build Phases -> Run Script` to `false` to avoid recompile ncnn and regenerate shader.
 
 ![regenerate_shader](regenerate_shader.png)
-
-### Screenshot
-
-#### Single Mode
-![screenshot](screenshot-v1.4-single-image.png)
-
-#### Multiple Mode
-![screenshot](screenshot-v1.4-multiple-images.png)
-
-#### Benchmark
-To run benchmark, please click "waifu2x-gui" -> "Benchmark"
-
-![screenshot](screenshot-v1.4-benchmark.png)
 
 ## Speed Comparison between Macs
 
