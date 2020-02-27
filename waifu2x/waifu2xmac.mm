@@ -244,6 +244,7 @@ void* save(void* args)
           tilesize:(int)tilesize
              model:(NSString *)model
              gpuid:(int)gpuid
+          tta_mode:(BOOL)enable_tta_mode
       load_job_num:(int)jobs_load
       proc_job_num:(int)jobs_proc
       save_job_num:(int)jobs_save
@@ -362,7 +363,7 @@ void* save(void* args)
     }
     
     {
-        Waifu2x waifu2x(gpuid);
+        Waifu2x waifu2x(gpuid, enable_tta_mode);
 
         if (cb) cb(4, total, NSLocalizedString(@"Loading models...", @""));
         waifu2x.load([parampath UTF8String], [modelpath UTF8String]);

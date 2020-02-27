@@ -21,6 +21,7 @@ typedef void (^waifu2xProgressBlock)(int current, int total, NSString * descript
           tilesize:(int)tilesize
              model:(NSString *)model
              gpuid:(int)gpuid
+          tta_mode:(BOOL)enable_tta_mode
       load_job_num:(int)jobs_load
       proc_job_num:(int)jobs_proc
       save_job_num:(int)jobs_save

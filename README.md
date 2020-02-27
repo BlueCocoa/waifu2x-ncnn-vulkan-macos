@@ -98,7 +98,6 @@ which cmake
 sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
 
 # build ncnn
-cp -f waifu2x-ncnn-vulkan-macos/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt ncnn/CMakeLists.txt
 rm -rf ncnn/build && mkdir -p ncnn/build && pushd ncnn/build
 cmake -DNCNN_VULKAN=ON -D CMAKE_BUILD_TYPE=Release ..
 make -j`sysctl -n hw.ncpu` && make install

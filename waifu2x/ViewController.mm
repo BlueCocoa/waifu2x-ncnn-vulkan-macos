@@ -39,6 +39,7 @@
 @synthesize vramStaticticsLabel;
 @synthesize processingModeTab;
 @synthesize multipleImageTableView;
+@synthesize ttaModeButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -226,9 +227,10 @@
 - (void)benchmark {
     __block NSMutableArray * result = [[NSMutableArray alloc] init];
     
-    int noise = 2;
-    int scale = 2;
+    int noise = self.noiseParameter.intValue;
+    int scale = self.scaleParameter.intValue;
     int gpuID = self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
+    BOOL enableTTAMode = self.ttaModeButton.state == NSControlStateValueOn;
     NSArray * models = @[@"models-cunet", @"models-upconv_7_anime_style_art_rgb"];
     NSArray<NSNumber *> * tilesizes = @[@(400), @(200), @(100)];
     NSArray<NSNumber *> * inputSizes = @[@(200), @(400), @(1000), @(2000), @(4000)];
@@ -266,6 +268,7 @@
                              tilesize:tsize
                                 model:model
                                 gpuid:gpuID
+                             tta_mode:enableTTAMode
                          load_job_num:1
                          proc_job_num:1
                          save_job_num:1
@@ -318,6 +321,7 @@
             for (NSString * p in result) {
                 [resultString appendFormat:@"%@\n", p];
             }
+            [resultString appendFormat:@"\nnoise: %d, scale: %d, gpuid: %d, tta mode: %@\n", noise, scale, gpuID, enableTTAMode ? @"YES" : @"NO"];
             [alert setInformativeText:resultString];
             [alert setAlertStyle:NSAlertStyleInformational];
             [alert beginSheetModalForWindow:[self view].window completionHandler:^(NSModalResponse returnCode) {
@@ -353,6 +357,7 @@
     int save_jobs = self.savingJobsParameter.intValue;
     NSString * model = [NSString stringWithFormat:@"models-%@", [self.modelButton selectedItem].title];
     int gpuID = self.gpus[self.gpuIDButton.indexOfSelectedItem].deviceID;
+    BOOL enableTTAMode = self.ttaModeButton.state == NSControlStateValueOn;
     BOOL isSingleMode = true;
     
     NSArray<NSString *> * inputpaths = nil;
@@ -393,6 +398,7 @@
                                     tilesize:tilesize
                                        model:model
                                        gpuid:gpuID
+                                    tta_mode:enableTTAMode
                                 load_job_num:load_jobs
                                 proc_job_num:proc_jobs
                                 save_job_num:save_jobs
@@ -406,18 +412,18 @@
         }];
 
         self.isProcessing = NO;
-        [self allowUserIntereaction:YES];
         
-        if (isSingleMode) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self allowUserIntereaction:YES];
+            if (isSingleMode) {
                 if (!result) {
                     return;
                 }
 
                 [self.outputImageView setImage:result];
                 unlink(outputpaths[0].UTF8String);
-            });
-        }
+            }
+        });
     });
 }
 

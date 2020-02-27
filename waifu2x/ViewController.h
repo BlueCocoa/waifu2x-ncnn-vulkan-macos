@@ -32,6 +32,7 @@
 @property (weak) IBOutlet NSTabView *processingModeTab;
 @property (weak) IBOutlet DragDropTableView *multipleImageTableView;
 @property (weak) IBOutlet NSButton *startButton;
+@property (weak) IBOutlet NSButton *ttaModeButton;
 
 @end
 
