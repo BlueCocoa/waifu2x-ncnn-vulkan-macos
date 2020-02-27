@@ -18,7 +18,7 @@ Thanks to [@shincurry](https://github.com/shincurry) for contributing to the UI 
 4. Click `2x!` and the generated image will be shown at the right image cell
 5. Drag the image from the right image cell to where you want to save it (the filename will be `waifu2x-output.png`)
 
-![screenshot](screenshot-v1.4-single-image.png)
+![screenshot](screenshot-v1.5-single-image.png)
 
 #### Multiple Mode
 1. Click `Multiple` on the top tab
@@ -57,13 +57,13 @@ Output
 └── IMG_2213.JPG.png
 ```
 
-![screenshot](screenshot-v1.4-multiple-images.png)
+![screenshot](screenshot-v1.5-multiple-images.png)
 
 #### Benchmark
 
 To run benchmark, please click `waifu2x-gui` -> `Benchmark`
 
-![screenshot](screenshot-v1.4-benchmark.png)
+![screenshot](screenshot-v1.5-benchmark.png)
 
 ### Build Instructions
 Download lastest Vulkan SDK at [https://vulkan.lunarg.com/sdk/home](https://vulkan.lunarg.com/sdk/home).
@@ -87,7 +87,7 @@ mv vulkansdk-macos-${VULKAN_SDK_VER} waifu2x-ncnn-vulkan-macos/waifu2x/VulkanSDK
 git clone --depth=1 https://github.com/Tencent/ncnn ncnn
 
 # clone nihui/waifu2x-ncnn-vulkan
-# (At the time of writing) https://github.com/nihui/waifu2x-ncnn-vulkan/commit/ff7bc433612f4daf6a9fefcaa867b992b5c60196
+# (At the time of writing) https://github.com/nihui/waifu2x-ncnn-vulkan/tree/4b626f8d4a1f8ce331aa4678d93d3628d9670361
 rm -rf waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 
@@ -136,6 +136,8 @@ After the first compilation, if you want to modify this project only, you may se
 |models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|6.12/6.11/6.49|1769/466/122|
 |models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|23.75/23.71/25.27|1801/489/142|
 
+noise: 2, scale: 2, gpuid: 0, tta mode: NO
+
 ### Environment 2
 
 - MacBook Pro 15-inch 2018
@@ -155,6 +157,8 @@ After the first compilation, if you want to modify this project only, you may se
 |models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|2.41/2.34/2.48|1765/463/121|
 |models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|8.74/8.84/9.43|1769/466/122|
 |models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|32.66/33.00/35.29|1801/489/142|
+
+noise: 2, scale: 2, gpuid: 0, tta mode: NO
 
 ### Environment 3
 
@@ -176,6 +180,8 @@ After the first compilation, if you want to modify this project only, you may se
 |models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|22.12/22.48/23.71|1762/466/125|
 |models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|87.28/89.11/93.98|1780/482/141|
 
+noise: 2, scale: 2, gpuid: 1, tta mode: NO
+
 ### Environment 4
 
 - MacBook 12-inch Early 2016
@@ -195,6 +201,8 @@ After the first compilation, if you want to modify this project only, you may se
 |models-upconv_7_anime_style_art_rgb|1000x1000|2000x2000|400/200/100|9.19/9.06/9.46|1762/466/125|
 |models-upconv_7_anime_style_art_rgb|2000x2000|4000x4000|400/200/100|35.52/37.66/41.57|1762/466/125|
 |models-upconv_7_anime_style_art_rgb|4000x4000|8000x8000|400/200/100|199.20/182.04/159.11|1780/482/141|
+
+noise: 2, scale: 2, gpuid: 0, tta mode: NO
 
 ## Speed Comparison (not really) with waifu2x-caffe-cui & waifu2x-ncnn-vulkan
 
