@@ -262,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = "Cocoa";
+				ORGANIZATIONNAME = Cocoa;
 				TargetAttributes = {
 					400697EC2270C19400B79110 = {
 						CreatedOnToolsVersion = 10.1;
@@ -324,7 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REBUILD_WAIFU2X_VULKAN=false\nif (${REBUILD_WAIFU2X_VULKAN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  export MACOSX_DEPLOYMENT_TARGET=10.12\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  git submodule update --init --recursive\n  cd src\n  rm -rf build && mkdir -p build && cd build\n  cmake .. && make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\n  cp -f ncnn/src/libncnn.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/libglslang.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/OSDependent/Unix/libOSDependent.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/OGLCompilersDLL/libOGLCompiler.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/SPIRV/libSPIRV.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/src/platform.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src\"\nfi\n";
+			shellScript = "REBUILD_WAIFU2X_VULKAN=true\nif (${REBUILD_WAIFU2X_VULKAN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  export MACOSX_DEPLOYMENT_TARGET=10.12\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  git submodule update --init --recursive\n  cd src\n  rm -rf build && mkdir -p build && cd build\n  cmake .. && make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\n  cp -f ncnn/src/libncnn.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/libglslang.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/OSDependent/Unix/libOSDependent.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/OGLCompilersDLL/libOGLCompiler.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/SPIRV/libSPIRV.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/src/platform.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src\"\nfi\n";
 		};
 		CCC0DDAD257C4D7B000F4854 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
