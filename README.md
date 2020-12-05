@@ -71,10 +71,9 @@ Download lastest Vulkan SDK at [https://vulkan.lunarg.com/sdk/home](https://vulk
 At the time of this README.md wrote, 1.2.154.0 was the newest version for macOS.
 
 ```bash
-brew install protobuf libomp
-
-# clone this repo first
-git clone --depth=1 https://github.com/BlueCocoa/waifu2x-ncnn-vulkan-macos
+brew install protobuf
+# optional libomp
+brew install libomp
 
 # download lastest Vulkan SDK
 export VULKAN_SDK_VER="1.2.154.0"
@@ -88,12 +87,6 @@ mv "vulkansdk-macos-${VULKAN_SDK_VER}" waifu2x-ncnn-vulkan-macos/waifu2x/VulkanS
 rm -rf waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 git clone --depth=1 https://github.com/nihui/waifu2x-ncnn-vulkan waifu2x-ncnn-vulkan-macos/waifu2x/waifu2x-ncnn-vulkan
 
-# check your cmake installation
-which cmake
-# if it goes with /Applications/CMake.app/Contents/bin/cmake
-# then you need to install it in /usr/local/bin via follow command
-sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
-
 # compile waifu2x-ncnn-vulkan-macos
 # and the compiled application will be placed at `build/Release/waifu2x-gui.app`
 cd waifu2x-ncnn-vulkan-macos
@@ -103,7 +96,7 @@ xcodebuild
 ### Notice
 After the first compilation, if you want to modify this project only, you may set those flags in `Build Phases -> Run Script` to `false` to avoid recompile ncnn and regenerate shader.
 
-![regenerate_shader](regenerate_shader.png)
+![rebuild ncnn](rebuild_ncnn.png)
 
 ## Speed Comparison between Macs
 
