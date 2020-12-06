@@ -1,0 +1,15 @@
+//
+//  Waifu2x.pch
+//  waifu2x
+//
+//  Created by Cocoa on 06/12/2020.
+//  Copyright © 2020 Cocoa. All rights reserved.
+//
+
+#ifndef Waifu2x_pch
+#define Waifu2x_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Waifu2x_pch */
