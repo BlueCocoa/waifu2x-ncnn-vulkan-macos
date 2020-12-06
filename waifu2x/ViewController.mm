@@ -14,6 +14,8 @@
 #import "GPUInfo.h"
 #import "gpu.h"
 
+using namespace cv;
+
 @interface ViewController() {
     VkInstance gpuInstance;
 }
@@ -23,6 +25,7 @@
 @property (nonatomic) uint32_t currentGPUID;
 @property (strong, nonatomic) NSTimer * vramStaticticsTimer;
 @property (strong, nonatomic) NSMutableArray * inputImageFiles;
+@property (strong, nonatomic) NSMutableArray * inputVideoFiles;
 @property (atomic) BOOL isProcessing;
 @property (nonatomic) BOOL isBenchmarking;
 
@@ -39,6 +42,7 @@
 @synthesize vramStaticticsLabel;
 @synthesize processingModeTab;
 @synthesize multipleImageTableView;
+@synthesize multipleVideoTableView;
 @synthesize ttaModeButton;
 
 - (void)viewDidLoad {
@@ -68,11 +72,18 @@
     }
     
     self.inputImageFiles = [[NSMutableArray alloc] init];
+    self.inputVideoFiles = [[NSMutableArray alloc] init];
     
     [self.multipleImageTableView setDataSource:self];
     [self.multipleImageTableView setDelegate:self];
     [self.multipleImageTableView setAllowDrop:YES];
     [self.multipleImageTableView setDropDelegate:self];
+    [self.multipleImageTableView setAcceptedTypes:[NSArray arrayWithObjects:(NSString *)kUTTypeFolder, (NSString *)kUTTypeImage, nil]];
+    
+    [self.multipleVideoTableView setDataSource:self];
+    [self.multipleVideoTableView setDelegate:self];
+    [self.multipleVideoTableView setAllowDrop:YES];
+    [self.multipleVideoTableView setDropDelegate:self];
     
     [self.processingModeTab setDelegate:self];
 }
@@ -216,10 +227,10 @@
     [self.vramStaticticsLabel.cell setTitle:[NSString stringWithFormat:@"%.0lf/%0.lf MB", used, total]];
 }
 
-- (NSArray *)generateOutputPaths:(NSArray *)inputpaths {
+- (NSArray *)generateOutputPaths:(NSArray *)inputpaths videoMode:(BOOL)videoMode {
     NSMutableArray * outputpaths = [NSMutableArray arrayWithCapacity:inputpaths.count];;
     for (NSString * filepath in inputpaths) {
-        [outputpaths addObject:[filepath stringByAppendingPathExtension:@"png"]];
+        [outputpaths addObject:[filepath stringByAppendingPathExtension:videoMode ? @"2x.mkv" : @"png"]];
     }
     return outputpaths;
 }
@@ -272,6 +283,8 @@
                          load_job_num:1
                          proc_job_num:1
                          save_job_num:1
+                            save_file:NO
+                              save_cb:nil
                           single_mode:NO
                             VRAMUsage:&usage
                              progress:nil];
@@ -362,13 +375,23 @@
     
     NSArray<NSString *> * inputpaths = nil;
     NSArray<NSString *> * outputpaths = nil;
+    BOOL isVideoMode = NO;
     if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 1) {
         if (self.inputImageFiles.count == 0) {
             return;
         }
         
         inputpaths = self.inputImageFiles;
-        outputpaths = [self generateOutputPaths:self.inputImageFiles];
+        outputpaths = [self generateOutputPaths:self.inputImageFiles videoMode:isVideoMode];
+        isSingleMode = false;
+    } else if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 2) {
+        if (self.inputVideoFiles.count == 0) {
+            return;
+        }
+        
+        isVideoMode = YES;
+        inputpaths = self.inputVideoFiles;
+        outputpaths = [self generateOutputPaths:self.inputVideoFiles videoMode:isVideoMode];
         isSingleMode = false;
     } else {
         if (!self.inputImageView.image) {
@@ -390,41 +413,88 @@
     [self allowUserIntereaction:NO];
     self.isProcessing = YES;
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSImage * result = [waifu2xmac input:inputpaths
-                                      output:outputpaths
-                                       noise:noise
-                                       scale:scale
-                                    tilesize:tilesize
-                                       model:model
-                                       gpuid:gpuID
-                                    tta_mode:enableTTAMode
-                                load_job_num:load_jobs
-                                proc_job_num:proc_jobs
-                                save_job_num:save_jobs
-                                 single_mode:isSingleMode
-                                   VRAMUsage:nullptr
-                                    progress:^(int current, int total, NSString *description) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.statusLabel setStringValue:[NSString stringWithFormat:@"[%d/%d] %@", current, total, description]];
-                [self.waifu2xProgress setDoubleValue:((double)current)/total * 100];
-            });
-        }];
+    if (isVideoMode) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            for (NSUInteger index = 0; index < inputpaths.count; index++) {
+                NSString * videoFile = inputpaths[index];
+                VideoCapture video(videoFile.UTF8String);
+                if (video.isOpened()) {
+                    NSString * filename = [videoFile pathComponents].lastObject;
+                    __block VideoWriter writer(outputpaths[index].UTF8String, cv::VideoWriter::fourcc('h', 'v', 'c', '1'), video.get(cv::CAP_PROP_FPS), cv::Size((int)(video.get(cv::CAP_PROP_FRAME_WIDTH) * scale), (int)(video.get(cv::CAP_PROP_FRAME_HEIGHT) * scale)), true);
 
-        self.isProcessing = NO;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self allowUserIntereaction:YES];
-            if (isSingleMode) {
-                if (!result) {
-                    return;
+                    __block uint64_t processed = 0;
+                    [waifu2xmac videoInput:video
+                                noise:noise
+                                scale:scale
+                             tilesize:tilesize
+                                model:model
+                                gpuid:gpuID
+                             tta_mode:enableTTAMode
+                         proc_job_num:1
+                         save_job_num:1
+                              save_cb:^(cv::Mat& scaled_frame, int current, uint64_t total) {
+                        writer.write(scaled_frame);
+                        // debug
+                        cv::imwrite([NSString stringWithFormat:@"/tmp/ncnn-out.%d.png", current].UTF8String, scaled_frame);
+                        
+                        processed += 1;
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.statusLabel setStringValue:[NSString stringWithFormat:@"[%llu/%llu] %@", processed, total, filename]];
+                            [self.waifu2xProgress setDoubleValue:((double)processed)/total * 100];
+                        });
+                    }
+                            VRAMUsage:nullptr
+                             progress:nil];
+                    
+                    video.release();
                 }
-
-                [self.outputImageView setImage:result];
-                unlink(outputpaths[0].UTF8String);
             }
+            
+            self.isProcessing = NO;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self allowUserIntereaction:YES];
+            });
         });
-    });
+    } else {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSImage * result = [waifu2xmac input:inputpaths
+                                          output:outputpaths
+                                           noise:noise
+                                           scale:scale
+                                        tilesize:tilesize
+                                           model:model
+                                           gpuid:gpuID
+                                        tta_mode:enableTTAMode
+                                    load_job_num:load_jobs
+                                    proc_job_num:proc_jobs
+                                    save_job_num:save_jobs
+                                       save_file:YES
+                                         save_cb:nil
+                                     single_mode:isSingleMode
+                                       VRAMUsage:nullptr
+                                        progress:^(int current, int total, NSString *description) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.statusLabel setStringValue:[NSString stringWithFormat:@"[%d/%d] %@", current, total, description]];
+                    [self.waifu2xProgress setDoubleValue:((double)current)/total * 100];
+                });
+            }];
+
+            self.isProcessing = NO;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self allowUserIntereaction:YES];
+                if (isSingleMode) {
+                    if (!result) {
+                        return;
+                    }
+
+                    [self.outputImageView setImage:result];
+                    unlink(outputpaths[0].UTF8String);
+                }
+            });
+        });
+    }
 }
 
 #pragma mark - DragDropImageViewDelegate
@@ -435,9 +505,14 @@
 
 #pragma mark - DragDropTableViewDelegate
 
-- (void)dropTableComplete:(NSArray<NSString *> *)files {
-    [self.inputImageFiles addObjectsFromArray:files];
-    [self.multipleImageTableView reloadData];
+- (void)dropTable:(DragDropTableView *)table Complete:(NSArray<NSString *> *)files {
+    if (table == self.multipleImageTableView) {
+        [self.inputImageFiles addObjectsFromArray:files];
+        [self.multipleImageTableView reloadData];
+    } else if (table == self.multipleVideoTableView) {
+        [self.inputVideoFiles addObjectsFromArray:files];
+        [self.multipleVideoTableView reloadData];
+    }
 }
 
 #pragma mark - NSTableViewDataSource
@@ -445,6 +520,8 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     if (tableView == self.multipleImageTableView) {
         return self.inputImageFiles.count;
+    } else if (tableView == self.multipleVideoTableView) {
+        return self.inputVideoFiles.count;
     } else {
         return 0;
     }
@@ -456,6 +533,10 @@
     if (tableView == self.multipleImageTableView) {
         NSTableCellView * cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
         [cell.textField setStringValue:[self.inputImageFiles objectAtIndex:row]];
+        return cell;
+    } else if (tableView == self.multipleVideoTableView) {
+        NSTableCellView * cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+        [cell.textField setStringValue:[self.inputVideoFiles objectAtIndex:row]];
         return cell;
     } else {
         return nil;
@@ -477,13 +558,24 @@
 }
 
 - (IBAction)delete:(id)sender {
+    DragDropTableView * dragDropTable = nil;
+    NSMutableArray * associatedFiles = nil;
     if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 1) {
-        NSIndexSet * selectedSet = [self.multipleImageTableView selectedRowIndexes];
-        if (selectedSet.count > 0) {
-            [self.inputImageFiles removeObjectsAtIndexes:selectedSet];
-            [self.multipleImageTableView reloadData];
+        dragDropTable = self.multipleImageTableView;
+        associatedFiles = self.inputImageFiles;
+    } else if ([self.processingModeTab indexOfTabViewItem:[self.processingModeTab selectedTabViewItem]] == 2) {
+        dragDropTable = self.multipleVideoTableView;
+        associatedFiles = self.inputVideoFiles;
+    }
+    
+    if (dragDropTable) {
+        NSIndexSet * selectedSet = [dragDropTable selectedRowIndexes];
+        
+        if (selectedSet && selectedSet.count > 0) {
+            [associatedFiles removeObjectsAtIndexes:selectedSet];
+            [dragDropTable reloadData];
             if (selectedSet.count == 1) {
-                [self.multipleImageTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedSet.firstIndex] byExtendingSelection:NO];
+                [dragDropTable selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedSet.firstIndex] byExtendingSelection:NO];
             }
         } else {
             NSBeep();

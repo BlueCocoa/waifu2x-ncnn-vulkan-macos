@@ -35,6 +35,12 @@
 		CCC0DDAA257C4C39000F4854 /* libSPIRV-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDA7257C4C39000F4854 /* libSPIRV-Tools.a */; };
 		CCC0DDAB257C4C39000F4854 /* libSPIRV-Tools-opt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDA8257C4C39000F4854 /* libSPIRV-Tools-opt.a */; };
 		CCC0DDAC257C4C39000F4854 /* libSPIRV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDA9257C4C39000F4854 /* libSPIRV.a */; };
+		CCC0DDB3257C641E000F4854 /* libopencv_video.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB0257C641E000F4854 /* libopencv_video.4.1.2.dylib */; };
+		CCC0DDB4257C641E000F4854 /* libopencv_core.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB1257C641E000F4854 /* libopencv_core.4.1.2.dylib */; };
+		CCC0DDB5257C641E000F4854 /* libopencv_videoio.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB2257C641E000F4854 /* libopencv_videoio.4.1.2.dylib */; };
+		CCC0DDB7257C7BAE000F4854 /* libopencv_highgui.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB6257C7BAE000F4854 /* libopencv_highgui.4.1.2.dylib */; };
+		CCC0DDBA257C8772000F4854 /* libopencv_imgproc.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB8257C8772000F4854 /* libopencv_imgproc.4.1.2.dylib */; };
+		CCC0DDBB257C8772000F4854 /* libopencv_imgcodecs.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC0DDB9257C8772000F4854 /* libopencv_imgcodecs.4.1.2.dylib */; };
 		CCE86B8423FD630600E73B94 /* waifu2x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCE86B5223FD630500E73B94 /* waifu2x.cpp */; };
 		CCE86B8723FD631D00E73B94 /* models in Resources */ = {isa = PBXBuildFile; fileRef = CCE86B8623FD631D00E73B94 /* models */; };
 /* End PBXBuildFile section */
@@ -95,6 +101,13 @@
 		CCC0DDA8257C4C39000F4854 /* libSPIRV-Tools-opt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSPIRV-Tools-opt.a"; path = "macOS/lib/libSPIRV-Tools-opt.a"; sourceTree = "<group>"; };
 		CCC0DDA9257C4C39000F4854 /* libSPIRV.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSPIRV.a; path = macOS/lib/libSPIRV.a; sourceTree = "<group>"; };
 		CCC0DDAE257C4EF0000F4854 /* library-info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "library-info.h"; sourceTree = "<group>"; };
+		CCC0DDAF257C61A6000F4854 /* Waifu2x.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waifu2x.pch; sourceTree = "<group>"; };
+		CCC0DDB0257C641E000F4854 /* libopencv_video.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_video.4.1.2.dylib; sourceTree = "<group>"; };
+		CCC0DDB1257C641E000F4854 /* libopencv_core.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_core.4.1.2.dylib; sourceTree = "<group>"; };
+		CCC0DDB2257C641E000F4854 /* libopencv_videoio.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_videoio.4.1.2.dylib; sourceTree = "<group>"; };
+		CCC0DDB6257C7BAE000F4854 /* libopencv_highgui.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_highgui.4.1.2.dylib; sourceTree = "<group>"; };
+		CCC0DDB8257C8772000F4854 /* libopencv_imgproc.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_imgproc.4.1.2.dylib; sourceTree = "<group>"; };
+		CCC0DDB9257C8772000F4854 /* libopencv_imgcodecs.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_imgcodecs.4.1.2.dylib; sourceTree = "<group>"; };
 		CCE86B4B23FD630500E73B94 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
 		CCE86B4C23FD630500E73B94 /* win32dirent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = win32dirent.h; sourceTree = "<group>"; };
 		CCE86B4D23FD630500E73B94 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
@@ -110,6 +123,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC0DDBA257C8772000F4854 /* libopencv_imgproc.4.1.2.dylib in Frameworks */,
+				CCC0DDBB257C8772000F4854 /* libopencv_imgcodecs.4.1.2.dylib in Frameworks */,
+				CCC0DDB7257C7BAE000F4854 /* libopencv_highgui.4.1.2.dylib in Frameworks */,
+				CCC0DDB3257C641E000F4854 /* libopencv_video.4.1.2.dylib in Frameworks */,
+				CCC0DDB4257C641E000F4854 /* libopencv_core.4.1.2.dylib in Frameworks */,
+				CCC0DDB5257C641E000F4854 /* libopencv_videoio.4.1.2.dylib in Frameworks */,
 				CCC0DDAA257C4C39000F4854 /* libSPIRV-Tools.a in Frameworks */,
 				CCC0DD8F257C4782000F4854 /* libncnn.a in Frameworks */,
 				CCC0DD99257C48A6000F4854 /* libMachineIndependent.a in Frameworks */,
@@ -160,6 +179,7 @@
 				400697F12270C19400B79110 /* AppDelegate.m */,
 				400697F32270C19400B79110 /* ViewController.h */,
 				400697F42270C19400B79110 /* ViewController.mm */,
+				CCC0DDAF257C61A6000F4854 /* Waifu2x.pch */,
 				CCC0DDAE257C4EF0000F4854 /* library-info.h */,
 				CC70F70023FE547C00C9DAE6 /* GPUInfo.h */,
 				CC70F70123FE547C00C9DAE6 /* GPUInfo.mm */,
@@ -194,6 +214,12 @@
 		40F468A32271EAAA001098D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCC0DDB9257C8772000F4854 /* libopencv_imgcodecs.4.1.2.dylib */,
+				CCC0DDB8257C8772000F4854 /* libopencv_imgproc.4.1.2.dylib */,
+				CCC0DDB6257C7BAE000F4854 /* libopencv_highgui.4.1.2.dylib */,
+				CCC0DDB1257C641E000F4854 /* libopencv_core.4.1.2.dylib */,
+				CCC0DDB0257C641E000F4854 /* libopencv_video.4.1.2.dylib */,
+				CCC0DDB2257C641E000F4854 /* libopencv_videoio.4.1.2.dylib */,
 				CCC0DDA0257C4BED000F4854 /* libSPIRV-Tools-link.a */,
 				CCC0DDA1257C4BED000F4854 /* libSPIRV-Tools-opt.a */,
 				CCC0DDA2257C4BED000F4854 /* libSPIRV-Tools-reduce.a */,
@@ -324,7 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "REBUILD_WAIFU2X_VULKAN=true\nif (${REBUILD_WAIFU2X_VULKAN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  export MACOSX_DEPLOYMENT_TARGET=10.12\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  git submodule update --init --recursive\n  cd src\n  rm -rf build && mkdir -p build && cd build\n  cmake .. && make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\n  cp -f ncnn/src/libncnn.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/libglslang.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/OSDependent/Unix/libOSDependent.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/OGLCompilersDLL/libOGLCompiler.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/SPIRV/libSPIRV.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/src/platform.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src\"\nfi\n";
+			shellScript = "REBUILD_WAIFU2X_VULKAN=false\nif (${REBUILD_WAIFU2X_VULKAN}); then\n  export VULKAN_SDK=\"${SRCROOT}/waifu2x/VulkanSDK/macOS\"\n  export PATH=\"/Applications/CMake.app/Contents/bin:${PATH}\"\n  export MACOSX_DEPLOYMENT_TARGET=10.12\n  cp -f \"${SRCROOT}/waifu2x/CMakeLists-waifu2x-ncnn-vulkan.txt\" \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/CMakeLists.txt\"\n  cd ${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan\n  git submodule update --init --recursive\n  cd src\n  rm -rf build && mkdir -p build && cd build\n  cmake .. && make -j`sysctl -n hw.ncpu`\n  cp -f *.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src\"\n  cp -f ncnn/src/libncnn.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/libglslang.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/glslang/glslang/OSDependent/Unix/libOSDependent.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/OGLCompilersDLL/libOGLCompiler.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\" \n  cp -f ncnn/glslang/SPIRV/libSPIRV.a \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan-lib\"\n  cp -f ncnn/src/platform.h \"${SRCROOT}/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src\"\nfi\n";
 		};
 		CCC0DDAD257C4D7B000F4854 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -502,12 +528,15 @@
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/macOS/Frameworks",
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/MoltenVK/macOS/framework",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = waifu2x/Waifu2x.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/libomp/9.0.1/include,
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/include",
 					"$(SRCROOT)/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src",
 					/usr/local/include,
+					/usr/local/include/opencv4,
 				);
 				INFOPLIST_FILE = waifu2x/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,19 +567,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 0000000000;
+				DEVELOPMENT_TEAM = 000000000;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/waifu2x",
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/macOS/Frameworks",
 					"$(PROJECT_DIR)/waifu2x/VulkanSDK/MoltenVK/macOS/framework",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = waifu2x/Waifu2x.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/libomp/9.0.1/include,
 					"$(SRCROOT)/waifu2x/VulkanSDK/macOS/include",
 					"$(SRCROOT)/waifu2x/waifu2x-ncnn-vulkan/src/ncnn/src",
 					/usr/local/include,
+					/usr/local/include/opencv4,
 				);
 				INFOPLIST_FILE = waifu2x/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

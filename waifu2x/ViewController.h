@@ -31,6 +31,7 @@
 @property (weak) IBOutlet NSTextField *vramStaticticsLabel;
 @property (weak) IBOutlet NSTabView *processingModeTab;
 @property (weak) IBOutlet DragDropTableView *multipleImageTableView;
+@property (weak) IBOutlet DragDropTableView *multipleVideoTableView;
 @property (weak) IBOutlet NSButton *startButton;
 @property (weak) IBOutlet NSButton *ttaModeButton;
 

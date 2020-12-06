@@ -30,13 +30,19 @@
 }
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
-    NSArray* acceptedTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeFolder, (NSString *)kUTTypeImage, nil];
-    NSArray* urls = [sender.draggingPasteboard
-                     readObjectsForClasses:[NSArray arrayWithObject:[NSURL class]]
-                     options:[NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithBool:YES], NSPasteboardURLReadingFileURLsOnlyKey,
-                              acceptedTypes, NSPasteboardURLReadingContentsConformToTypesKey, nil]
-                     ];
+    NSArray* urls = nil;
+    if (self.acceptedTypes) {
+        urls = [sender.draggingPasteboard
+                         readObjectsForClasses:[NSArray arrayWithObject:[NSURL class]]
+                         options:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  [NSNumber numberWithBool:YES], NSPasteboardURLReadingFileURLsOnlyKey,
+                                  self.acceptedTypes, NSPasteboardURLReadingContentsConformToTypesKey, nil]
+                         ];
+    } else {
+        urls = [sender.draggingPasteboard
+                readObjectsForClasses:[NSArray arrayWithObject:[NSURL class]]
+                options:nil];
+    }
     
     NSMutableArray * files = [[NSMutableArray alloc] init];
     for (NSURL * fileurl in urls) {
@@ -61,8 +67,8 @@
         }
     }
     
-    if ([self.dropDelegate respondsToSelector:@selector(dropTableComplete:)]) {
-        [self.dropDelegate dropTableComplete:files];
+    if ([self.dropDelegate respondsToSelector:@selector(dropTable:Complete:)]) {
+        [self.dropDelegate dropTable:self Complete:files];
     }
     
     return YES;

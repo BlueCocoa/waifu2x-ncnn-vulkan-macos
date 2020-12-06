@@ -12,6 +12,7 @@
 #import <algorithm>
 #import <vector>
 #import <queue>
+#import <thread>
 
 // image decoder and encoder with stb
 #define STB_IMAGE_IMPLEMENTATION
@@ -37,9 +38,11 @@ public:
 
     path_t inpath;
     path_t outpath;
+    bool save_file;
 
     ncnn::Mat inimage;
     ncnn::Mat outimage;
+    uint64_t total;
 };
 
 class TaskQueue
@@ -96,6 +99,7 @@ class LoadThreadParams
 public:
     int scale;
     int jobs_load;
+    bool save_file;
 
     // session data
     std::vector<path_t> input_files;
@@ -132,7 +136,7 @@ void* load(void* args)
 
             v.inimage = ncnn::Mat(w, h, (void*)pixeldata, (size_t)3, 3);
             v.outimage = ncnn::Mat(w * scale, h * scale, (size_t)3u, 3);
-
+            v.save_file = ltp->save_file;
             toproc.put(v);
         }
         else
@@ -147,6 +151,13 @@ void* load(void* args)
 
     return 0;
 }
+
+class VideoThreadParams
+{
+public:
+    cv::VideoCapture * video;
+    int scale, jobs_proc, jobs_save;
+};
 
 class ProcThreadParams
 {
@@ -180,7 +191,52 @@ class SaveThreadParams
 {
 public:
     int verbose;
+    waifu2xCompleteSingleBlock cb;
 };
+
+void * read_video(void* args)
+{
+    const VideoThreadParams* vtp = (const VideoThreadParams*)args;
+    // load image
+    uint64_t count = (uint64_t)vtp->video->get(cv::CAP_PROP_FRAME_COUNT);
+    uint64_t current = 0;
+    
+    cv::VideoCapture &video=*vtp->video;
+    while (1) {
+        cv::Mat frame;
+        video >> frame;
+        if (frame.empty()) {
+            break;
+        }
+        
+        Task v;
+        v.id = (int)current;
+        v.inpath = "";
+        v.outpath = "";
+        v.total = count;
+        
+        v.inimage = ncnn::Mat(frame.size().width, frame.size().height, (void*)frame.data, (size_t)3, 3);
+        v.outimage = ncnn::Mat(frame.size().width * vtp->scale, frame.size().height * vtp->scale, (size_t)3u, 3);
+        v.save_file = false;
+        toproc.put(v);
+        current++;
+    }
+    
+    Task end;
+    end.id = -233;
+
+    for (int i=0; i<vtp->jobs_proc; i++)
+    {
+        toproc.put(end);
+    }
+    
+    for (int i=0; i<vtp->jobs_save; i++)
+    {
+        tosave.put(end);
+    }
+    
+    return NULL;
+}
 
 void* save(void* args)
 {
@@ -196,39 +252,47 @@ void* save(void* args)
         if (v.id == -233)
             break;
 
-        // free input pixel data
-        {
-            unsigned char* pixeldata = (unsigned char*)v.inimage.data;
-#if _WIN32
-            free(pixeldata);
-#else
-            stbi_image_free(pixeldata);
-#endif
-        }
-
-#if _WIN32
-        int success = wic_encode_image(v.outpath.c_str(), v.outimage.w, v.outimage.h, 3, v.outimage.data);
-#else
-        int success = stbi_write_png(v.outpath.c_str(), v.outimage.w, v.outimage.h, 3, v.outimage.data, 0);
-#endif
-        if (success)
-        {
-            if (verbose)
+        if (!v.save_file) {
+            if (stp->cb) {
+                // most of the output are correct
+                cv::Mat scaled_frame(v.outimage.h, v.outimage.w, CV_8UC3, v.outimage.data);
+                stp->cb(scaled_frame, v.id, v.total);
+            }
+        } else {
+            // free input pixel data
             {
+                unsigned char* pixeldata = (unsigned char*)v.inimage.data;
 #if _WIN32
-                fwprintf(stderr, L"%ls -> %ls done\n", v.inpath.c_str(), v.outpath.c_str());
+                free(pixeldata);
 #else
-                fprintf(stderr, "%s -> %s done\n", v.inpath.c_str(), v.outpath.c_str());
+                stbi_image_free(pixeldata);
 #endif
             }
-        }
-        else
-        {
+            
 #if _WIN32
-            fwprintf(stderr, L"encode image %ls failed\n", v.outpath.c_str());
+            int success = wic_encode_image(v.outpath.c_str(), v.outimage.w, v.outimage.h, 3, v.outimage.data);
 #else
-            fprintf(stderr, "encode image %s failed\n", v.outpath.c_str());
+            int success = stbi_write_png(v.outpath.c_str(), v.outimage.w, v.outimage.h, 3, v.outimage.data, 0);
 #endif
+            if (success)
+            {
+                if (verbose)
+                {
+#if _WIN32
+                    fwprintf(stderr, L"%ls -> %ls done\n", v.inpath.c_str(), v.outpath.c_str());
+#else
+                    fprintf(stderr, "%s -> %s done\n", v.inpath.c_str(), v.outpath.c_str());
+#endif
+                }
+            }
+            else
+            {
+#if _WIN32
+                fwprintf(stderr, L"encode image %ls failed\n", v.outpath.c_str());
+#else
+                fprintf(stderr, "encode image %s failed\n", v.outpath.c_str());
+#endif
+            }
         }
     }
 
@@ -236,6 +300,168 @@ void* save(void* args)
 }
 
 @implementation waifu2xmac
+
++ (void)videoInput:(cv::VideoCapture&)video
+        noise:(int)noise
+        scale:(int)scale
+     tilesize:(int)tilesize
+        model:(NSString *)model
+        gpuid:(int)gpuid
+     tta_mode:(BOOL)enable_tta_mode
+ proc_job_num:(int)jobs_proc
+ save_job_num:(int)jobs_save
+      save_cb:(waifu2xCompleteSingleBlock)save_cb
+    VRAMUsage:(double *)usage
+     progress:(waifu2xProgressBlock)cb {
+    int total = 9;
+    if (noise < -1 || noise > 3)
+    {
+        if (cb) cb(1, total, NSLocalizedString(@"Error: supported noise is 0, 1 or 2", @""));
+        return;
+    }
+    
+    if (scale < 1 || scale > 2)
+    {
+        if (cb) cb(1, total, NSLocalizedString(@"Error: supported scale is 1 or 2", @""));
+        return;
+    }
+
+    if (tilesize < 32)
+    {
+        if (cb) cb(1, total, NSLocalizedString(@"Error: tilesize should no less than 32", @""));
+        return;
+    }
+    
+    if (jobs_proc <= 0)
+    {
+        jobs_proc = INT32_MAX;
+    }
+    
+    if (jobs_save <= 0)
+    {
+        jobs_save = 2;
+    }
+    
+    if (cb) cb(2, total, NSLocalizedString(@"Prepare models...", @""));
+    
+    int prepadding = 0;
+    if ([model isEqualToString:@"models-cunet"]) {
+        if (noise == -1)
+        {
+            prepadding = 18;
+        }
+        else if (scale == 1)
+        {
+            prepadding = 28;
+        }
+        else if (scale == 2)
+        {
+            prepadding = 18;
+        }
+    } else if ([model isEqualToString:@"models-upconv_7_anime_style_art_rgb"]) {
+        prepadding = 7;
+    } else if ([model isEqualToString:@"models-upconv_7_photo"]) {
+        prepadding = 7;
+    } else {
+        if (cb) cb(3, total, NSLocalizedString(@"[ERROR] No such model", @""));
+        return;
+    }
+    
+    NSString * parampath = nil;
+    NSString * modelpath = nil;
+    if (noise == -1)
+    {
+        parampath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/scale2.0x_model.param", model] ofType:nil];
+        modelpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/scale2.0x_model.bin", model] ofType:nil];
+    }
+    else if (scale == 1)
+    {
+        parampath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_model.param", model, noise] ofType:nil];
+        modelpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_model.bin", model, noise] ofType:nil];
+    }
+    else if (scale == 2)
+    {
+        parampath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_scale2.0x_model.param", model, noise] ofType:nil];
+        modelpath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"models/%@/noise%d_scale2.0x_model.bin", model, noise] ofType:nil];
+    }
+    
+    if (cb) cb(3, total, NSLocalizedString(@"Creating GPU instance...", @""));
+    ncnn::create_gpu_instance();
+    
+    int gpu_count = ncnn::get_gpu_count();
+    if (gpuid < 0 || gpuid >= gpu_count)
+    {
+        if (cb) cb(3, total, NSLocalizedString(@"[ERROR] Invalid gpu device", @""));
+
+        ncnn::destroy_gpu_instance();
+        return;
+    }
+    
+    int gpu_queue_count = ncnn::get_gpu_info(gpuid).compute_queue_count;
+    const_cast<ncnn::GpuInfo&>(ncnn::get_gpu_info(gpuid)).buffer_offset_alignment = 16;
+    jobs_proc = std::min(jobs_proc, gpu_queue_count);
+    
+    {
+        Waifu2x waifu2x(gpuid, enable_tta_mode);
+
+        if (cb) cb(4, total, NSLocalizedString(@"Loading models...", @""));
+        waifu2x.load([parampath UTF8String], [modelpath UTF8String]);
+
+        waifu2x.noise = noise;
+        waifu2x.scale = scale;
+        waifu2x.tilesize = tilesize;
+        waifu2x.prepadding = prepadding;
+        
+        // main routine
+        {
+            if (cb) cb(5, total, NSLocalizedString(@"Initializing pipeline...", @""));
+            
+            // waifu2x proc
+            ProcThreadParams ptp;
+            ptp.waifu2x = &waifu2x;
+
+            std::vector<ncnn::Thread*> proc_threads(jobs_proc);
+            for (int i=0; i<jobs_proc; i++)
+            {
+                proc_threads[i] = new ncnn::Thread(proc, (void*)&ptp);
+            }
+
+            // save image
+            SaveThreadParams stp;
+            stp.verbose = 0;
+            stp.cb = save_cb;
+            
+            std::vector<ncnn::Thread*> save_threads(jobs_save);
+            for (int i=0; i<jobs_save; i++)
+            {
+                save_threads[i] = new ncnn::Thread(save, (void*)&stp);
+            }
+            // end
+            
+            VideoThreadParams vtp;
+            vtp.video = &video;
+            vtp.scale = scale;
+            vtp.jobs_proc = jobs_proc;
+            vtp.jobs_save = jobs_save;
+            
+            ncnn::Thread* videoProc = new ncnn::Thread(read_video, (void *)&vtp);
+
+            for (int i=0; i<jobs_proc; i++)
+            {
+                proc_threads[i]->join();
+                delete proc_threads[i];
+            }
+            
+            for (int i=0; i<jobs_save; i++)
+            {
+                save_threads[i]->join();
+                delete save_threads[i];
+            }
+            
+            videoProc->join();
+        }
+    }
+}
 
 + (NSImage *)input:(NSArray<NSString *> *)inputpaths
             output:(NSArray<NSString *> *)outputpaths
@@ -248,6 +474,8 @@ void* save(void* args)
       load_job_num:(int)jobs_load
       proc_job_num:(int)jobs_proc
       save_job_num:(int)jobs_save
+         save_file:(BOOL)save_file
+           save_cb:(waifu2xCompleteSingleBlock)save_cb
        single_mode:(BOOL)is_single_mode
          VRAMUsage:(double *)usage
           progress:(waifu2xProgressBlock)cb {
@@ -399,6 +627,7 @@ void* save(void* args)
             // save image
             SaveThreadParams stp;
             stp.verbose = 0;
+            stp.cb = save_cb;
             
             std::vector<ncnn::Thread*> save_threads(jobs_save);
             for (int i=0; i<jobs_save; i++)
@@ -467,7 +696,7 @@ void* save(void* args)
     
     if (cb) cb(9, total, NSLocalizedString(@"done!", @""));
     
-    if (is_single_mode) {
+    if (is_single_mode && save_file) {
         result = [[NSImage alloc] initWithContentsOfFile:outputpaths[0]];
     }
     

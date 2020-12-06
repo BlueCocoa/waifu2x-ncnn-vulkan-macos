@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign) BOOL allowDrop;
 @property (assign) id<DragDropTableViewDelegate> dropDelegate;
+@property (strong) NSArray* acceptedTypes;
 
 - (id)initWithCoder:(NSCoder *)coder;
 
@@ -24,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol DragDropTableViewDelegate <NSObject>
 
-- (void)dropTableComplete:(NSArray<NSString *> *)files;
+- (void)dropTable:(DragDropTableView *)table Complete:(NSArray<NSString *> *)files;
 
 @end
 
