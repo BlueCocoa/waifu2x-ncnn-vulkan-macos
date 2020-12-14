@@ -1,6 +1,8 @@
 # waifu2x-ncnn-vulkan-macos
 As its long long name suggested.
 
+This software is only free and open to users who believe in free speech and stand with Hong Kong. Anyone believes in CCP or supports CCP in any means is NOT allowed to use or distribute this software in any form.
+
 ### Acknowledgement
 - [waifu2x-ncnn-vulkan](https://github.com/nihui/waifu2x-ncnn-vulkan)
 - [ncnn](https://github.com/Tencent/ncnn)
